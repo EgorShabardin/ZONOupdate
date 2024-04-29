@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0-preview.3.24172.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0-preview.3.24172.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0-preview.3.24172.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0-preview.3.24172.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NLog" Version="5.3.1" />
+    <PackageReference Include="VkNet" Version="1.79.0-alpha-109" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="xNet">
+      <HintPath>xNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Localization\Languages.Designer.cs">
+      <CustomToolNamespace>ZONOupdate.Localization</CustomToolNamespace>
+    </Compile>
+    <Compile Update="Localization\LoginFormEN.Designer.cs">
+      <CustomToolNamespace>ZONOupdate.Localization</CustomToolNamespace>
+    </Compile>
+    <Compile Update="Localization\LoginFormRU.Designer.cs">
+      <CustomToolNamespace>ZONOupdate.Localization</CustomToolNamespace>
+    </Compile>
+    <Compile Update="Localization\MainFormEN.Designer.cs">
+      <CustomToolNamespace>ZONOupdate.Localization</CustomToolNamespace>
+    </Compile>
+    <Compile Update="Localization\MainFormRU.Designer.cs">
+      <CustomToolNamespace>ZONOupdate.Localization</CustomToolNamespace>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Localization\Languages.resx">
+      <CustomToolNamespace>ZONOupdate.Localization</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\LoginFormEN.resx">
+      <CustomToolNamespace>ZONOupdate.Localization</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\LoginFormRU.resx">
+      <CustomToolNamespace>ZONOupdate.Localization</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\MainFormEN.resx">
+      <CustomToolNamespace>ZONOupdate.Localization</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\MainFormRU.resx">
+      <CustomToolNamespace>ZONOupdate.Localization</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
