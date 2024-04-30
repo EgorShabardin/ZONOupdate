@@ -56,6 +56,28 @@ namespace ZONOupdate.Database
             }
         }
 
+        public static bool CheckingMail(string email)
+        {
+            try
+            {
+                using (var database = new DatabaseContext())
+                {
+                    var User = database.Users.Where(user => user.Login == email).FirstOrDefault();
+
+                    return User != null ? false : true;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"При работе приложение произошла ошибка: {ex}");
+
+                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
+                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
         /// <summary>
         /// Метод для регистрации нового пользователя и внесения его данных в базу данных
         /// </summary>

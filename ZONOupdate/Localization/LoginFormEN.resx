@@ -121,10 +121,6 @@
     <value>Entry</value>
     <comment>Кнопка входа при выполнении входа в аккаунт</comment>
   </data>
-  <data name="enterButtonRegistrationValue" xml:space="preserve">
-    <value>Register</value>
-    <comment>Кнопка входа при выполнении регистрации</comment>
-  </data>
   <data name="errorMessageContent" xml:space="preserve">
     <value>Please fill out both fields!</value>
     <comment>Сообщение о том, что пользователь ввел не все данные</comment>
@@ -235,7 +231,7 @@
     <comment>Заголовок сообщения об ощибке, т.к. пользователь ввел неверный логин или пароль</comment>
   </data>
   <data name="loginFieldTextBox" xml:space="preserve">
-    <value>Enter login</value>
+    <value>Enter email</value>
     <comment>Текст в поле для ввода логина</comment>
   </data>
   <data name="LoginForm" xml:space="preserve">
@@ -274,6 +270,10 @@
   <data name="passwordRepeatFieldTextBox" xml:space="preserve">
     <value>Repeat password</value>
     <comment>Текст в поле для повторения введенного пароля</comment>
+  </data>
+  <data name="registrationButton" xml:space="preserve">
+    <value>Register</value>
+    <comment>Кнопка входа при выполнении регистрации</comment>
   </data>
   <data name="registrationLabel" xml:space="preserve">
     <value>Registration for ZONO</value>

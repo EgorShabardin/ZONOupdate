@@ -121,26 +121,6 @@
     <value>Войти</value>
     <comment>Кнопка входа при выполнении входа в аккаунт</comment>
   </data>
-  <data name="enterButtonRegistrationValue" xml:space="preserve">
-    <value>Регистрация</value>
-    <comment>Кнопка входа при выполнении регистрации</comment>
-  </data>
-  <data name="errorMessageContent" xml:space="preserve">
-    <value>Пожалуйста, заполните оба поля!</value>
-    <comment>Сообщение о том, что пользователь ввел не все данные</comment>
-  </data>
-  <data name="errorMessageTitle" xml:space="preserve">
-    <value>Внимание</value>
-    <comment>Заголовок сообщения о том, что пользователь ввел не все данные</comment>
-  </data>
-  <data name="errorRegistrationContent" xml:space="preserve">
-    <value>Данный логин занят! Пожалуйста, введите другой.</value>
-    <comment>Сообщение об ошибке в регистрации пользователя, т.к. такой логин уже существует</comment>
-  </data>
-  <data name="errorRegistrationTitle" xml:space="preserve">
-    <value>Ошибка регистрации</value>
-    <comment>Заголовок сообщения об ошибке в решистрации, т.к. такой логин уже существует</comment>
-  </data>
   <data name="errorWhenWorkingWithDatabaseContent" xml:space="preserve">
     <value>Произошла ошибка! Код ошибки:</value>
   </data>
@@ -158,6 +138,14 @@
         KSflpJyUk3JSTspJOSkn5aSclJNyUk7KSTnZzvkA2jLMGzi4kKQAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="loginErrorContent" xml:space="preserve">
+    <value>Пользователя с такими данными не найдено. Пожалуйста, проверьте корректность введенных данных.</value>
+    <comment>Заголовок сообщения о том, что пользователь ввел не все данные</comment>
+  </data>
+  <data name="loginErrorTitle" xml:space="preserve">
+    <value>Ошибка входа в приложение ZONO</value>
+    <comment>Сообщение о том, что пользователь ввел не все данные</comment>
+  </data>
   <data name="loginFailedContent" xml:space="preserve">
     <value>Вы ввели неверный логин или пароль!</value>
     <comment>Сообщение об ошибке входа, т.к. пользователь ввел неверный логин или пароль</comment>
@@ -167,7 +155,7 @@
     <comment>Заголовок сообщения об ощибке, т.к. пользователь ввел неверный логин или пароль</comment>
   </data>
   <data name="loginFieldTextBox" xml:space="preserve">
-    <value>Введите логин</value>
+    <value>Введите email</value>
     <comment>Текст в поле для ввода логина</comment>
   </data>
   <data name="LoginForm" xml:space="preserve">
@@ -206,6 +194,18 @@
   <data name="passwordRepeatFieldTextBox" xml:space="preserve">
     <value>Повторите пароль</value>
     <comment>Текст в поле для повторения введенного пароля</comment>
+  </data>
+  <data name="registrationButton" xml:space="preserve">
+    <value>Регистрация</value>
+    <comment>Кнопка входа при выполнении регистрации</comment>
+  </data>
+  <data name="registrationErrorContent" xml:space="preserve">
+    <value>Введены неверные данные. Проверьте корректность значений.</value>
+    <comment>Сообщение об ошибке в регистрации пользователя, т.к. такой логин уже существует</comment>
+  </data>
+  <data name="registrationErrorTitle" xml:space="preserve">
+    <value>Ошибка регистрации</value>
+    <comment>Заголовок сообщения об ошибке в решистрации, т.к. такой логин уже существует</comment>
   </data>
   <data name="registrationLabel" xml:space="preserve">
     <value>Регистрация на ZONO</value>
