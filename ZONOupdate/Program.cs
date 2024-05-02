@@ -1,5 +1,6 @@
 ﻿using System.Resources;
 using ZONOupdate.Forms;
+using ZONOupdate.Forms.FormForLogin;
 
 namespace ZONOupdate
 {
@@ -19,9 +20,9 @@ namespace ZONOupdate
         public static void SetLanguageInformation(object languageName, ResourceManager languageResources)
         {
             Program.languageName = languageName;
-            Program.languageResources = new ResourceManager($"ZONOproject.Localization.MainForm{languageResources
+            Program.languageResources = new ResourceManager($"ZONOupdate.Localization.MainForm{languageResources
                 .BaseName.Remove(0, languageResources.BaseName.Length - 2)}",
-                typeof(LoginForm).Assembly);
+                typeof(UserWelcomeForm).Assembly);
         }
 
         [STAThread]
@@ -33,8 +34,10 @@ namespace ZONOupdate
             {
                 isEntryAllowed = false;
                 Application.Run(new LoginForm());
+
                 if (isEntryAllowed)
                 {
+                    Application.Run(new UserWelcomeForm(languageResources));
                     isEntryAllowed = false;
                     Application.Run(new MainForm(userID, languageName, languageResources));
                 }

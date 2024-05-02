@@ -21,7 +21,7 @@ namespace ZONOupdate
         List<Control> controlsForLocalization = new List<Control>();
         FlowLayoutPanel productsFlowLayoutPanel = new FlowLayoutPanel();
         PrivateFontCollection fontCollection = new PrivateFontCollection();
-        ResourceManager localizationResources = new ResourceManager("ZONOproject.Localization.Languages", typeof(LoginForm).Assembly);
+        ResourceManager localizationResources = new ResourceManager("ZONOupdate.Localization.Languages", typeof(UserWelcomeForm).Assembly);
         #endregion
 
         #region Методы
@@ -473,12 +473,12 @@ namespace ZONOupdate
             switch (selectLanguageComboBox.SelectedIndex)
             {
                 case 0:
-                    languageResources = new ResourceManager("ZONOproject.Localization.MainFormRU",
-                        typeof(LoginForm).Assembly);
+                    languageResources = new ResourceManager("ZONOupdate.Localization.MainFormRU",
+                        typeof(UserWelcomeForm).Assembly);
                     break;
                 case 1:
-                    languageResources = new ResourceManager("ZONOproject.Localization.MainFormEN",
-                        typeof(LoginForm).Assembly);
+                    languageResources = new ResourceManager("ZONOupdate.Localization.MainFormEN",
+                        typeof(UserWelcomeForm).Assembly);
                     break;
             }
 

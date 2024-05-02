@@ -113,9 +113,9 @@ namespace ZONOupdate.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap homePage {
+        internal static System.Drawing.Bitmap goBack {
             get {
-                object obj = ResourceManager.GetObject("homePage", resourceCulture);
+                object obj = ResourceManager.GetObject("goBack", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace ZONOupdate.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap left {
+        internal static System.Drawing.Bitmap homePage {
             get {
-                object obj = ResourceManager.GetObject("left", resourceCulture);
+                object obj = ResourceManager.GetObject("homePage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

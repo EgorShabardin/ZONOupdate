@@ -262,4 +262,7 @@
   <data name="successfulCollectionCreationTitle" xml:space="preserve">
     <value>Внимание!</value>
   </data>
+  <data name="userWelcomeLabel" xml:space="preserve">
+    <value>Добро пожаловать на ZONO!</value>
+  </data>
 </root>

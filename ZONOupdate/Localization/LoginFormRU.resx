@@ -117,15 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="emailMessageContent" xml:space="preserve">
+    <value>Чтобы продолжить регистрацию введите полученный код в открывшемся окне в приложении ZONO. Код: </value>
+    <comment>Сообщение, которое приходит пользователю на почту для ее подтверждения</comment>
+  </data>
+  <data name="emailMessageSubject" xml:space="preserve">
+    <value>Регистрация на ZONO</value>
+    <comment>Заголовок сообщения, которое приходит пользователю на почту для ее подтверждения</comment>
+  </data>
   <data name="enterButton" xml:space="preserve">
     <value>Войти</value>
-    <comment>Кнопка входа при выполнении входа в аккаунт</comment>
-  </data>
-  <data name="errorWhenWorkingWithDatabaseContent" xml:space="preserve">
-    <value>Произошла ошибка! Код ошибки:</value>
-  </data>
-  <data name="errorWhenWorkingWithDatabaseTitle" xml:space="preserve">
-    <value>Внимание!</value>
+    <comment>Кнопка входа при выполнении входа в приложение</comment>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="flag" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -139,20 +141,12 @@
 </value>
   </data>
   <data name="loginErrorContent" xml:space="preserve">
-    <value>Пользователя с такими данными не найдено. Пожалуйста, проверьте корректность введенных данных.</value>
-    <comment>Заголовок сообщения о том, что пользователь ввел не все данные</comment>
+    <value>Пользователя с такими данными не обнаружено. Удостоверьтесь в корректности введенной информации. Проверьте интернет соединение.</value>
+    <comment>Сообщение об ошибке входа в приложение</comment>
   </data>
   <data name="loginErrorTitle" xml:space="preserve">
     <value>Ошибка входа в приложение ZONO</value>
-    <comment>Сообщение о том, что пользователь ввел не все данные</comment>
-  </data>
-  <data name="loginFailedContent" xml:space="preserve">
-    <value>Вы ввели неверный логин или пароль!</value>
-    <comment>Сообщение об ошибке входа, т.к. пользователь ввел неверный логин или пароль</comment>
-  </data>
-  <data name="loginFailedTitle" xml:space="preserve">
-    <value>Ошибка входа</value>
-    <comment>Заголовок сообщения об ощибке, т.к. пользователь ввел неверный логин или пароль</comment>
+    <comment>Заголовок собщения об ошибке входа в приложение</comment>
   </data>
   <data name="loginFieldTextBox" xml:space="preserve">
     <value>Введите email</value>
@@ -162,34 +156,25 @@
     <value>Маркетплейс ZONO</value>
     <comment>Название приложения</comment>
   </data>
+  <data name="loginWithAccountVKInputBoxContent" xml:space="preserve">
+    <value>Введите код, который пришел Вам.</value>
+    <comment>Сообщение в InputBox для ввода кода подтверждения</comment>
+  </data>
+  <data name="loginWithAccountVKInputBoxTitle" xml:space="preserve">
+    <value>Авторизация через ВКонтакте</value>
+    <comment>Заголовок сообщения в InputBox для ввода кода подтверждения</comment>
+  </data>
   <data name="loginWithAccountVKLabel" xml:space="preserve">
     <value>Войти через ВКонтакте</value>
-  </data>
-  <data name="loginWithAccountYandexLabel" xml:space="preserve">
-    <value>Войти через Яндекс</value>
+    <comment>Сообщение о входе через аккаунт ВКонтакте</comment>
   </data>
   <data name="loginWithAccountZONOLabel" xml:space="preserve">
     <value>Войти в аккаунт ZONO</value>
-  </data>
-  <data name="messageLabelEnterValue" xml:space="preserve">
-    <value>Выберите способ входа</value>
-    <comment>Сообщение о входе в приложение</comment>
-  </data>
-  <data name="messageLabelRegistrationValue" xml:space="preserve">
-    <value>Регистрация на ZONO</value>
-    <comment>Сообщение о регистрации в приложении</comment>
+    <comment>Сообщение о входе через аккаунт ZONO</comment>
   </data>
   <data name="passwordFieldTextBox" xml:space="preserve">
     <value>Введите пароль</value>
     <comment>Текст в поле для ввода пароля</comment>
-  </data>
-  <data name="passwordMismatchContent" xml:space="preserve">
-    <value>Введенные пароли не совпадают!</value>
-    <comment>Сообщение об ошибке регистрации из-за несовподающих паролей</comment>
-  </data>
-  <data name="passwordMismatchTitle" xml:space="preserve">
-    <value>Ошибка регистрации</value>
-    <comment>Заголовок сообщениия об ошибке регистрации из-за несовподающих паролей</comment>
   </data>
   <data name="passwordRepeatFieldTextBox" xml:space="preserve">
     <value>Повторите пароль</value>
@@ -200,27 +185,31 @@
     <comment>Кнопка входа при выполнении регистрации</comment>
   </data>
   <data name="registrationErrorContent" xml:space="preserve">
-    <value>Введены неверные данные. Проверьте корректность значений.</value>
-    <comment>Сообщение об ошибке в регистрации пользователя, т.к. такой логин уже существует</comment>
+    <value>Введены неверные данные. Удостоверьтесь в корректности информации. Проверьте интернет соединение.</value>
+    <comment>Сообщение об ошибке регистрации пользователя</comment>
   </data>
   <data name="registrationErrorTitle" xml:space="preserve">
     <value>Ошибка регистрации</value>
-    <comment>Заголовок сообщения об ошибке в решистрации, т.к. такой логин уже существует</comment>
+    <comment>Заголовок сообщения об ошибке в решистрации</comment>
+  </data>
+  <data name="registrationInputBoxContent" xml:space="preserve">
+    <value>Введите код, который пришел Вам на почту.</value>
+    <comment>Сообщение в InputBox для ввода кода подтверждения</comment>
+  </data>
+  <data name="registrationInputBoxTitle" xml:space="preserve">
+    <value>Регистрация. Подтверждение почты</value>
+    <comment>Заголовок сообщения в InputBox для ввода кода подтверждения</comment>
   </data>
   <data name="registrationLabel" xml:space="preserve">
     <value>Регистрация на ZONO</value>
-    <comment>Сообщение о предложении зарегистрироваться в приложении</comment>
+    <comment>Сообщение о регистрации в приложении</comment>
   </data>
-  <data name="registrationLabelRegistrationValue" xml:space="preserve">
-    <value>Есть аккаунт?</value>
-    <comment>Сообщение о предложении войти в приложение</comment>
+  <data name="registrationSuccessContent" xml:space="preserve">
+    <value>Регистрация прошла успешно. Пользователь зарегистрирован.</value>
+    <comment>Сообщение об успешной регистрации в приложении</comment>
   </data>
-  <data name="successfulRegistrationContent" xml:space="preserve">
-    <value>Добро пожаловать на ZONO!</value>
-    <comment>Сообщение об успешной регистрации</comment>
-  </data>
-  <data name="successfulRegistrationTitle" xml:space="preserve">
-    <value>Успешная регистрация</value>
-    <comment>Заголовок сообщения об успешной регистрации</comment>
+  <data name="registrationSuccessTitle" xml:space="preserve">
+    <value>Регистрация в приложении ZONO</value>
+    <comment>Заголовок сообщения об успешной регистрации в приложении</comment>
   </data>
 </root>

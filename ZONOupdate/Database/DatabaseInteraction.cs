@@ -14,21 +14,24 @@ namespace ZONOupdate.Database
         static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
-        #region Методы
+        #region Методы для входа/регистрации в приложении
         /// <summary>
-        /// Метод для проверки существования учетной записи в базе данных
+        /// Метод, проверяющий вход в приложение через внутренний аккаунт ZONO.
         /// </summary>
-        /// <param name="login">Логин</param>
-        /// <param name="password">Пароль</param>
-        public static bool CheckLoginData(string login, string password)
+        /// <param name="login"> Логин. </param>
+        /// <param name="password"> Пароль. </param>
+        /// <returns> true - вход разрешен; false - вход запрещен. </returns>
+        public static bool CheckingLoginViaZONOAccount(string login, string password)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при попытке входа");
+                    logger.Info("Успешное подключение к базе данных при попытке входа через" +
+                        "внутренний аккаунт ZONO");
 
-                    var User = database.Users.Where(user => user.Login == login).FirstOrDefault();
+                    var User = database.Users.Where(user => user.Login == login)
+                        .Where(user => user.InternalAccount).FirstOrDefault();
 
                     if (User != null)
                     {
@@ -40,7 +43,9 @@ namespace ZONOupdate.Database
                             return true;
                         }
                     }
-                    logger.Debug("Пользователь не вошел в аккаунт, т.к. введен неверный логин или пароль");
+
+                    logger.Debug("Пользователь не вошел в аккаунт, т.к." +
+                        "введен неверный логин или пароль");
 
                     return false;
                 }
@@ -49,20 +54,26 @@ namespace ZONOupdate.Database
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
 
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex, 
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 return false;
             }
         }
 
-        public static bool CheckingMail(string email)
+        /// <summary>
+        /// Метод, проверяющий существует ли введенный email в базе данных.
+        /// </summary>
+        /// <param name="login"> Email почта. </param>
+        /// <returns> true - почты нет в базе данных; false - почта есть в базе данных. </returns>
+        public static bool CheckingLoginExistence(string login)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    var User = database.Users.Where(user => user.Login == email).FirstOrDefault();
+                    logger.Info("Успешное подключение к базе данных при проверке существования" +
+                        "email почты");
+
+                    var User = database.Users.Where(user => user.Login == login).
+                        Where(user => user.InternalAccount).FirstOrDefault();
 
                     return User != null ? false : true;
                 }
@@ -71,19 +82,17 @@ namespace ZONOupdate.Database
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
 
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 return false;
             }
         }
 
         /// <summary>
-        /// Метод для регистрации нового пользователя и внесения его данных в базу данных
+        /// Метод, регистрирующий нового пользователя в приложении.
         /// </summary>
-        /// <param name="login">Логин</param>
-        /// <param name="password">Пароль</param>
-        public static bool RegisterNewUser(string login, string password)
+        /// <param name="login"> Логин. </param>
+        /// <param name="password"> Пароль. </param>
+        /// <returns> true - пользователь зарегистрирован; false - пользователь не зарегистрирован. </returns>
+        public static bool RegistrationNewUser(string login, string password)
         {
             try
             {
@@ -91,18 +100,11 @@ namespace ZONOupdate.Database
                 {
                     logger.Info("Успешное подключение к базе данных при попытке регистрации");
 
-                    if (database.Users.Any(user => user.Login == login))
-                    {
-                        logger.Info("Пользователь не зарегистрирован, т.к. введенный логин уже " +
-                            "существует в базе данных");
-
-                        return false;
-                    }
-
                     var newUser = new User
                     {
                         Login = login,
-                        Password = DataEncryption.HashingData(password)
+                        Password = DataEncryption.HashingData(password),
+                        InternalAccount = true
                     };
 
                     database.Users.Add(newUser);
@@ -117,13 +119,52 @@ namespace ZONOupdate.Database
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
 
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 return false;
             }
         }
 
+        /// <summary>
+        /// Метод, регистрирующий пользователя, зашедшего со стороннего сервиса, в приложении.
+        /// </summary>
+        /// <param name="login"> Логин. </param>
+        public static void RegistrationWithLoginFromThirdPartyApplication(string login)
+        {
+            try
+            {
+                using (var database = new DatabaseContext())
+                {
+                    logger.Info("Успешное подключение к базе данных при попытке регистрации " +
+                        "пользователя зашедшего со стороннего приложения");
+
+                    var user = database.Users.Where(user => user.Login == login)
+                        .Where(user => !user.InternalAccount).FirstOrDefault();
+
+                    if (user != null) 
+                    {
+                        return;
+                    }
+
+                    var newUser = new User
+                    {
+                        Login = login,
+                        InternalAccount = false
+                    };
+
+                    database.Users.Add(newUser);
+                    database.SaveChanges();
+
+                    logger.Info($"Пользователь с id {newUser.ID} успешно зарегистрирован");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"При работе приложение произошла ошибка: {ex}");
+            }
+        }
+        #endregion
+
+        #region Методы
         /// <summary>
         /// Метод поиска пользователя по ID
         /// </summary>

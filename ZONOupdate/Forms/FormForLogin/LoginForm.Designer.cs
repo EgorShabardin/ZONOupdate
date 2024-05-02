@@ -1,4 +1,4 @@
-﻿namespace ZONOupdate.Forms
+﻿namespace ZONOupdate.Forms.FormForLogin
 {
     partial class LoginForm
     {
@@ -15,15 +15,16 @@
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             logoPictureBox = new PictureBox();
             loginFormTableLayoutPanel = new TableLayoutPanel();
             selectLanguageTableLayoutPanel = new TableLayoutPanel();
-            selectLanguageComboBox = new ComboBox();
             flagPictureBox = new PictureBox();
-            loginWithAccountZONOLabel = new Label();
-            loginWithAccountVKLabel = new Label();
-            loginWithAccountYandexLabel = new Label();
+            selectLanguageComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             registrationLabel = new Label();
+            loginWithAccountVKLabel = new Label();
+            loginWithAccountZONOLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)logoPictureBox).BeginInit();
             loginFormTableLayoutPanel.SuspendLayout();
             selectLanguageTableLayoutPanel.SuspendLayout();
@@ -32,12 +33,11 @@
             // 
             // logoPictureBox
             // 
-            logoPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            logoPictureBox.Dock = DockStyle.Fill;
             logoPictureBox.Image = Properties.Resources.logo;
-            logoPictureBox.Location = new Point(260, 0);
-            logoPictureBox.Margin = new Padding(0);
+            logoPictureBox.Location = new Point(269, 3);
             logoPictureBox.Name = "logoPictureBox";
-            logoPictureBox.Size = new Size(411, 364);
+            logoPictureBox.Size = new Size(414, 383);
             logoPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             logoPictureBox.TabIndex = 0;
             logoPictureBox.TabStop = false;
@@ -50,10 +50,9 @@
             loginFormTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.9411774F));
             loginFormTableLayoutPanel.Controls.Add(logoPictureBox, 1, 0);
             loginFormTableLayoutPanel.Controls.Add(selectLanguageTableLayoutPanel, 0, 0);
-            loginFormTableLayoutPanel.Controls.Add(loginWithAccountZONOLabel, 1, 1);
-            loginFormTableLayoutPanel.Controls.Add(loginWithAccountVKLabel, 1, 2);
-            loginFormTableLayoutPanel.Controls.Add(loginWithAccountYandexLabel, 1, 3);
             loginFormTableLayoutPanel.Controls.Add(registrationLabel, 1, 4);
+            loginFormTableLayoutPanel.Controls.Add(loginWithAccountVKLabel, 1, 3);
+            loginFormTableLayoutPanel.Controls.Add(loginWithAccountZONOLabel, 1, 2);
             loginFormTableLayoutPanel.Dock = DockStyle.Fill;
             loginFormTableLayoutPanel.Location = new Point(0, 0);
             loginFormTableLayoutPanel.Margin = new Padding(0);
@@ -65,19 +64,18 @@
             loginFormTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             loginFormTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             loginFormTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            loginFormTableLayoutPanel.Size = new Size(932, 687);
+            loginFormTableLayoutPanel.Size = new Size(952, 734);
             loginFormTableLayoutPanel.TabIndex = 0;
             // 
             // selectLanguageTableLayoutPanel
             // 
-            selectLanguageTableLayoutPanel.Anchor = AnchorStyles.Top;
             selectLanguageTableLayoutPanel.BackColor = Color.FromArgb(240, 240, 240);
             selectLanguageTableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             selectLanguageTableLayoutPanel.ColumnCount = 2;
             selectLanguageTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 24.2990646F));
             selectLanguageTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75.7009354F));
-            selectLanguageTableLayoutPanel.Controls.Add(selectLanguageComboBox, 1, 0);
             selectLanguageTableLayoutPanel.Controls.Add(flagPictureBox, 0, 0);
+            selectLanguageTableLayoutPanel.Controls.Add(selectLanguageComboBox, 1, 0);
             selectLanguageTableLayoutPanel.Location = new Point(15, 27);
             selectLanguageTableLayoutPanel.Margin = new Padding(15, 27, 24, 0);
             selectLanguageTableLayoutPanel.Name = "selectLanguageTableLayoutPanel";
@@ -85,22 +83,6 @@
             selectLanguageTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             selectLanguageTableLayoutPanel.Size = new Size(221, 39);
             selectLanguageTableLayoutPanel.TabIndex = 0;
-            // 
-            // selectLanguageComboBox
-            // 
-            selectLanguageComboBox.BackColor = Color.FromArgb(240, 240, 240);
-            selectLanguageComboBox.Cursor = Cursors.Hand;
-            selectLanguageComboBox.Dock = DockStyle.Fill;
-            selectLanguageComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            selectLanguageComboBox.FlatStyle = FlatStyle.Popup;
-            selectLanguageComboBox.FormattingEnabled = true;
-            selectLanguageComboBox.Location = new Point(58, 5);
-            selectLanguageComboBox.Margin = new Padding(4, 4, 4, 0);
-            selectLanguageComboBox.Name = "selectLanguageComboBox";
-            selectLanguageComboBox.Size = new Size(158, 28);
-            selectLanguageComboBox.TabIndex = 0;
-            selectLanguageComboBox.TabStop = false;
-            selectLanguageComboBox.SelectedIndexChanged += SelectLanguageComboBoxSelectedIndexChanged;
             // 
             // flagPictureBox
             // 
@@ -112,19 +94,43 @@
             flagPictureBox.TabIndex = 0;
             flagPictureBox.TabStop = false;
             // 
-            // loginWithAccountZONOLabel
+            // selectLanguageComboBox
             // 
-            loginWithAccountZONOLabel.Anchor = AnchorStyles.Bottom;
-            loginWithAccountZONOLabel.AutoSize = true;
-            loginWithAccountZONOLabel.Cursor = Cursors.Hand;
-            loginWithAccountZONOLabel.ForeColor = Color.FromArgb(0, 166, 253);
-            loginWithAccountZONOLabel.Location = new Point(465, 392);
-            loginWithAccountZONOLabel.Margin = new Padding(0);
-            loginWithAccountZONOLabel.Name = "loginWithAccountZONOLabel";
-            loginWithAccountZONOLabel.Size = new Size(0, 20);
-            loginWithAccountZONOLabel.TabIndex = 0;
-            loginWithAccountZONOLabel.TextAlign = ContentAlignment.MiddleCenter;
-            loginWithAccountZONOLabel.Click += LoginWithAccountZONOLabelClick;
+            selectLanguageComboBox.BackColor = Color.Transparent;
+            selectLanguageComboBox.Cursor = Cursors.Hand;
+            selectLanguageComboBox.CustomizableEdges = customizableEdges1;
+            selectLanguageComboBox.DrawMode = DrawMode.OwnerDrawFixed;
+            selectLanguageComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            selectLanguageComboBox.FillColor = SystemColors.ButtonFace;
+            selectLanguageComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
+            selectLanguageComboBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            selectLanguageComboBox.Font = new Font("Segoe UI", 10F);
+            selectLanguageComboBox.ForeColor = SystemColors.WindowText;
+            selectLanguageComboBox.ItemHeight = 30;
+            selectLanguageComboBox.Location = new Point(54, 1);
+            selectLanguageComboBox.Margin = new Padding(0);
+            selectLanguageComboBox.Name = "selectLanguageComboBox";
+            selectLanguageComboBox.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            selectLanguageComboBox.Size = new Size(163, 36);
+            selectLanguageComboBox.TabIndex = 0;
+            selectLanguageComboBox.TabStop = false;
+            selectLanguageComboBox.SelectedIndexChanged += SelectLanguageComboBoxSelectedIndexChanged;
+            // 
+            // registrationLabel
+            // 
+            registrationLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            registrationLabel.AutoSize = true;
+            registrationLabel.Cursor = Cursors.Hand;
+            registrationLabel.ForeColor = Color.FromArgb(0, 166, 253);
+            registrationLabel.Location = new Point(269, 612);
+            registrationLabel.Margin = new Padding(3);
+            registrationLabel.Name = "registrationLabel";
+            registrationLabel.Size = new Size(414, 20);
+            registrationLabel.TabIndex = 0;
+            registrationLabel.TextAlign = ContentAlignment.MiddleCenter;
+            registrationLabel.Click += RegistrationLabelClick;
+            registrationLabel.MouseLeave += LoginOrRegistrationLabelsMouseLeave;
+            registrationLabel.MouseMove += LoginOrRegistrationLabelsMouseMove;
             // 
             // loginWithAccountVKLabel
             // 
@@ -132,53 +138,45 @@
             loginWithAccountVKLabel.AutoSize = true;
             loginWithAccountVKLabel.Cursor = Cursors.Hand;
             loginWithAccountVKLabel.ForeColor = Color.FromArgb(0, 166, 253);
-            loginWithAccountVKLabel.Location = new Point(263, 436);
+            loginWithAccountVKLabel.Location = new Point(269, 539);
+            loginWithAccountVKLabel.Margin = new Padding(3);
             loginWithAccountVKLabel.Name = "loginWithAccountVKLabel";
-            loginWithAccountVKLabel.Size = new Size(405, 20);
-            loginWithAccountVKLabel.TabIndex = 2;
+            loginWithAccountVKLabel.Size = new Size(414, 20);
+            loginWithAccountVKLabel.TabIndex = 0;
             loginWithAccountVKLabel.TextAlign = ContentAlignment.MiddleCenter;
             loginWithAccountVKLabel.Click += LoginWithAccountVKClick;
+            loginWithAccountVKLabel.MouseLeave += LoginOrRegistrationLabelsMouseLeave;
+            loginWithAccountVKLabel.MouseMove += LoginOrRegistrationLabelsMouseMove;
             // 
-            // loginWithAccountYandexLabel
+            // loginWithAccountZONOLabel
             // 
-            loginWithAccountYandexLabel.Anchor = AnchorStyles.Bottom;
-            loginWithAccountYandexLabel.AutoSize = true;
-            loginWithAccountYandexLabel.Cursor = Cursors.Hand;
-            loginWithAccountYandexLabel.ForeColor = Color.FromArgb(0, 166, 253);
-            loginWithAccountYandexLabel.Location = new Point(465, 528);
-            loginWithAccountYandexLabel.Name = "loginWithAccountYandexLabel";
-            loginWithAccountYandexLabel.Size = new Size(0, 20);
-            loginWithAccountYandexLabel.TabIndex = 3;
-            loginWithAccountYandexLabel.TextAlign = ContentAlignment.MiddleCenter;
-            loginWithAccountYandexLabel.Click += LoginWithAccountYandexClick;
-            // 
-            // registrationLabel
-            // 
-            registrationLabel.Anchor = AnchorStyles.Bottom;
-            registrationLabel.AutoSize = true;
-            registrationLabel.Cursor = Cursors.Hand;
-            registrationLabel.ForeColor = Color.FromArgb(0, 166, 253);
-            registrationLabel.Location = new Point(465, 596);
-            registrationLabel.Name = "registrationLabel";
-            registrationLabel.Size = new Size(0, 20);
-            registrationLabel.TabIndex = 4;
-            registrationLabel.TextAlign = ContentAlignment.MiddleCenter;
-            registrationLabel.Click += RegistrationLabelClick;
+            loginWithAccountZONOLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            loginWithAccountZONOLabel.AutoSize = true;
+            loginWithAccountZONOLabel.Cursor = Cursors.Hand;
+            loginWithAccountZONOLabel.ForeColor = Color.FromArgb(0, 166, 253);
+            loginWithAccountZONOLabel.Location = new Point(269, 466);
+            loginWithAccountZONOLabel.Margin = new Padding(3);
+            loginWithAccountZONOLabel.Name = "loginWithAccountZONOLabel";
+            loginWithAccountZONOLabel.Size = new Size(414, 20);
+            loginWithAccountZONOLabel.TabIndex = 0;
+            loginWithAccountZONOLabel.TextAlign = ContentAlignment.MiddleCenter;
+            loginWithAccountZONOLabel.Click += LoginWithAccountZONOLabelClick;
+            loginWithAccountZONOLabel.MouseLeave += LoginOrRegistrationLabelsMouseLeave;
+            loginWithAccountZONOLabel.MouseMove += LoginOrRegistrationLabelsMouseMove;
             // 
             // LoginForm
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             BackColor = Color.FromArgb(178, 242, 196);
-            ClientSize = new Size(932, 687);
+            ClientSize = new Size(952, 734);
             Controls.Add(loginFormTableLayoutPanel);
             ForeColor = SystemColors.WindowText;
             Icon = Properties.Resources.logoIcon;
             KeyPreview = true;
-            MinimumSize = new Size(950, 734);
+            MinimumSize = new Size(970, 780);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            SizeChanged += LoginForm_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)logoPictureBox).EndInit();
             loginFormTableLayoutPanel.ResumeLayout(false);
             loginFormTableLayoutPanel.PerformLayout();
@@ -190,12 +188,11 @@
         #endregion
         private PictureBox logoPictureBox;
         private TableLayoutPanel loginFormTableLayoutPanel;
-        private ComboBox selectLanguageComboBox;
         private TableLayoutPanel selectLanguageTableLayoutPanel;
         private PictureBox flagPictureBox;
         private Label loginWithAccountZONOLabel;
         private Label loginWithAccountVKLabel;
-        private Label loginWithAccountYandexLabel;
         private Label registrationLabel;
+        private Guna.UI2.WinForms.Guna2ComboBox selectLanguageComboBox;
     }
 }

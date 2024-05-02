@@ -12,5 +12,7 @@
         public string Password { get; set; } = null!;
 
         public int IsBusy { get; set; }
+
+        public bool InternalAccount { get; set; }
     }
 }

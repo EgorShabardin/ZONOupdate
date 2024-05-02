@@ -143,7 +143,6 @@ D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\System.Management.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.sourcelink.json
-D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.LoginForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\MailKit.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\MimeKit.dll
@@ -202,3 +201,7 @@ D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\es\DevExpress.XtraReports.v18.2.Web.resources.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\es\DevExpress.XtraReports.v18.2.resources.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\es\DevExpress.XtraScheduler.v18.2.Core.resources.dll
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.UserWelcomeForm.resources
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForLogin.LoginForm.resources
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Properties.EmailResources.resources
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Properties.VkAuthorizationResources.resources
