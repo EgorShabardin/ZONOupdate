@@ -1,5 +1,5 @@
 ﻿using ZONOupdate.EntityClasses;
-using ZONOupdate.UserControls;
+using ZONOupdate.ProjectControls.ControlForCollectionName;
 using ZONOupdate.Database;
 using System.Drawing.Text;
 using System.Resources;
@@ -56,7 +56,7 @@ namespace ZONOupdate.Forms
                 database.UserCollections.Add(newCollection);
                 database.SaveChanges();
 
-                listflowlayoutpanel.Controls.Add(new CollectionControl(newCollection, listflowlayoutpanel, curentUser,
+                listflowlayoutpanel.Controls.Add(new CollectionNameControl(curentUser, newCollection, listflowlayoutpanel,
                     languageResources, listflowlayoutpanel.Width));
                 listflowlayoutpanel.Refresh();
 

@@ -74,10 +74,10 @@ namespace ZONOupdate
             sidebarPanel.Controls.Add(mainPageLabel);
             sidebarPanel.Dock = DockStyle.Right;
             sidebarPanel.ForeColor = SystemColors.WindowText;
-            sidebarPanel.Location = new Point(829, 0);
+            sidebarPanel.Location = new Point(1066, 0);
             sidebarPanel.Margin = new Padding(0);
             sidebarPanel.Name = "sidebarPanel";
-            sidebarPanel.Size = new Size(235, 681);
+            sidebarPanel.Size = new Size(302, 908);
             sidebarPanel.TabIndex = 0;
             // 
             // exitButton
@@ -86,10 +86,10 @@ namespace ZONOupdate
             exitButton.Cursor = Cursors.Hand;
             exitButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             exitButton.ForeColor = SystemColors.ButtonHighlight;
-            exitButton.Location = new Point(44, 631);
+            exitButton.Location = new Point(57, 841);
             exitButton.Margin = new Padding(0);
             exitButton.Name = "exitButton";
-            exitButton.Size = new Size(151, 39);
+            exitButton.Size = new Size(194, 52);
             exitButton.TabIndex = 0;
             exitButton.TabStop = false;
             exitButton.UseVisualStyleBackColor = false;
@@ -98,9 +98,10 @@ namespace ZONOupdate
             // myFavoritesPictureBox
             // 
             myFavoritesPictureBox.Image = Properties.Resources.favorites;
-            myFavoritesPictureBox.Location = new Point(16, 321);
+            myFavoritesPictureBox.Location = new Point(21, 428);
+            myFavoritesPictureBox.Margin = new Padding(4);
             myFavoritesPictureBox.Name = "myFavoritesPictureBox";
-            myFavoritesPictureBox.Size = new Size(35, 34);
+            myFavoritesPictureBox.Size = new Size(45, 45);
             myFavoritesPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             myFavoritesPictureBox.TabIndex = 10;
             myFavoritesPictureBox.TabStop = false;
@@ -108,9 +109,10 @@ namespace ZONOupdate
             // myRecommendationsPictureBox
             // 
             myRecommendationsPictureBox.Image = Properties.Resources.myRecommendations;
-            myRecommendationsPictureBox.Location = new Point(16, 268);
+            myRecommendationsPictureBox.Location = new Point(21, 357);
+            myRecommendationsPictureBox.Margin = new Padding(4);
             myRecommendationsPictureBox.Name = "myRecommendationsPictureBox";
-            myRecommendationsPictureBox.Size = new Size(35, 34);
+            myRecommendationsPictureBox.Size = new Size(45, 45);
             myRecommendationsPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             myRecommendationsPictureBox.TabIndex = 9;
             myRecommendationsPictureBox.TabStop = false;
@@ -118,9 +120,10 @@ namespace ZONOupdate
             // myCollectionsPictureBox
             // 
             myCollectionsPictureBox.Image = Properties.Resources.сollections;
-            myCollectionsPictureBox.Location = new Point(16, 214);
+            myCollectionsPictureBox.Location = new Point(21, 285);
+            myCollectionsPictureBox.Margin = new Padding(4);
             myCollectionsPictureBox.Name = "myCollectionsPictureBox";
-            myCollectionsPictureBox.Size = new Size(35, 34);
+            myCollectionsPictureBox.Size = new Size(45, 45);
             myCollectionsPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             myCollectionsPictureBox.TabIndex = 8;
             myCollectionsPictureBox.TabStop = false;
@@ -128,10 +131,10 @@ namespace ZONOupdate
             // mainPagePictureBox
             // 
             mainPagePictureBox.Image = Properties.Resources.homePage;
-            mainPagePictureBox.Location = new Point(16, 161);
+            mainPagePictureBox.Location = new Point(21, 215);
             mainPagePictureBox.Margin = new Padding(0);
             mainPagePictureBox.Name = "mainPagePictureBox";
-            mainPagePictureBox.Size = new Size(35, 34);
+            mainPagePictureBox.Size = new Size(45, 45);
             mainPagePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             mainPagePictureBox.TabIndex = 7;
             mainPagePictureBox.TabStop = false;
@@ -139,10 +142,10 @@ namespace ZONOupdate
             // logoPictureBox
             // 
             logoPictureBox.Image = Properties.Resources.logo;
-            logoPictureBox.Location = new Point(51, 14);
+            logoPictureBox.Location = new Point(66, 19);
             logoPictureBox.Margin = new Padding(0);
             logoPictureBox.Name = "logoPictureBox";
-            logoPictureBox.Size = new Size(134, 129);
+            logoPictureBox.Size = new Size(172, 172);
             logoPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             logoPictureBox.TabIndex = 5;
             logoPictureBox.TabStop = false;
@@ -153,9 +156,10 @@ namespace ZONOupdate
             favoriteLabel.Cursor = Cursors.Hand;
             favoriteLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             favoriteLabel.ForeColor = SystemColors.WindowText;
-            favoriteLabel.Location = new Point(55, 327);
+            favoriteLabel.Location = new Point(71, 436);
+            favoriteLabel.Margin = new Padding(4, 0, 4, 0);
             favoriteLabel.Name = "favoriteLabel";
-            favoriteLabel.Size = new Size(0, 20);
+            favoriteLabel.Size = new Size(0, 25);
             favoriteLabel.TabIndex = 0;
             favoriteLabel.MouseDown += ClickOnFavoritePage;
             // 
@@ -165,9 +169,10 @@ namespace ZONOupdate
             myProductsLabel.Cursor = Cursors.Hand;
             myProductsLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             myProductsLabel.ForeColor = SystemColors.WindowText;
-            myProductsLabel.Location = new Point(55, 274);
+            myProductsLabel.Location = new Point(71, 365);
+            myProductsLabel.Margin = new Padding(4, 0, 4, 0);
             myProductsLabel.Name = "myProductsLabel";
-            myProductsLabel.Size = new Size(0, 20);
+            myProductsLabel.Size = new Size(0, 25);
             myProductsLabel.TabIndex = 0;
             myProductsLabel.MouseDown += ClickOnMyProductsPage;
             // 
@@ -177,9 +182,10 @@ namespace ZONOupdate
             myCollectionsLabel.Cursor = Cursors.Hand;
             myCollectionsLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             myCollectionsLabel.ForeColor = SystemColors.WindowText;
-            myCollectionsLabel.Location = new Point(55, 220);
+            myCollectionsLabel.Location = new Point(71, 293);
+            myCollectionsLabel.Margin = new Padding(4, 0, 4, 0);
             myCollectionsLabel.Name = "myCollectionsLabel";
-            myCollectionsLabel.Size = new Size(0, 20);
+            myCollectionsLabel.Size = new Size(0, 25);
             myCollectionsLabel.TabIndex = 0;
             myCollectionsLabel.MouseDown += ClickOnMyCollectionsPage;
             // 
@@ -189,9 +195,10 @@ namespace ZONOupdate
             mainPageLabel.Cursor = Cursors.Hand;
             mainPageLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mainPageLabel.ForeColor = SystemColors.WindowText;
-            mainPageLabel.Location = new Point(55, 168);
+            mainPageLabel.Location = new Point(71, 224);
+            mainPageLabel.Margin = new Padding(4, 0, 4, 0);
             mainPageLabel.Name = "mainPageLabel";
-            mainPageLabel.Size = new Size(0, 20);
+            mainPageLabel.Size = new Size(0, 25);
             mainPageLabel.TabIndex = 0;
             mainPageLabel.MouseDown += ClickOnMainPage;
             // 
@@ -204,9 +211,9 @@ namespace ZONOupdate
             mainTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54.52352F));
             mainTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.47648F));
             mainTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54.52352F));
-            mainTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 165F));
-            mainTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 87F));
-            mainTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 152F));
+            mainTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 212F));
+            mainTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
+            mainTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 195F));
             mainTableLayoutPanel.Controls.Add(selectLanguageTableLayoutPanel, 1, 0);
             mainTableLayoutPanel.Location = new Point(0, 0);
             mainTableLayoutPanel.Margin = new Padding(0);
@@ -214,13 +221,13 @@ namespace ZONOupdate
             mainTableLayoutPanel.RowCount = 2;
             mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 49.12281F));
             mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50.87719F));
-            mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
             mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 49.1228065F));
             mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50.8771935F));
-            mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 150F));
-            mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 125F));
-            mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 152F));
-            mainTableLayoutPanel.Size = new Size(829, 137);
+            mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 200F));
+            mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 167F));
+            mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 203F));
+            mainTableLayoutPanel.Size = new Size(1066, 183);
             mainTableLayoutPanel.TabIndex = 0;
             // 
             // selectLanguageTableLayoutPanel
@@ -233,12 +240,12 @@ namespace ZONOupdate
             selectLanguageTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75.7009354F));
             selectLanguageTableLayoutPanel.Controls.Add(selectLanguageComboBox, 1, 0);
             selectLanguageTableLayoutPanel.Controls.Add(flagPictureBox, 0, 0);
-            selectLanguageTableLayoutPanel.Location = new Point(579, 19);
-            selectLanguageTableLayoutPanel.Margin = new Padding(0, 19, 56, 0);
+            selectLanguageTableLayoutPanel.Location = new Point(745, 25);
+            selectLanguageTableLayoutPanel.Margin = new Padding(0, 25, 72, 0);
             selectLanguageTableLayoutPanel.Name = "selectLanguageTableLayoutPanel";
             selectLanguageTableLayoutPanel.RowCount = 1;
             selectLanguageTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            selectLanguageTableLayoutPanel.Size = new Size(194, 34);
+            selectLanguageTableLayoutPanel.Size = new Size(249, 45);
             selectLanguageTableLayoutPanel.TabIndex = 0;
             // 
             // selectLanguageComboBox
@@ -249,10 +256,10 @@ namespace ZONOupdate
             selectLanguageComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             selectLanguageComboBox.FlatStyle = FlatStyle.Popup;
             selectLanguageComboBox.FormattingEnabled = true;
-            selectLanguageComboBox.Location = new Point(52, 6);
-            selectLanguageComboBox.Margin = new Padding(4, 5, 4, 0);
+            selectLanguageComboBox.Location = new Point(66, 8);
+            selectLanguageComboBox.Margin = new Padding(5, 7, 5, 0);
             selectLanguageComboBox.Name = "selectLanguageComboBox";
-            selectLanguageComboBox.Size = new Size(137, 23);
+            selectLanguageComboBox.Size = new Size(177, 28);
             selectLanguageComboBox.TabIndex = 0;
             selectLanguageComboBox.TabStop = false;
             selectLanguageComboBox.SelectedIndexChanged += SelectLanguageComboBoxSelectedIndexChanged;
@@ -260,9 +267,10 @@ namespace ZONOupdate
             // flagPictureBox
             // 
             flagPictureBox.Dock = DockStyle.Fill;
-            flagPictureBox.Location = new Point(4, 4);
+            flagPictureBox.Location = new Point(5, 5);
+            flagPictureBox.Margin = new Padding(4);
             flagPictureBox.Name = "flagPictureBox";
-            flagPictureBox.Size = new Size(40, 26);
+            flagPictureBox.Size = new Size(51, 35);
             flagPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             flagPictureBox.TabIndex = 0;
             flagPictureBox.TabStop = false;
@@ -273,29 +281,30 @@ namespace ZONOupdate
             secondaryTableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             secondaryTableLayoutPanel.ColumnCount = 1;
             secondaryTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            secondaryTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 606F));
+            secondaryTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 779F));
             secondaryTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             secondaryTableLayoutPanel.Dock = DockStyle.Bottom;
-            secondaryTableLayoutPanel.Location = new Point(0, 162);
+            secondaryTableLayoutPanel.Location = new Point(0, 216);
             secondaryTableLayoutPanel.Margin = new Padding(0);
             secondaryTableLayoutPanel.Name = "secondaryTableLayoutPanel";
             secondaryTableLayoutPanel.RowCount = 1;
             secondaryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             secondaryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            secondaryTableLayoutPanel.Size = new Size(829, 519);
+            secondaryTableLayoutPanel.Size = new Size(1066, 692);
             secondaryTableLayoutPanel.TabIndex = 0;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(178, 242, 196);
-            ClientSize = new Size(1064, 681);
+            ClientSize = new Size(1368, 908);
             Controls.Add(secondaryTableLayoutPanel);
             Controls.Add(mainTableLayoutPanel);
             Controls.Add(sidebarPanel);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;

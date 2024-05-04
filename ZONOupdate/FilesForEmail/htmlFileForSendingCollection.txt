@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body
+		{
+			background-color: #F2F2F2;
+            		font-size: 16px;
+            		width: 100%;
+            		max-width: 1200px;
+            		margin: 0 auto;
+		}
+		.collectionName
+		{
+            		text-align: center;
+            		font-size: 1.75em;
+		}
+        	.recomendationInfo
+		{
+            		text-align: left;
+            		background-color: #B2F2C4;
+            		padding: 3%;
+            		border-radius: 10px;
+            		font-family: Arial, sans-serif;
+            		font-size: 1em;
+            		margin: 2% 5%;
+        	}
+        	.recomendationName
+		{
+            		margin-bottom: 1.5em;
+            		font-size: 1.5em;
+        	}
+        	.recomendationInfo p
+		{
+            		margin-bottom: 1em;
+            		font-size: 1em;
+		}
+	</style>
+</head>
+<body>
+	<h1 class="collectionName">{collectionNameTitle} "{collectionName}"</h1>
+	<div id="recomendationsInCollection">
+	</div>
+</body>
+</html>

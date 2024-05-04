@@ -141,6 +141,8 @@ namespace ZONOupdate.Database
 
                     if (user != null) 
                     {
+                        Program.SetLoginInformation(true, user.ID);
+
                         return;
                     }
 
@@ -149,6 +151,8 @@ namespace ZONOupdate.Database
                         Login = login,
                         InternalAccount = false
                     };
+
+                    Program.SetLoginInformation(true, newUser.ID);
 
                     database.Users.Add(newUser);
                     database.SaveChanges();
@@ -164,7 +168,63 @@ namespace ZONOupdate.Database
         }
         #endregion
 
-        #region Методы
+        #region Остальные Методы
+
+        public static Recommendation[] LoadRecomendationsFromCollection(Guid collectionID)
+        {
+            try
+            {
+                using (var database = new DatabaseContext())
+                {
+                    var recomendationsInCollection = database.RecommendationInCollections.Where(collection => collection
+                    .CollectionID == collectionID).ToArray();
+
+                    var recomendations = new Recommendation[recomendationsInCollection.Length];
+
+                    for (int i = 0; i < recomendations.Length; i++)
+                    {
+                        var currentRecomendation = database.Recommendations.Where(recomendation => recomendation
+                        .RecommendationId == recomendationsInCollection[i].RecommendationID).FirstOrDefault();
+
+                        if (currentRecomendation != null)
+                        {
+                            recomendations[i] = currentRecomendation;
+                        }
+                    }
+
+                    return recomendations;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return Array.Empty<Recommendation>();
+            }
+        }
+
+        public static string LoadUserEmail(Guid UserID)
+        {
+            try
+            {
+                using (var database = new DatabaseContext())
+                {
+                    var userEmail = database.Users.Where(user => user.ID == UserID).Select(user => user.Login).FirstOrDefault();
+
+                    if (userEmail != null)
+                    {
+                        return userEmail;
+                    }
+
+                    return String.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return String.Empty;
+            }
+        }
+
         /// <summary>
         /// Метод поиска пользователя по ID
         /// </summary>

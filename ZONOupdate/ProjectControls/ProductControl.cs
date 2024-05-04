@@ -7,7 +7,7 @@ using System.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.ApplicationServices;
 
-namespace ZONOupdate.UserControls
+namespace ZONOupdate.ProjectControls
 {
     /// <summary>
     /// Кастомный control для отображения единицы товара на главной странице
@@ -25,7 +25,7 @@ namespace ZONOupdate.UserControls
         #region Методы
         public void MakeProductControlForMainPageOrForFavorites(int width)
         {
-            Width = width - 23;
+            Width = width;
 
             addToCollectionComboBox = new ComboBox();
             addToCollectionComboBox.Dock = DockStyle.Fill;
@@ -56,7 +56,7 @@ namespace ZONOupdate.UserControls
 
         public void MakeProductControlForFilters(int width)
         {
-            Width = width - 23;
+            Width = width;
 
             var userLikedTitleLabel = new Label();
             userLikedTitleLabel.Dock = DockStyle.Fill;
@@ -83,7 +83,7 @@ namespace ZONOupdate.UserControls
 
         public void MakeProductControlForMyProducts(int width)
         {
-            Width = width - 23;
+            Width = width;
 
             var actionsWithProductTableLayoutPanel = new TableLayoutPanel();
             actionsWithProductTableLayoutPanel.RowCount = 1;
@@ -111,7 +111,7 @@ namespace ZONOupdate.UserControls
 
         public void MakeProductControlForMyCollections(int width)
         {
-            Width = width - 23;
+            Width = width;
 
             var removeProductPictureBox = new PictureBox();
             removeProductPictureBox.Image = Properties.Resources.removeProduct;

@@ -19,7 +19,7 @@ namespace ZONOupdate.Forms.FormForLogin
         List<Control> onScreenControls = new List<Control>();
         PrivateFontCollection fontCollection = new PrivateFontCollection();
         ResourceManager localizationResources = new ResourceManager("ZONOupdate.Localization.Languages",
-            typeof(UserWelcomeForm).Assembly);
+            typeof(LoginForm).Assembly);
         #endregion
 
         #region Методы
@@ -105,7 +105,7 @@ namespace ZONOupdate.Forms.FormForLogin
             passwordFieldTextBox.TextOffset = new Point(10, 0);
             passwordFieldTextBox.PlaceholderForeColor = Color.FromArgb(151, 151, 151);
             passwordFieldTextBox.ForeColor = Color.FromArgb(0, 0, 0);
-            passwordFieldTextBox.IconRight = Properties.Resources.eyeHidden;
+            passwordFieldTextBox.IconRight = Properties.Resources.eyeVisible;
             passwordFieldTextBox.IconRightCursor = Cursors.Hand;
             passwordFieldTextBox.IconRightSize = new Size(43, 43);
             passwordFieldTextBox.IconRightClick += ShowPasswordPictureBox;
@@ -126,7 +126,7 @@ namespace ZONOupdate.Forms.FormForLogin
             goBackPictureBox.Size = new Size(60, 60);
             goBackPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             goBackPictureBox.Margin = new Padding(0, 0, 10, 10);
-            goBackPictureBox.Click += GoBackPictureBoxClick;
+            goBackPictureBox.MouseDown += GoBackPictureBoxMouseDown;
             loginFormTableLayoutPanel.Controls.Add(goBackPictureBox, 0, 1);
             onScreenControls.Add(goBackPictureBox);
 
@@ -135,7 +135,7 @@ namespace ZONOupdate.Forms.FormForLogin
         #endregion
 
         #region События
-        private void LoginWithAccountZONOLabelClick(object sender, EventArgs e)
+        private void LoginWithAccountZONOLabelMouseDown(object sender, MouseEventArgs e)
         {
             logger.Info("Пользователь нажал на кнопку \"Войти в аккаунт ZONO\"");
 
@@ -157,13 +157,13 @@ namespace ZONOupdate.Forms.FormForLogin
             enterButton.ForeColor = Color.FromArgb(255, 255, 255);
             enterButton.Size = new Size(220, 60);
             enterButton.Margin = new Padding(0, 25, 0, 0);
-            enterButton.Click += EnterZONOAccountButtonClick;
+            enterButton.MouseDown += EnterZONOAccountButtonMouseDown;
             loginFormTableLayoutPanel.Controls.Add(enterButton, 1, 4);
             loginFormTableLayoutPanel.SetRowSpan(enterButton, 2);
             onScreenControls.Add(enterButton);
         }
 
-        private void LoginWithAccountVKClick(object sender, EventArgs e)
+        private void LoginWithAccountVKMouseDown(object sender, MouseEventArgs e)
         {
             logger.Info("Пользователь нажал на кнопку \"Войти через ВКонтакте\"");
 
@@ -185,13 +185,13 @@ namespace ZONOupdate.Forms.FormForLogin
             enterButton.ForeColor = Color.FromArgb(255, 255, 255);
             enterButton.Size = new Size(220, 60);
             enterButton.Margin = new Padding(0, 25, 0, 0);
-            enterButton.Click += EnterVKAccountButtonClick;
+            enterButton.MouseDown += EnterVKAccountButtonMouseDown;
             loginFormTableLayoutPanel.Controls.Add(enterButton, 1, 4);
             loginFormTableLayoutPanel.SetRowSpan(enterButton, 2);
             onScreenControls.Add(enterButton);
         }
 
-        private void RegistrationLabelClick(object sender, EventArgs e)
+        private void RegistrationLabelMouseDown(object sender, MouseEventArgs e)
         {
             logger.Info("Пользователь нажал на кнопку \"Регистрация на ZONO\"");
 
@@ -211,7 +211,7 @@ namespace ZONOupdate.Forms.FormForLogin
             passwordRepeatFieldTextBox.TextOffset = new Point(10, 0);
             passwordRepeatFieldTextBox.PlaceholderForeColor = Color.FromArgb(151, 151, 151);
             passwordRepeatFieldTextBox.ForeColor = Color.FromArgb(0, 0, 0);
-            passwordRepeatFieldTextBox.IconRight = Properties.Resources.eyeHidden;
+            passwordRepeatFieldTextBox.IconRight = Properties.Resources.eyeVisible;
             passwordRepeatFieldTextBox.IconRightCursor = Cursors.Hand;
             passwordRepeatFieldTextBox.IconRightSize = new Size(43, 43);
             passwordRepeatFieldTextBox.IconRightClick += ShowPasswordPictureBox;
@@ -238,12 +238,12 @@ namespace ZONOupdate.Forms.FormForLogin
             registrationButton.ForeColor = Color.FromArgb(255, 255, 255);
             registrationButton.Size = new Size(220, 60);
             registrationButton.Margin = new Padding(0, 0, 0, 10);
-            registrationButton.Click += RegistrationButtonClick;
+            registrationButton.MouseDown += RegistrationButtonMouseDown;
             loginFormTableLayoutPanel.Controls.Add(registrationButton, 1, 5);
             onScreenControls.Add(registrationButton);
         }
 
-        private void GoBackPictureBoxClick(object sender, EventArgs e)
+        private void GoBackPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
             logger.Info("Пользователь вернулся к выбору входа");
 
@@ -270,14 +270,14 @@ namespace ZONOupdate.Forms.FormForLogin
                     logger.Info("Пользователь нажал на иконку для скрытия пароля");
 
                     passwordFieldTextBox.UseSystemPasswordChar = true;
-                    passwordFieldTextBox.IconRight = Properties.Resources.eyeHidden;
+                    passwordFieldTextBox.IconRight = Properties.Resources.eyeVisible;
                 }
                 else
                 {
                     logger.Info("Пользователь нажал на иконку для просмотра пароля");
 
                     passwordFieldTextBox.UseSystemPasswordChar = false;
-                    passwordFieldTextBox.IconRight = Properties.Resources.eyeVisible;
+                    passwordFieldTextBox.IconRight = Properties.Resources.eyeHidden;
                 }
             }
         }
@@ -290,12 +290,12 @@ namespace ZONOupdate.Forms.FormForLogin
             {
                 case 0:
                     languageResources = new ResourceManager("ZONOupdate.Localization.LoginFormRU",
-                        typeof(UserWelcomeForm).Assembly);
+                        typeof(LoginForm).Assembly);
                     break;
 
                 case 1:
                     languageResources = new ResourceManager("ZONOupdate.Localization.LoginFormEN",
-                        typeof(UserWelcomeForm).Assembly);
+                        typeof(LoginForm).Assembly);
                     break;
             }
 
@@ -307,7 +307,7 @@ namespace ZONOupdate.Forms.FormForLogin
             {
                 if (control is Guna2TextBox)
                 {
-                    var dataTextBox = (Guna2TextBox) control;
+                    var dataTextBox = (Guna2TextBox)control;
                     dataTextBox.PlaceholderText = languageResources.GetString(dataTextBox.Name);
 
                     continue;
@@ -322,7 +322,7 @@ namespace ZONOupdate.Forms.FormForLogin
             logger.Info("Все элементы управления поменяли язык");
         }
 
-        private void EnterZONOAccountButtonClick(object sender, EventArgs e)
+        private void EnterZONOAccountButtonMouseDown(object sender, MouseEventArgs e)
         {
             logger.Info("Пользователь нажал на кнопку входа для авторизации через аккаунт ZONO");
 
@@ -354,7 +354,7 @@ namespace ZONOupdate.Forms.FormForLogin
             }
         }
 
-        private void EnterVKAccountButtonClick(object sender, EventArgs e)
+        private void EnterVKAccountButtonMouseDown(object sender, MouseEventArgs e)
         {
             logger.Info("Пользователь нажал на кнопку входа для авторизации через аккаунт ВКонтакте");
 
@@ -386,7 +386,7 @@ namespace ZONOupdate.Forms.FormForLogin
             }
         }
 
-        private void RegistrationButtonClick(object sender, EventArgs e)
+        private void RegistrationButtonMouseDown(object sender, MouseEventArgs e)
         {
             logger.Info("Пользователь нажал на кнопку для регистрации в приложении");
 
@@ -398,14 +398,14 @@ namespace ZONOupdate.Forms.FormForLogin
 
                 var registrationSuccsessMessageDialog = new Guna2MessageDialog();
                 registrationSuccsessMessageDialog.Buttons = MessageDialogButtons.OK;
-                registrationSuccsessMessageDialog.Icon = MessageDialogIcon.Error;
+                registrationSuccsessMessageDialog.Icon = MessageDialogIcon.Information;
                 registrationSuccsessMessageDialog.Style = MessageDialogStyle.Light;
                 registrationSuccsessMessageDialog.Parent = this;
                 registrationSuccsessMessageDialog.Caption = languageResources.GetString("registrationSuccessTitle");
                 registrationSuccsessMessageDialog.Text = languageResources.GetString("registrationSuccessContent");
                 registrationSuccsessMessageDialog.Show();
 
-                GoBackPictureBoxClick(sender, e);
+                GoBackPictureBoxMouseDown(sender, e);
             }
             else
             {
@@ -439,6 +439,29 @@ namespace ZONOupdate.Forms.FormForLogin
             if (loginOrRegistrationLabel != null)
             {
                 loginOrRegistrationLabel.ForeColor = Color.FromArgb(0, 167, 255);
+            }
+        }
+
+        private void LoginFormLoad(object sender, EventArgs e)
+        {
+            var formAppearanceTimer = new System.Windows.Forms.Timer();
+            formAppearanceTimer.Interval = 60;
+            formAppearanceTimer.Tick += FormAppearanceTimerTick;
+            formAppearanceTimer.Start();
+        }
+
+        private void FormAppearanceTimerTick(object sender, EventArgs e)
+        {
+            Opacity += 0.1;
+
+            if (Opacity == 1)
+            {
+                var formAppearanceTimer = sender as System.Windows.Forms.Timer;
+
+                if (formAppearanceTimer != null)
+                {
+                    formAppearanceTimer.Stop();
+                }
             }
         }
         #endregion

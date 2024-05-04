@@ -131,6 +131,53 @@ namespace ZONOupdate.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///	&lt;style&gt;
+        ///		body
+        ///		{
+        ///			background-color: #F2F2F2;
+        ///            		font-size: 16px;
+        ///            		width: 100%;
+        ///            		max-width: 1200px;
+        ///            		margin: 0 auto;
+        ///		}
+        ///		.collectionName
+        ///		{
+        ///            		text-align: center;
+        ///            		font-size: 1.75em;
+        ///		}
+        ///        	.recomendationInfo
+        ///		{
+        ///            		text-align: left;
+        ///            		background-color: #B2F2C4;
+        ///            		padding: 3%;
+        ///            		border-radius: 10px;
+        ///            		font-famil [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string htmlFileForSendingCollection {
+            get {
+                return ResourceManager.GetString("htmlFileForSendingCollection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;div class=&quot;recomendationInfo&quot;&gt;
+        ///	&lt;h1 class=&quot;recomendationName&quot;&gt;{recomendationName}&lt;/h1&gt;
+        ///	&lt;p&gt;{recomendationPriceTitle}: {recomendationPrice} ₽&lt;/p&gt;
+        ///	&lt;p&gt;{recomedationMarkTitle}: {recomendationMark} / 5&lt;/p&gt;
+        ///	&lt;p&gt;{recomendationDescription}&lt;/p&gt;
+        ///&lt;/div&gt;
+        ///.
+        /// </summary>
+        internal static string htmlFileWithAppearanceOfRecomendation {
+            get {
+                return ResourceManager.GetString("htmlFileWithAppearanceOfRecomendation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logo {
@@ -186,6 +233,16 @@ namespace ZONOupdate.Properties {
         internal static System.Drawing.Bitmap search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sendByEmail {
+            get {
+                object obj = ResourceManager.GetObject("sendByEmail", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -141,11 +141,17 @@
   <data name="addNewProductButton" xml:space="preserve">
     <value>Add product</value>
   </data>
+  <data name="collectionNameTitle" xml:space="preserve">
+    <value>Collection</value>
+  </data>
   <data name="databaseIsBusyContent" xml:space="preserve">
     <value>The database is currently in use by another user, please try again later</value>
   </data>
   <data name="databaseIsBusyTitle" xml:space="preserve">
     <value>Attention!</value>
+  </data>
+  <data name="errorMessageSendingContent" xml:space="preserve">
+    <value>An error has occurred. The message was not delivered.</value>
   </data>
   <data name="errorWhenWorkingWithDatabaseContent" xml:space="preserve">
     <value>An error has occurred! Error code:</value>
@@ -198,6 +204,12 @@
   </data>
   <data name="markTitle" xml:space="preserve">
     <value>Your mark</value>
+  </data>
+  <data name="messageSendingTitle" xml:space="preserve">
+    <value>Sending a message</value>
+  </data>
+  <data name="messageSubject" xml:space="preserve">
+    <value>Collection from ZONO</value>
   </data>
   <data name="myCollectionsLabel" xml:space="preserve">
     <value>My selections</value>
@@ -261,5 +273,8 @@
   </data>
   <data name="successfulCollectionCreationTitle" xml:space="preserve">
     <value>Attention!</value>
+  </data>
+  <data name="successfulMessageSendingContent" xml:space="preserve">
+    <value>The message with the selection was sent successfully. Check your email.</value>
   </data>
 </root>

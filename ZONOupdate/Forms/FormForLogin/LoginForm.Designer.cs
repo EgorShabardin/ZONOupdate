@@ -15,8 +15,8 @@
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             logoPictureBox = new PictureBox();
             loginFormTableLayoutPanel = new TableLayoutPanel();
             selectLanguageTableLayoutPanel = new TableLayoutPanel();
@@ -98,7 +98,7 @@
             // 
             selectLanguageComboBox.BackColor = Color.Transparent;
             selectLanguageComboBox.Cursor = Cursors.Hand;
-            selectLanguageComboBox.CustomizableEdges = customizableEdges1;
+            selectLanguageComboBox.CustomizableEdges = customizableEdges3;
             selectLanguageComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             selectLanguageComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             selectLanguageComboBox.FillColor = SystemColors.ButtonFace;
@@ -110,7 +110,7 @@
             selectLanguageComboBox.Location = new Point(54, 1);
             selectLanguageComboBox.Margin = new Padding(0);
             selectLanguageComboBox.Name = "selectLanguageComboBox";
-            selectLanguageComboBox.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            selectLanguageComboBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
             selectLanguageComboBox.Size = new Size(163, 36);
             selectLanguageComboBox.TabIndex = 0;
             selectLanguageComboBox.TabStop = false;
@@ -128,7 +128,7 @@
             registrationLabel.Size = new Size(414, 20);
             registrationLabel.TabIndex = 0;
             registrationLabel.TextAlign = ContentAlignment.MiddleCenter;
-            registrationLabel.Click += RegistrationLabelClick;
+            registrationLabel.MouseDown += RegistrationLabelMouseDown;
             registrationLabel.MouseLeave += LoginOrRegistrationLabelsMouseLeave;
             registrationLabel.MouseMove += LoginOrRegistrationLabelsMouseMove;
             // 
@@ -144,7 +144,7 @@
             loginWithAccountVKLabel.Size = new Size(414, 20);
             loginWithAccountVKLabel.TabIndex = 0;
             loginWithAccountVKLabel.TextAlign = ContentAlignment.MiddleCenter;
-            loginWithAccountVKLabel.Click += LoginWithAccountVKClick;
+            loginWithAccountVKLabel.MouseDown += LoginWithAccountVKMouseDown;
             loginWithAccountVKLabel.MouseLeave += LoginOrRegistrationLabelsMouseLeave;
             loginWithAccountVKLabel.MouseMove += LoginOrRegistrationLabelsMouseMove;
             // 
@@ -160,7 +160,7 @@
             loginWithAccountZONOLabel.Size = new Size(414, 20);
             loginWithAccountZONOLabel.TabIndex = 0;
             loginWithAccountZONOLabel.TextAlign = ContentAlignment.MiddleCenter;
-            loginWithAccountZONOLabel.Click += LoginWithAccountZONOLabelClick;
+            loginWithAccountZONOLabel.MouseDown += LoginWithAccountZONOLabelMouseDown;
             loginWithAccountZONOLabel.MouseLeave += LoginOrRegistrationLabelsMouseLeave;
             loginWithAccountZONOLabel.MouseMove += LoginOrRegistrationLabelsMouseMove;
             // 
@@ -176,7 +176,9 @@
             KeyPreview = true;
             MinimumSize = new Size(970, 780);
             Name = "LoginForm";
+            Opacity = 0D;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += LoginFormLoad;
             ((System.ComponentModel.ISupportInitialize)logoPictureBox).EndInit();
             loginFormTableLayoutPanel.ResumeLayout(false);
             loginFormTableLayoutPanel.PerformLayout();
@@ -184,8 +186,8 @@
             ((System.ComponentModel.ISupportInitialize)flagPictureBox).EndInit();
             ResumeLayout(false);
         }
-
         #endregion
+
         private PictureBox logoPictureBox;
         private TableLayoutPanel loginFormTableLayoutPanel;
         private TableLayoutPanel selectLanguageTableLayoutPanel;

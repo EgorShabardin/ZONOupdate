@@ -88,7 +88,7 @@ namespace ZONOupdate.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на G9HzJ7J0W8tehCJrnXsu.
+        ///   Ищет локализованную строку, похожую на 9SrpgNBt18aKbmmib7zG.
         /// </summary>
         internal static string applicationEmailPassword {
             get {

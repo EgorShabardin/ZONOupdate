@@ -1,0 +1,6 @@
+<div class="recomendationInfo">
+	<h1 class="recomendationName">{recomendationName}</h1>
+	<p>{recomendationPriceTitle}: {recomendationPrice} ₽</p>
+	<p>{recomedationMarkTitle}: {recomendationMark} / 5</p>
+	<p>{recomendationDescription}</p>
+</div>

@@ -1,16 +1,9 @@
-﻿namespace ZONOupdate
+﻿namespace ZONOupdate.Forms.FormForWelcomingUser
 {
     partial class UserWelcomeForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,11 +14,6 @@
         }
 
         #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
@@ -41,9 +29,9 @@
             // userWelcomeTableLayoutPanel
             // 
             userWelcomeTableLayoutPanel.ColumnCount = 3;
-            userWelcomeTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            userWelcomeTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
-            userWelcomeTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            userWelcomeTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            userWelcomeTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            userWelcomeTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             userWelcomeTableLayoutPanel.Controls.Add(userWelcomePictureBox, 1, 0);
             userWelcomeTableLayoutPanel.Controls.Add(userWelcomeLabel, 0, 1);
             userWelcomeTableLayoutPanel.Dock = DockStyle.Fill;
@@ -51,18 +39,20 @@
             userWelcomeTableLayoutPanel.Margin = new Padding(0);
             userWelcomeTableLayoutPanel.Name = "userWelcomeTableLayoutPanel";
             userWelcomeTableLayoutPanel.RowCount = 2;
-            userWelcomeTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 72.6F));
-            userWelcomeTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 27.4F));
+            userWelcomeTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
+            userWelcomeTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             userWelcomeTableLayoutPanel.Size = new Size(800, 500);
             userWelcomeTableLayoutPanel.TabIndex = 0;
+            userWelcomeTableLayoutPanel.TabStop = true;
             // 
             // userWelcomePictureBox
             // 
             userWelcomePictureBox.Dock = DockStyle.Fill;
             userWelcomePictureBox.Image = Properties.Resources.logo;
-            userWelcomePictureBox.Location = new Point(163, 3);
+            userWelcomePictureBox.Location = new Point(123, 30);
+            userWelcomePictureBox.Margin = new Padding(3, 30, 3, 3);
             userWelcomePictureBox.Name = "userWelcomePictureBox";
-            userWelcomePictureBox.Size = new Size(474, 357);
+            userWelcomePictureBox.Size = new Size(554, 317);
             userWelcomePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             userWelcomePictureBox.TabIndex = 0;
             userWelcomePictureBox.TabStop = false;
@@ -72,17 +62,16 @@
             userWelcomeLabel.AutoSize = true;
             userWelcomeTableLayoutPanel.SetColumnSpan(userWelcomeLabel, 3);
             userWelcomeLabel.Dock = DockStyle.Fill;
-            userWelcomeLabel.Location = new Point(0, 363);
+            userWelcomeLabel.Location = new Point(0, 350);
             userWelcomeLabel.Margin = new Padding(0);
             userWelcomeLabel.Name = "userWelcomeLabel";
-            userWelcomeLabel.Size = new Size(800, 137);
+            userWelcomeLabel.Size = new Size(800, 150);
             userWelcomeLabel.TabIndex = 0;
             userWelcomeLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // userWelcomeTimer
             // 
-            userWelcomeTimer.Enabled = true;
-            userWelcomeTimer.Interval = 3000;
+            userWelcomeTimer.Interval = 2000;
             userWelcomeTimer.Tick += UserWelcomeTimerTick;
             // 
             // UserWelcomeForm
@@ -94,17 +83,18 @@
             Controls.Add(userWelcomeTableLayoutPanel);
             ForeColor = SystemColors.WindowText;
             FormBorderStyle = FormBorderStyle.None;
-            Icon = (Icon)resources.GetObject("$this.Icon");
+            Icon = Properties.Resources.logoIcon;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "UserWelcomeForm";
+            Opacity = 0D;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += UserWelcomeFormLoad;
             userWelcomeTableLayoutPanel.ResumeLayout(false);
             userWelcomeTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)userWelcomePictureBox).EndInit();
             ResumeLayout(false);
         }
-
         #endregion
 
         private TableLayoutPanel userWelcomeTableLayoutPanel;

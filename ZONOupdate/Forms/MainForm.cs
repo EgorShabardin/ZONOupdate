@@ -4,7 +4,8 @@ using System.Resources;
 using ZONOupdate.Database;
 using ZONOupdate.EntityClasses;
 using ZONOupdate.Forms;
-using ZONOupdate.UserControls;
+using ZONOupdate.ProjectControls;
+using ZONOupdate.ProjectControls.ControlForCollectionName;
 
 namespace ZONOupdate
 {
@@ -21,7 +22,7 @@ namespace ZONOupdate
         List<Control> controlsForLocalization = new List<Control>();
         FlowLayoutPanel productsFlowLayoutPanel = new FlowLayoutPanel();
         PrivateFontCollection fontCollection = new PrivateFontCollection();
-        ResourceManager localizationResources = new ResourceManager("ZONOupdate.Localization.Languages", typeof(UserWelcomeForm).Assembly);
+        ResourceManager localizationResources = new ResourceManager("ZONOupdate.Localization.Languages", typeof(MainForm).Assembly);
         #endregion
 
         #region Методы
@@ -99,7 +100,7 @@ namespace ZONOupdate
                 foreach (var product in recommendations)
                 {
                     var recomendation = new ProductControl(product, currentUser.ID, languageResources);
-                    recomendation.MakeProductControlForMainPageOrForFavorites(productsFlowLayoutPanel.Width);
+                    recomendation.MakeProductControlForMainPageOrForFavorites(productsFlowLayoutPanel.ClientSize.Width);
                     productsFlowLayoutPanel.Controls.Add(recomendation);
                 }
             }
@@ -121,7 +122,7 @@ namespace ZONOupdate
                 foreach (var product in myProducts)
                 {
                     var productControl = new ProductControl(product, currentUser.ID, languageResources);
-                    productControl.MakeProductControlForMyProducts(productsFlowLayoutPanel.Width);
+                    productControl.MakeProductControlForMyProducts(productsFlowLayoutPanel.ClientRectangle.Width);
                     productsFlowLayoutPanel.Controls.Add(productControl);
                 }
             }
@@ -147,7 +148,7 @@ namespace ZONOupdate
                     var product = database.Recommendations.Where(recomendation => recomendation
                     .RecommendationId == favoriteID).First();
                     var favoriteControl = new ProductControl(product, currentUser.ID, languageResources);
-                    favoriteControl.MakeProductControlForMainPageOrForFavorites(productsFlowLayoutPanel.Width);
+                    favoriteControl.MakeProductControlForMainPageOrForFavorites(productsFlowLayoutPanel.ClientSize.Width);
                     productsFlowLayoutPanel.Controls.Add(favoriteControl);
                 }
             }
@@ -168,8 +169,8 @@ namespace ZONOupdate
 
                 foreach (var collection in collections)
                 {
-                    var collectionControl = new CollectionControl(collection, productsFlowLayoutPanel, currentUser,
-                        languageResources, listFlowLayoutPanel.Width);
+                    var collectionControl = new CollectionNameControl(currentUser, collection, productsFlowLayoutPanel,
+                        languageResources, listFlowLayoutPanel.ClientRectangle.Width);
                     listFlowLayoutPanel.Controls.Add(collectionControl);
                 }
             }
@@ -474,11 +475,11 @@ namespace ZONOupdate
             {
                 case 0:
                     languageResources = new ResourceManager("ZONOupdate.Localization.MainFormRU",
-                        typeof(UserWelcomeForm).Assembly);
+                        typeof(MainForm).Assembly);
                     break;
                 case 1:
                     languageResources = new ResourceManager("ZONOupdate.Localization.MainFormEN",
-                        typeof(UserWelcomeForm).Assembly);
+                        typeof(MainForm).Assembly);
                     break;
             }
 

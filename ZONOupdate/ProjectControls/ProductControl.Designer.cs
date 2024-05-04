@@ -1,4 +1,4 @@
-﻿namespace ZONOupdate.UserControls
+﻿namespace ZONOupdate.ProjectControls
 {
     partial class ProductControl
     {

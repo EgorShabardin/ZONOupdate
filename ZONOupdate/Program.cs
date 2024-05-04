@@ -1,4 +1,5 @@
 ﻿using System.Resources;
+using ZONOupdate.Forms.FormForWelcomingUser;
 using ZONOupdate.Forms;
 using ZONOupdate.Forms.FormForLogin;
 
@@ -22,13 +23,14 @@ namespace ZONOupdate
             Program.languageName = languageName;
             Program.languageResources = new ResourceManager($"ZONOupdate.Localization.MainForm{languageResources
                 .BaseName.Remove(0, languageResources.BaseName.Length - 2)}",
-                typeof(UserWelcomeForm).Assembly);
+                typeof(MainForm).Assembly);
         }
 
         [STAThread]
         static void Main()
         {
             ApplicationConfiguration.Initialize();
+            //Application.Run(new MainForm(new Guid("7569C43C-7D55-4406-97AB-5BFE49DC4658"), (object)"Русский", new ResourceManager($"ZONOupdate.Localization.MainFormRU", typeof(MainForm).Assembly)));
 
             do
             {

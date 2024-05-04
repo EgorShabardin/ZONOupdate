@@ -134,8 +134,6 @@ D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.NewCollectionCreationForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.NewProductCreationForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.ProductCardForm.resources
-D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.UserControls.CollectionControl.resources
-D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.UserControls.ProductControl.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\HtmlAgilityPack.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\VkNet.dll
@@ -201,7 +199,11 @@ D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\es\DevExpress.XtraReports.v18.2.Web.resources.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\es\DevExpress.XtraReports.v18.2.resources.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\es\DevExpress.XtraScheduler.v18.2.Core.resources.dll
-D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.UserWelcomeForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForLogin.LoginForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Properties.EmailResources.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Properties.VkAuthorizationResources.resources
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForWelcomingUser.UserWelcomeForm.resources
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\Microsoft.AspNetCore.Http.Abstractions.dll
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\Microsoft.AspNetCore.Http.Features.dll
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.ProjectControls.ControlForCollectionName.CollectionNameControl.resources
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.ProjectControls.ProductControl.resources

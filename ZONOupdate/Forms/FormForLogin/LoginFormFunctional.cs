@@ -170,6 +170,13 @@ namespace ZONOupdate.Forms.FormForLogin
                     return false;
                 }
 
+                if (!Regex.IsMatch(loginFieldTextBox.Text, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
+                {
+                    logger.Debug("Вход запрещен, т.к. пользователь неверно ввел email почту");
+
+                    return false;
+                }
+
                 var isEmailDoesNotExist = DatabaseInteraction.CheckingLoginExistence(loginFieldTextBox.Text);
 
                 if (isEmailDoesNotExist)

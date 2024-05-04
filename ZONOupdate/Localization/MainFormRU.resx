@@ -141,11 +141,17 @@
   <data name="addNewProductButton" xml:space="preserve">
     <value>Добавить</value>
   </data>
+  <data name="collectionNameTitle" xml:space="preserve">
+    <value>Подборка</value>
+  </data>
   <data name="databaseIsBusyContent" xml:space="preserve">
     <value>База данных в данный момент используется другим пользователем, попробуйте позже</value>
   </data>
   <data name="databaseIsBusyTitle" xml:space="preserve">
     <value>Внимание!</value>
+  </data>
+  <data name="errorMessageSendingContent" xml:space="preserve">
+    <value>Произошла ошибка. Сообщение не доставлено.</value>
   </data>
   <data name="errorWhenWorkingWithDatabaseContent" xml:space="preserve">
     <value>Произошла ошибка! Код ошибки:</value>
@@ -198,6 +204,12 @@
   </data>
   <data name="markTitle" xml:space="preserve">
     <value>Ваша оценка</value>
+  </data>
+  <data name="messageSendingTitle" xml:space="preserve">
+    <value>Отправка сообщения</value>
+  </data>
+  <data name="messageSubject" xml:space="preserve">
+    <value>Подборка с ZONO</value>
   </data>
   <data name="myCollectionsLabel" xml:space="preserve">
     <value>Мои подборки</value>
@@ -261,6 +273,9 @@
   </data>
   <data name="successfulCollectionCreationTitle" xml:space="preserve">
     <value>Внимание!</value>
+  </data>
+  <data name="successfulMessageSendingContent" xml:space="preserve">
+    <value>Сообщение с подборкой успешно отправлено. Проверьте почту.</value>
   </data>
   <data name="userWelcomeLabel" xml:space="preserve">
     <value>Добро пожаловать на ZONO!</value>
