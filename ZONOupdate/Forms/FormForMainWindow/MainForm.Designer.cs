@@ -1,18 +1,9 @@
-﻿using System.Windows.Forms;
-
-namespace ZONOupdate.Forms.FormForMainWindow
+﻿namespace ZONOupdate.Forms.FormForMainWindow
 {
     partial class MainForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -23,11 +14,6 @@ namespace ZONOupdate.Forms.FormForMainWindow
         }
 
         #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -359,6 +345,7 @@ namespace ZONOupdate.Forms.FormForMainWindow
             // 
             // recomendationsTableLayoutPanel
             // 
+            recomendationsTableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             recomendationsTableLayoutPanel.ColumnCount = 1;
             recomendationsTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             recomendationsTableLayoutPanel.Dock = DockStyle.Fill;
@@ -398,7 +385,6 @@ namespace ZONOupdate.Forms.FormForMainWindow
             ((System.ComponentModel.ISupportInitialize)flagPictureBox).EndInit();
             ResumeLayout(false);
         }
-
         #endregion
 
         private TableLayoutPanel mainFormTableLayoutPanel;

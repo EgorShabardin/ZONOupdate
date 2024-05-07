@@ -141,6 +141,9 @@
   <data name="addNewProductButton" xml:space="preserve">
     <value>Добавить</value>
   </data>
+  <data name="applyButton" xml:space="preserve">
+    <value>Применить</value>
+  </data>
   <data name="chooseProductTypeComboBox" xml:space="preserve">
     <value>Выберите тип товара</value>
   </data>
@@ -269,6 +272,9 @@
   <data name="productYearOfProductionLabelTitle" xml:space="preserve">
     <value>Год производства</value>
   </data>
+  <data name="restartButton" xml:space="preserve">
+    <value>Начать заново</value>
+  </data>
   <data name="saveMarkButton" xml:space="preserve">
     <value>Сохранить</value>
   </data>
@@ -277,6 +283,12 @@
   </data>
   <data name="searchLineTextBox" xml:space="preserve">
     <value>Поиск ...</value>
+  </data>
+  <data name="selectionWarningContent" xml:space="preserve">
+    <value>Пожалуйста, выберите больше товаров или загрузите новые нажав на кнопку "Начать заново".</value>
+  </data>
+  <data name="selectionWarningTitle" xml:space="preserve">
+    <value>Внимание!</value>
   </data>
   <data name="successfulCollectionCreationContent" xml:space="preserve">
     <value>Коллекция успешно добавлена</value>

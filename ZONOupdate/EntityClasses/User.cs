@@ -13,6 +13,6 @@
 
         public int IsBusy { get; set; }
 
-        public bool InternalAccount { get; set; }
+        public int InternalAccount { get; set; }
     }
 }

@@ -35,6 +35,7 @@ namespace ZONOupdate.Forms.FormForMainWindow
                 {
                     var recomendation = new ProductControl(product, UserID, languageResources);
                     recomendation.MakeProductControlForMainPageOrForFavorites(productsFlowLayoutPanel.ClientSize.Width);
+                    recomendation.Dock = DockStyle.Fill;
                     productControls.Add(recomendation);
                 }
 
@@ -169,6 +170,102 @@ namespace ZONOupdate.Forms.FormForMainWindow
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
             }
         }
+
+        public bool SelectionOfRecommendations(Guid userID)
+        {
+            try
+            {
+                using (var database = new DatabaseContext())
+                {
+                    if (database.LikedProducts.Where(product => product.ID == userID).Count() <= 0)
+                    {
+                        return false;
+                    }
+
+                    var existingSetting = database.RecommendationSettings.Where(setting => setting.ID == userID).FirstOrDefault();
+
+                    if (existingSetting != null)
+                    {
+                        database.RecommendationSettings.Remove(existingSetting);
+                        database.SaveChanges();
+                    }
+                    var likedProducts = database.LikedProducts.Where(product => product.ID == userID).
+                        Select(product => product.RecommendationID).ToList();
+
+                    var years = new List<int>();
+                    var prices = new List<int>();
+                    var colors = new List<string>();
+                    var manufacturers = new List<string>();
+
+                    foreach (var likedproduct in likedProducts)
+                    {
+                        var product = database.Recommendations.Where(product => product.RecommendationId == likedproduct).FirstOrDefault();
+
+                        if (product != null)
+                        {
+                            years.Add(product.YearOfProduction);
+                            prices.Add(product.ProductPriceFrom);
+
+                            var color = database.Colors.Where(color => color.ColorID == product.ColorID)
+                                .Select(color => color.ColorName).FirstOrDefault();
+                            var manufacturer = database.Manufacturers.Where(manufacturer => manufacturer.ManufacturerID
+                            == product.ManufacturerID).Select(manufacturer => manufacturer.ManufacturerName).FirstOrDefault();
+
+                            if (color != null && manufacturer != null)
+                            {
+                                colors.Add(color);
+                                manufacturers.Add(manufacturer);
+                            }
+                        }
+                    }
+                    years.Sort();
+                    prices.Sort();
+
+                    string colorTemp = string.Empty;
+                    string manufacturerTemp = string.Empty;
+
+                    for (int i = 0; i < colors.Count; i++)
+                    {
+                        colorTemp += colors[i];
+                        manufacturerTemp += manufacturers[i];
+                        if (i != colors.Count - 1)
+                        {
+                            colorTemp += "/";
+                            manufacturerTemp += "/";
+                        }
+                    }
+
+                    var selectedTypeID = database.Recommendations.Where(product => product.RecommendationId == likedProducts.First())
+                        .Select(product => product.ProductTypeID).FirstOrDefault();
+
+                    var recommendationSetting = new RecommendationSetting()
+                    {
+                        RecommendationSettingID = Guid.NewGuid(),
+                        ID = userID,
+                        MinPrice = prices.Min(),
+                        MaxPrice = prices.Max(),
+                        MinYear = years.Min(),
+                        MaxYear = years.Max(),
+                        SelectedColors = colorTemp,
+                        SelectedManufacturers = manufacturerTemp,
+                        SelectedTypeID = selectedTypeID
+                    };
+
+                    database.Add(recommendationSetting);
+                    database.SaveChanges();
+
+                    DatabaseInteraction.CleanLikedProducts(userID);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Возникла ошибка. Код ошибки: {ex}", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
 
         #endregion
     }

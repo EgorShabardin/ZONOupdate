@@ -33,7 +33,7 @@ namespace ZONOupdate.Database
                         "внутренний аккаунт ZONO");
 
                     var User = database.Users.Where(user => user.Login == login)
-                        .Where(user => user.InternalAccount).FirstOrDefault();
+                        .Where(user => (user.InternalAccount == 1)).FirstOrDefault();
 
                     if (User != null)
                     {
@@ -75,7 +75,7 @@ namespace ZONOupdate.Database
                         "email почты");
 
                     var User = database.Users.Where(user => user.Login == login).
-                        Where(user => user.InternalAccount).FirstOrDefault();
+                        Where(user => (user.InternalAccount == 1)).FirstOrDefault();
 
                     return User != null ? false : true;
                 }
@@ -106,7 +106,7 @@ namespace ZONOupdate.Database
                     {
                         Login = login,
                         Password = DataEncryption.HashingData(password),
-                        InternalAccount = true
+                        InternalAccount = Convert.ToInt32(true)
                     };
 
                     database.Users.Add(newUser);
@@ -139,7 +139,7 @@ namespace ZONOupdate.Database
                         "пользователя зашедшего со стороннего приложения");
 
                     var user = database.Users.Where(user => user.Login == login)
-                        .Where(user => !user.InternalAccount).FirstOrDefault();
+                        .Where(user => (user.InternalAccount == 0)).FirstOrDefault();
 
                     if (user != null) 
                     {
@@ -151,7 +151,7 @@ namespace ZONOupdate.Database
                     var newUser = new User
                     {
                         Login = login,
-                        InternalAccount = false
+                        InternalAccount = Convert.ToInt32(false)
                     };
 
                     Program.SetLoginInformation(true, newUser.ID);
@@ -247,6 +247,21 @@ namespace ZONOupdate.Database
                 }
 
                 return Array.Empty<object>();
+            }
+        }
+
+        public static void CleanLikedProducts(Guid userID)
+        {
+            using (var database = new DatabaseContext())
+            {
+                var likedProducts = database.LikedProducts.Where(product => product.ID == userID).ToList();
+
+                foreach (var product in likedProducts)
+                {
+                    database.LikedProducts.Remove(product);
+
+                }
+                database.SaveChanges();
             }
         }
 
@@ -348,8 +363,8 @@ namespace ZONOupdate.Database
                 {
                     logger.Info("Успешное подключение к базе данных при загрузке всех типов товаров");
 
-                    string[] productTypes = database.ProductTypes.AsEnumerable().Select(product => product
-                    .ProductTypeName).ToArray();
+                    string[] productTypes = database.ProductTypes.OrderBy(product => product.ProductTypeName)
+                        .Select(product => product.ProductTypeName).ToArray();
 
                     return productTypes;
                 }

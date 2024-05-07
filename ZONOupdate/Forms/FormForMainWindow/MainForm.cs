@@ -1,10 +1,10 @@
-﻿using Guna.UI2.WinForms;
-using NLog;
-using System.Drawing.Text;
-using System.Resources;
-using ZONOupdate.Database;
+﻿using ZONOupdate.ProjectControls;
 using ZONOupdate.EntityClasses;
-using ZONOupdate.ProjectControls;
+using System.Drawing.Text;
+using ZONOupdate.Database;
+using Guna.UI2.WinForms;
+using System.Resources;
+using NLog;
 
 namespace ZONOupdate.Forms.FormForMainWindow
 {
@@ -20,8 +20,8 @@ namespace ZONOupdate.Forms.FormForMainWindow
         Logger logger = LogManager.GetCurrentClassLogger();
         List<Control> controlsForLocalization = new List<Control>();
         PrivateFontCollection fontCollection = new PrivateFontCollection();
-        FlowLayoutPanel productsFlowLayoutPanel = new FlowLayoutPanel();
-        ResourceManager localizationResources = new ResourceManager("ZONOupdate.Localization.Languages", typeof(MainForm).Assembly);
+        ResourceManager localizationResources = new ResourceManager("ZONOupdate" +
+            ".Localization.Languages", typeof(MainForm).Assembly);
         #endregion
 
         #region Методы
@@ -350,6 +350,8 @@ namespace ZONOupdate.Forms.FormForMainWindow
 
             if (filtersButton != null)
             {
+                logger.Info("Пользователь включил раздел \"Фильтры\"");
+
                 if (filtersButton.FillColor == System.Drawing.Color.FromArgb(0, 166, 253))
                 {
                     var searchLineTextBox = titleTableLayoutPanel.Controls.Find
@@ -367,9 +369,9 @@ namespace ZONOupdate.Forms.FormForMainWindow
                     filtersMenuTableLayoutPanel.Name = "filtersMenuTableLayoutPanel";
                     filtersMenuTableLayoutPanel.Dock = DockStyle.Fill;
                     filtersMenuTableLayoutPanel.ColumnCount = 3;
-                    filtersMenuTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40));
-                    filtersMenuTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30));
-                    filtersMenuTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30));
+                    filtersMenuTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
+                    filtersMenuTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25));
+                    filtersMenuTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25));
                     filtersMenuTableLayoutPanel.Margin = new Padding(0);
                     filtersMenuTableLayoutPanel.Padding = new Padding(0);
                     titleTableLayoutPanel.Controls.Add(filtersMenuTableLayoutPanel, 1, 1);
@@ -385,108 +387,51 @@ namespace ZONOupdate.Forms.FormForMainWindow
                     chooseProductTypeComboBox.BorderThickness = 1;
                     chooseProductTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
                     chooseProductTypeComboBox.Size = new Size(220, 50);
-
-                    chooseProductTypeComboBox.Items.Add(languageResources.GetString("chooseProductTypeComboBox"));
+                    chooseProductTypeComboBox.Items.Add(languageResources.GetString(chooseProductTypeComboBox.Name));
                     chooseProductTypeComboBox.Items.AddRange(DatabaseInteraction.LoadProductTypes());
                     chooseProductTypeComboBox.SelectedIndex = 0;
+                    chooseProductTypeComboBox.Margin = new Padding(0, 0, 10, 16);
                     chooseProductTypeComboBox.SelectedIndexChanged += ChangingIndexInChooseProductTypeComboBox;
                     filtersMenuTableLayoutPanel.Controls.Add(chooseProductTypeComboBox, 0, 0);
 
-                    var restartButton = new Button();
-                    restartButton.BackColor = System.Drawing.Color.DeepSkyBlue;
-                    restartButton.ForeColor = SystemColors.ButtonHighlight;
-                    restartButton.Location = new Point(442, 208);
-                    restartButton.Margin = new Padding(4);
+                    var restartButton = new Guna2Button();
                     restartButton.Name = "restartButton";
-                    restartButton.Size = new Size(161, 44);
-                    restartButton.TabIndex = 7;
-                    restartButton.Text = "Начать заново";
-                    restartButton.UseVisualStyleBackColor = false;
-                    restartButton.Click += ClickOnRestartButton;
+                    restartButton.Text = languageResources.GetString(restartButton.Name);
+                    restartButton.Font = new Font(fontCollection.Families[0], 10);
+                    restartButton.FillColor = System.Drawing.Color.FromArgb(0, 166, 253);
+                    restartButton.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+                    restartButton.Anchor = AnchorStyles.Right | AnchorStyles.Left;
+                    restartButton.BorderRadius = 15;
+                    restartButton.BorderThickness = 0;
+                    restartButton.Margin = new Padding(3, 0, 10, 16);
+                    restartButton.Size = new Size(100, 45);
+                    restartButton.Cursor = Cursors.Hand;
+                    restartButton.MouseDown += RestartButtonMouseDown;
                     filtersMenuTableLayoutPanel.Controls.Add(restartButton, 2, 0);
+                    controlsForLocalization.Add(restartButton);
 
-                    var applyButton = new Button();
-                    applyButton.BackColor = System.Drawing.Color.DeepSkyBlue;
-                    applyButton.ForeColor = SystemColors.ButtonHighlight;
-                    applyButton.Location = new Point(788, 208);
-                    applyButton.Margin = new Padding(4);
+                    var applyButton = new Guna2Button();
                     applyButton.Name = "applyButton";
-                    applyButton.Size = new Size(161, 44);
-                    applyButton.TabIndex = 8;
-                    applyButton.Text = "Применить";
-                    applyButton.UseVisualStyleBackColor = false;
-                    applyButton.Click += ClickOnApplyButton;
+                    applyButton.Text = languageResources.GetString(applyButton.Name);
+                    applyButton.Font = new Font(fontCollection.Families[0], 10);
+                    applyButton.FillColor = System.Drawing.Color.FromArgb(0, 166, 253);
+                    applyButton.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+                    applyButton.Anchor = AnchorStyles.Right | AnchorStyles.Left;
+                    applyButton.BorderRadius = 15;
+                    applyButton.BorderThickness = 0;
+                    applyButton.Margin = new Padding(3, 0, 10, 16);
+                    applyButton.Size = new Size(100, 45);
+                    applyButton.Cursor = Cursors.Hand;
+                    applyButton.MouseDown += ApplyButtonMouseDown;
                     filtersMenuTableLayoutPanel.Controls.Add(applyButton, 1, 0);
+                    controlsForLocalization.Add(applyButton);
                 }
                 else
                 {
+                    logger.Info("Пользователь выключил раздел \"Фильтры\"");
+
                     mainPageLabel.ForeColor = SystemColors.WindowText;
                     MainPageMouseDown();
-                }
-            }
-        }
-
-        private void AddNewProductButtonMouseDown(object sender, MouseEventArgs e)
-        {
-            using (var database = new DatabaseContext())
-            {
-                logger.Info("Успешное подключение к базе данных при добавлении товара");
-
-                var users = database.Users.Where(x => x.IsBusy == 1 && x.ID != currentUser.ID).FirstOrDefault();
-
-                if (users != null)
-                {
-                    logger.Warn("База данных, к которой пытается обращаться пользователь сейчас недоступна");
-
-                    MessageBox.Show(languageResources.GetString("databaseIsBusyContent"),
-                        languageResources.GetString("databaseIsBusyTitle"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-                var thisUser = database.Users.Where(user => user.ID == currentUser.ID).FirstOrDefault();
-
-                if (thisUser != null)
-                {
-                    logger.Info($"Пользователь с id {currentUser.ID} подключился к базе данных");
-
-                    thisUser.IsBusy = Convert.ToInt32(true);
-                    database.SaveChanges();
-                }
-
-                using (var newProductForm = new NewProductCreationForm(currentUser.ID, languageResources))
-                {
-                    newProductForm.ShowDialog();
-                }
-
-                if (thisUser != null)
-                {
-                    logger.Info($"Пользователь с id {currentUser.ID} отключился к базе данных");
-
-                    thisUser.IsBusy = Convert.ToInt32(false);
-                }
-
-                database.SaveChanges();
-            }
-        }
-
-        private void AddNewCollectionButtonMouseDown(object sender, MouseEventArgs e)
-        {
-            var myCollectionTableLayoutPanel = recomendationsTableLayoutPanel.Controls
-                ["myCollectionTableLayoutPanel"] as TableLayoutPanel;
-            if (myCollectionTableLayoutPanel != null)
-            {
-                var listflowlayoutpanel = myCollectionTableLayoutPanel.Controls
-                    ["listflowlayoutpanel"] as FlowLayoutPanel;
-
-                if (listflowlayoutpanel != null)
-                {
-                    using (var newCollectionCreationForm = new NewCollectionCreationForm(currentUser,
-                        languageResources, listflowlayoutpanel))
-                    {
-                        logger.Info("Успешное подключение к базе данных при добавлении новой подборки");
-
-                        newCollectionCreationForm.ShowDialog();
-                    }
                 }
             }
         }
@@ -528,14 +473,31 @@ namespace ZONOupdate.Forms.FormForMainWindow
 
             if (productsFlowLayoutPanel != null)
             {
-                foreach(var control in productsFlowLayoutPanel.Controls)
+                foreach (var control in productsFlowLayoutPanel.Controls)
                 {
                     var productControl = control as ProductControl;
 
-                    if (productControl != null) 
+                    if (productControl != null)
                     {
                         productControl.ChangeLanguage(languageResources);
                     }
+                }
+            }
+
+            var filtersMenuTableLayoutPanel = titleTableLayoutPanel
+                .Controls["filtersMenuTableLayoutPanel"] as TableLayoutPanel;
+
+            if (filtersMenuTableLayoutPanel != null)
+            {
+                var chooseProductTypeComboBox = filtersMenuTableLayoutPanel
+                    .Controls["chooseProductTypeComboBox"] as ComboBox;
+
+                if (chooseProductTypeComboBox != null)
+                {
+                    chooseProductTypeComboBox.Items.RemoveAt(0);
+                    chooseProductTypeComboBox.Items.Insert(0, languageResources
+                        .GetString(chooseProductTypeComboBox.Name));
+                    chooseProductTypeComboBox.SelectedIndex = 0;
                 }
             }
 
@@ -550,135 +512,136 @@ namespace ZONOupdate.Forms.FormForMainWindow
             logger.Info("Все элементы управления поменяли язык");
         }
 
-        
-
-        
-
-        private void ClickOnApplyButton(object sender, EventArgs e)
+        private void ApplyButtonMouseDown(object sender, MouseEventArgs e)
         {
-            try
+            logger.Info("Пользователь нажал на кнопку принять в разделе \"Фильтры\"");
+
+            var resultOfSelection = mainFormFunctional.SelectionOfRecommendations(currentUser.ID);
+
+            if (!resultOfSelection)
             {
-                using (var database = new DatabaseContext())
-                {
-                    if (database.LikedProducts.Where(product => product.ID == currentUser.ID).Count() <= 0)
-                    {
-                        MessageBox.Show("Пожалуйста, выберите больше товаров или загрузите новые нажав на кнопку \"Начать заново\"",
-                            "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                var selectionWarningMessageDialog = new Guna2MessageDialog();
+                selectionWarningMessageDialog.Buttons = MessageDialogButtons.OK;
+                selectionWarningMessageDialog.Icon = MessageDialogIcon.Warning;
+                selectionWarningMessageDialog.Style = MessageDialogStyle.Light;
+                selectionWarningMessageDialog.Parent = this;
+                selectionWarningMessageDialog.Caption = languageResources.GetString("selectionWarningTitle");
+                selectionWarningMessageDialog.Text = languageResources.GetString("selectionWarningContent");
+                selectionWarningMessageDialog.Show();
 
-                    var existingSetting = database.RecommendationSettings.Where(setting => setting.ID == currentUser.ID).FirstOrDefault();
-
-                    if (existingSetting != null)
-                    {
-                        database.RecommendationSettings.Remove(existingSetting);
-                        database.SaveChanges();
-                    }
-                    var likedProducts = database.LikedProducts.Where(product => product.ID == currentUser.ID).
-                        Select(product => product.RecommendationID).ToList();
-
-                    var years = new List<int>();
-                    var prices = new List<int>();
-                    var colors = new List<string>();
-                    var manufacturers = new List<string>();
-
-                    foreach (var likedproduct in likedProducts)
-                    {
-                        var product = database.Recommendations.Where(product => product.RecommendationId == likedproduct).FirstOrDefault();
-
-                        if (product != null)
-                        {
-                            years.Add(product.YearOfProduction);
-                            prices.Add(product.ProductPriceFrom);
-
-                            var color = database.Colors.Where(color => color.ColorID == product.ColorID)
-                                .Select(color => color.ColorName).FirstOrDefault();
-                            var manufacturer = database.Manufacturers.Where(manufacturer => manufacturer.ManufacturerID
-                            == product.ManufacturerID).Select(manufacturer => manufacturer.ManufacturerName).FirstOrDefault();
-
-                            if (color != null && manufacturer != null)
-                            {
-                                colors.Add(color);
-                                manufacturers.Add(manufacturer);
-                            }
-                        }
-                    }
-                    years.Sort();
-                    prices.Sort();
-
-                    string colorTemp = string.Empty;
-                    string manufacturerTemp = string.Empty;
-
-                    for (int i = 0; i < colors.Count; i++)
-                    {
-                        colorTemp += colors[i];
-                        manufacturerTemp += manufacturers[i];
-                        if (i != colors.Count - 1)
-                        {
-                            colorTemp += "/";
-                            manufacturerTemp += "/";
-                        }
-                    }
-
-                    var selectedTypeID = database.Recommendations.Where(product => product.RecommendationId == likedProducts.First())
-                        .Select(product => product.ProductTypeID).FirstOrDefault();
-
-                    var recommendationSetting = new RecommendationSetting()
-                    {
-                        RecommendationSettingID = Guid.NewGuid(),
-                        ID = currentUser.ID,
-                        MinPrice = prices.Min(),
-                        MaxPrice = prices.Max(),
-                        MinYear = years.Min(),
-                        MaxYear = years.Max(),
-                        SelectedColors = colorTemp,
-                        SelectedManufacturers = manufacturerTemp,
-                        SelectedTypeID = selectedTypeID
-                    };
-
-                    database.Add(recommendationSetting);
-                    database.SaveChanges();
-
-                    CleanLikedProducts();
-
-                    MessageBox.Show("Спасибо за выбор понравившихся товаров, мы учтем ваши предпочтения!", "Внимание!",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                return;
             }
-            catch (Exception ex)
+
+            mainPageLabel.ForeColor = SystemColors.WindowText;
+            MainPageMouseDown();
+        }
+
+        private void RestartButtonMouseDown(object sender, MouseEventArgs e)
+        {
+            logger.Info("Пользователь нажал на кнопку \"Начать заново\"");
+
+            var filtersMenuTableLayoutPanel = titleTableLayoutPanel
+                .Controls["filtersMenuTableLayoutPanel"] as TableLayoutPanel;
+
+            if (filtersMenuTableLayoutPanel != null)
             {
-                MessageBox.Show($"Возникла ошибка. Код ошибки: {ex}", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var chooseProductTypeComboBox = filtersMenuTableLayoutPanel
+                    .Controls["chooseProductTypeComboBox"] as ComboBox;
+
+                if (chooseProductTypeComboBox != null)
+                {
+                    recomendationsTableLayoutPanel.Controls.Clear();
+                    chooseProductTypeComboBox.SelectedIndex = 0;
+                }
             }
         }
 
-        public void CleanLikedProducts()
+        private void AddNewCollectionButtonMouseDown(object sender, MouseEventArgs e)
+        {
+            logger.Info("Пользователь нажал на кнопку \"Создать подборку\"");
+
+            var myCollectionTableLayoutPanel = recomendationsTableLayoutPanel.Controls
+                ["myCollectionTableLayoutPanel"] as TableLayoutPanel;
+
+            if (myCollectionTableLayoutPanel != null)
+            {
+                var listflowlayoutpanel = myCollectionTableLayoutPanel.Controls
+                    ["listflowlayoutpanel"] as FlowLayoutPanel;
+
+                if (listflowlayoutpanel != null)
+                {
+                    using (var newCollectionCreationForm = new NewCollectionCreationForm(currentUser,
+                        languageResources, listflowlayoutpanel))
+                    {
+                        newCollectionCreationForm.ShowDialog();
+                    }
+                }
+            }
+        }
+
+        private void AddNewProductButtonMouseDown(object sender, MouseEventArgs e)
         {
             using (var database = new DatabaseContext())
             {
-                var likedProducts = database.LikedProducts.Where(product => product.ID == currentUser.ID).ToList();
+                logger.Info("Успешное подключение к базе данных при добавлении товара");
 
-                foreach (var product in likedProducts)
+                var userWhoOccupiedTable = database.Users.Where(user => (user.IsBusy == 1)).FirstOrDefault();
+
+                if (userWhoOccupiedTable != null)
                 {
-                    database.LikedProducts.Remove(product);
+                    logger.Warn("База данных, к которой пытается обращаться пользователь" +
+                        "сейчас недоступна");
 
+                    var databaseIsBusyMessageDialog = new Guna2MessageDialog();
+                    databaseIsBusyMessageDialog.Buttons = MessageDialogButtons.OK;
+                    databaseIsBusyMessageDialog.Icon = MessageDialogIcon.Warning;
+                    databaseIsBusyMessageDialog.Style = MessageDialogStyle.Light;
+                    databaseIsBusyMessageDialog.Parent = this;
+                    databaseIsBusyMessageDialog.Caption = languageResources.GetString("databaseIsBusyTitle");
+                    databaseIsBusyMessageDialog.Text = languageResources.GetString("databaseIsBusyContent");
+                    databaseIsBusyMessageDialog.Show();
+
+                    return;
                 }
-                database.SaveChanges();
+
+                logger.Info($"Пользователь с id {currentUser.ID} подключился к базе данных");
+
+                var thisUser = database.Users.Where(user => user.ID == currentUser.ID).FirstOrDefault();
+
+                if (thisUser != null)
+                {
+                    thisUser.IsBusy = Convert.ToInt32(true);
+                    database.SaveChanges();
+
+                    using (var newProductForm = new NewProductCreationForm(currentUser.ID, languageResources))
+                    {
+                        newProductForm.ShowDialog();
+                    }
+
+                    logger.Info($"Пользователь с id {currentUser.ID} отключился от базы данных");
+
+                    thisUser.IsBusy = Convert.ToInt32(false);
+
+                    database.SaveChanges();
+                }
             }
         }
 
         private void ChangingIndexInChooseProductTypeComboBox(object sender, EventArgs e)
         {
-            var chooseProductTypeComboBox = sender as ComboBox;
+            logger.Info("Пользователь выбрал тип товара в разделе \"Фильтры\"");
+
+            var chooseProductTypeComboBox = sender as Guna2ComboBox;
 
             if (chooseProductTypeComboBox != null)
             {
+                recomendationsTableLayoutPanel.Controls.Clear();
 
                 if (chooseProductTypeComboBox.SelectedIndex <= 0)
                 {
                     return;
                 }
 
-                recomendationsTableLayoutPanel.Controls.Clear();
                 var productsFlowLayoutPanel = new FlowLayoutPanel();
                 productsFlowLayoutPanel.Name = "productsFlowTable";
                 productsFlowLayoutPanel.AutoScroll = true;
@@ -689,66 +652,24 @@ namespace ZONOupdate.Forms.FormForMainWindow
 
                 using (var database = new DatabaseContext())
                 {
-                    var productTypes = database.ProductTypes.AsEnumerable().Select(x => x.ProductTypeID).ToList();
+                    var productTypes = database.ProductTypes.OrderBy(product => product.ProductTypeName)
+                        .Select(product => product.ProductTypeID).ToArray();
                     var selectedTypeIndex = chooseProductTypeComboBox.SelectedIndex;
                     var selectedType = productTypes[selectedTypeIndex - 1];
 
-                    var products = database.Recommendations.Where(x => x.ProductTypeID == selectedType).ToList();
-                    var randomProducts = products.OrderBy(x => Guid.NewGuid()).Take(5).ToList();
+                    var products = database.Recommendations.Where(product => product
+                    .ProductTypeID == selectedType).ToList();
+                    var randomProducts = products.OrderBy(product => Guid.NewGuid()).Take(5).ToArray();
+                    var controlsForFilters = new List<ProductControl>();
 
                     foreach (var product in randomProducts)
                     {
                         var control = new ProductControl(product, currentUser.ID, languageResources);
                         control.MakeProductControlForFilters(productsFlowLayoutPanel.Width);
-                        productsFlowLayoutPanel.Controls.Add(control);
+                        controlsForFilters.Add(control);
                     }
-                }
-            }
-        }
 
-        private void ClickOnRestartButton(object sender, EventArgs e)
-        {
-            var filtersMenuTableLayoutPanel = titleTableLayoutPanel.Controls["filtersMenuTableLayoutPanel"] as TableLayoutPanel;
-
-            if (filtersMenuTableLayoutPanel != null)
-            {
-                var chooseProductTypeComboBox = filtersMenuTableLayoutPanel.Controls["chooseProductTypeComboBox"] as ComboBox;
-
-                if (chooseProductTypeComboBox != null)
-                {
-                    try
-                    {
-                        if (chooseProductTypeComboBox.SelectedIndex != 0)
-                        {
-                            productsFlowLayoutPanel.Controls.Clear();
-
-                            using (var database = new DatabaseContext())
-                            {
-                                var productTypes = database.ProductTypes.AsEnumerable().Select(x => x.ProductTypeID).ToList();
-                                var selectedTypeIndex = chooseProductTypeComboBox.SelectedIndex;
-                                var selectedType = productTypes[selectedTypeIndex - 1];
-
-                                var products = database.Recommendations.Where(x => x.ProductTypeID == selectedType).ToList();
-                                var randomProducts = products.OrderBy(x => Guid.NewGuid()).Take(5).ToList();
-
-                                foreach (var product in randomProducts)
-                                {
-                                    var control = new ProductControl(product, currentUser.ID, languageResources);
-                                    control.MakeProductControlForFilters(productsFlowLayoutPanel.Width);
-                                    productsFlowLayoutPanel.Controls.Add(control);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Для того чтобы начать заново, нужно выбрать тип товара!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Возникла ошибка. Код ошибки: {ex}", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        logger.Error($"При работе приложение произошла ошибка: {ex}");
-                    }
+                    productsFlowLayoutPanel.Controls.AddRange(controlsForFilters.ToArray());
                 }
             }
         }
