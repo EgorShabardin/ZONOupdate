@@ -68,6 +68,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Localization\LoginFormTAT.resx">
+      <CustomToolNamespace>ZONOupdate.Localization</CustomToolNamespace>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\EmailResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EmailResources.Designer.cs</LastGenOutput>

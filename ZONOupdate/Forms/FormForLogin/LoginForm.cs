@@ -255,6 +255,10 @@ namespace ZONOupdate.Forms.FormForLogin
             loginFormTableLayoutPanel.Controls.Add(loginWithAccountZONOLabel, 1, 2);
             loginFormTableLayoutPanel.Controls.Add(loginWithAccountVKLabel, 1, 3);
             loginFormTableLayoutPanel.Controls.Add(registrationLabel, 1, 4);
+
+            onScreenControls.AddRange([loginWithAccountZONOLabel, loginWithAccountVKLabel,
+                registrationLabel]);
+
         }
 
         private void ShowPasswordPictureBox(object sender, EventArgs e)
@@ -483,6 +487,8 @@ namespace ZONOupdate.Forms.FormForLogin
             selectLanguageComboBox.Items.AddRange(new string[] { localizationResources.GetString("RU"),
                 localizationResources.GetString("EN") });
             selectLanguageComboBox.SelectedItem = localizationResources.GetString("RU");
+
+            onScreenControls.AddRange([ loginWithAccountZONOLabel, loginWithAccountVKLabel, registrationLabel ]);
         }
         #endregion
     }

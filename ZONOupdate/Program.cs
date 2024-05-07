@@ -1,6 +1,6 @@
 ﻿using System.Resources;
 using ZONOupdate.Forms.FormForWelcomingUser;
-using ZONOupdate.Forms;
+using ZONOupdate.Forms.FormForMainWindow;
 using ZONOupdate.Forms.FormForLogin;
 
 namespace ZONOupdate
@@ -30,21 +30,21 @@ namespace ZONOupdate
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            //Application.Run(new MainForm(new Guid("7569C43C-7D55-4406-97AB-5BFE49DC4658"), (object)"Русский", new ResourceManager($"ZONOupdate.Localization.MainFormRU", typeof(MainForm).Assembly)));
+            Application.Run(new MainForm(new Guid("7569C43C-7D55-4406-97AB-5BFE49DC4658"), (object)"Русский", new ResourceManager($"ZONOupdate.Localization.MainFormRU", typeof(MainForm).Assembly)));
 
-            do
-            {
-                isEntryAllowed = false;
-                Application.Run(new LoginForm());
+            //do
+            //{
+            //    isEntryAllowed = false;
+            //    Application.Run(new LoginForm());
 
-                if (isEntryAllowed)
-                {
-                    Application.Run(new UserWelcomeForm(languageResources));
-                    isEntryAllowed = false;
-                    Application.Run(new MainForm(userID, languageName, languageResources));
-                }
-            }
-            while (isEntryAllowed);
+            //    if (isEntryAllowed)
+            //    {
+            //        Application.Run(new UserWelcomeForm(languageResources));
+            //        isEntryAllowed = false;
+            //        Application.Run(new MainForm(userID, languageName, languageResources));
+            //    }
+            //}
+            //while (isEntryAllowed);
         }
     }
 }

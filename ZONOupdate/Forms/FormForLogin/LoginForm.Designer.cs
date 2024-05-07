@@ -15,8 +15,8 @@
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             logoPictureBox = new PictureBox();
             loginFormTableLayoutPanel = new TableLayoutPanel();
             selectLanguageTableLayoutPanel = new TableLayoutPanel();
@@ -97,8 +97,9 @@
             // selectLanguageComboBox
             // 
             selectLanguageComboBox.BackColor = Color.Transparent;
+            selectLanguageComboBox.BorderThickness = 0;
             selectLanguageComboBox.Cursor = Cursors.Hand;
-            selectLanguageComboBox.CustomizableEdges = customizableEdges3;
+            selectLanguageComboBox.CustomizableEdges = customizableEdges1;
             selectLanguageComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             selectLanguageComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             selectLanguageComboBox.FillColor = SystemColors.ButtonFace;
@@ -110,10 +111,11 @@
             selectLanguageComboBox.Location = new Point(54, 1);
             selectLanguageComboBox.Margin = new Padding(0);
             selectLanguageComboBox.Name = "selectLanguageComboBox";
-            selectLanguageComboBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            selectLanguageComboBox.Size = new Size(163, 36);
+            selectLanguageComboBox.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            selectLanguageComboBox.Size = new Size(166, 36);
             selectLanguageComboBox.TabIndex = 0;
             selectLanguageComboBox.TabStop = false;
+            selectLanguageComboBox.TextAlign = HorizontalAlignment.Center;
             selectLanguageComboBox.SelectedIndexChanged += SelectLanguageComboBoxSelectedIndexChanged;
             // 
             // registrationLabel

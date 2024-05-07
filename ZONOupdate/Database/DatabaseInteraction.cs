@@ -1,6 +1,8 @@
 ﻿using ZONOupdate.EntityClasses;
 using System.Resources;
 using NLog;
+using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 
 namespace ZONOupdate.Database
 {
@@ -222,6 +224,29 @@ namespace ZONOupdate.Database
             {
 
                 return String.Empty;
+            }
+        }
+
+        public static RecommendationSetting? LoadingSearchSettings(Guid UserID)
+        {
+            using (var database = new DatabaseContext())
+            {
+                return database.RecommendationSettings.Where(setting => setting.ID == UserID).FirstOrDefault();
+            }
+        }
+
+        public static object[] LoadingDataFromTables(string fieldName)
+        {
+            using (var database = new DatabaseContext())
+            {
+                var tableWithData = database.GetType().GetProperty(fieldName);
+
+                if (tableWithData != null)
+                {
+                    return (tableWithData.GetValue(database) as DbSet<object>).ToArray();
+                }
+
+                return Array.Empty<object>();
             }
         }
 

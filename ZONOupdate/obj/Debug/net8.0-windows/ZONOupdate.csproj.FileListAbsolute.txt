@@ -130,7 +130,6 @@ D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.pdb
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.genruntimeconfig.cache
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ref\ZONOupdate.dll
-D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.MainForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.NewCollectionCreationForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.NewProductCreationForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.ProductCardForm.resources
@@ -207,3 +206,5 @@ D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\Microsoft.AspNetCore.Http.Features.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.ProjectControls.ControlForCollectionName.CollectionNameControl.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.ProjectControls.ProductControl.resources
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForMainWindow.MainForm.resources
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Localization.LoginFormTAT.resources
