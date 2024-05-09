@@ -23,7 +23,7 @@ namespace ZONOupdate.Forms.FormForLogin
         /// </summary>
         /// <param name="onScreenControls"> Элементы управления, расположенные на экране. </param>
         /// <returns> true - вход разрешен; false - вход запрещен. </returns>
-        public bool LoginWithAccountZONO(List<Control> onScreenControls)
+        internal bool LoginWithAccountZONO(List<Control> onScreenControls)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace ZONOupdate.Forms.FormForLogin
         /// </summary>
         /// <param name="onScreenControls"> Элементы управления, расположенные на экране. </param>
         /// <returns> true - вход разрешен; false - вход запрещен. </returns>
-        public bool LoginWithAccountVK(List<Control> onScreenControls)
+        internal bool LoginWithAccountVK(List<Control> onScreenControls)
         {
             try
             {
@@ -133,7 +133,7 @@ namespace ZONOupdate.Forms.FormForLogin
         /// </summary>
         /// <param name="onScreenControls"> Элементы управления, расположенные на экране. </param>
         /// <returns> true - вход разрешен; false - вход запрещен. </returns>
-        public bool RegistrationOnZONO(List<Control> onScreenControls) 
+        internal bool RegistrationOnZONO(List<Control> onScreenControls) 
         {
             try
             {

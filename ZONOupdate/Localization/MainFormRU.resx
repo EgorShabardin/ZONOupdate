@@ -156,6 +156,12 @@
   <data name="databaseIsBusyTitle" xml:space="preserve">
     <value>Внимание!</value>
   </data>
+  <data name="errorLoadingProductsContent" xml:space="preserve">
+    <value>Товары не могут быть загружены. Повторите попытку позже.</value>
+  </data>
+  <data name="errorLoadingProductsTitle" xml:space="preserve">
+    <value>Ошибка загрузки товаров</value>
+  </data>
   <data name="errorMessageSendingContent" xml:space="preserve">
     <value>Произошла ошибка. Сообщение не доставлено.</value>
   </data>
@@ -289,6 +295,9 @@
   </data>
   <data name="selectionWarningTitle" xml:space="preserve">
     <value>Внимание!</value>
+  </data>
+  <data name="selectionWithMatches" xml:space="preserve">
+    <value>Популярное</value>
   </data>
   <data name="successfulCollectionCreationContent" xml:space="preserve">
     <value>Коллекция успешно добавлена</value>

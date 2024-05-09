@@ -1,4 +1,5 @@
-﻿using ZONOupdate.ProjectControls;
+﻿using ZONOupdate.ProjectControls.ControlForCollectionName;
+using ZONOupdate.ProjectControls;
 using ZONOupdate.EntityClasses;
 using System.Drawing.Text;
 using ZONOupdate.Database;
@@ -25,12 +26,15 @@ namespace ZONOupdate.Forms.FormForMainWindow
         #endregion
 
         #region Методы
-        private void DeleteControlsFromTitleTableLayoutPanel()
+        private void DeleteControlsFromTableLayoutPanels()
         {
             for (int i = titleTableLayoutPanel.Controls.Count - 1; i > 0; i--)
             {
                 titleTableLayoutPanel.Controls[i].Dispose();
             }
+
+            recomendationsTableLayoutPanel.Controls.Clear();
+            controlsForLocalization.Clear();
         }
         #endregion
 
@@ -41,9 +45,7 @@ namespace ZONOupdate.Forms.FormForMainWindow
             {
                 logger.Info("Пользователь открыл раздел \"Главная страница\"");
 
-                controlsForLocalization.Clear();
-                DeleteControlsFromTitleTableLayoutPanel();
-                recomendationsTableLayoutPanel.Controls.Clear();
+                DeleteControlsFromTableLayoutPanels();
 
                 mainPageLabel.ForeColor = System.Drawing.Color.FromArgb(0, 139, 253);
                 myCollectionsLabel.ForeColor = SystemColors.WindowText;
@@ -102,11 +104,13 @@ namespace ZONOupdate.Forms.FormForMainWindow
                 titleTableLayoutPanel.Controls.Add(searchLineTextBox, 1, 1);
 
                 var productsFlowLayoutPanel = new FlowLayoutPanel();
-                productsFlowLayoutPanel.Name = "productsFlowTable";
-                productsFlowLayoutPanel.AutoScroll = true;
+                productsFlowLayoutPanel.Name = "productsFlowLayoutPanel";
                 productsFlowLayoutPanel.Dock = DockStyle.Fill;
                 productsFlowLayoutPanel.Margin = new Padding(0);
                 productsFlowLayoutPanel.Padding = new Padding(0);
+                productsFlowLayoutPanel.HorizontalScroll.Maximum = 0;
+                productsFlowLayoutPanel.HorizontalScroll.Visible = false;
+                productsFlowLayoutPanel.AutoScroll = true;
                 recomendationsTableLayoutPanel.Controls.Add(productsFlowLayoutPanel);
 
                 var existingSetting = DatabaseInteraction
@@ -114,14 +118,40 @@ namespace ZONOupdate.Forms.FormForMainWindow
 
                 if (existingSetting != null)
                 {
-                    mainFormFunctional.FillingMainPageLayoutPanelWithSetting(productsFlowLayoutPanel,
+                    var loadresult = mainFormFunctional.FillingMainPageLayoutPanelWithSetting(productsFlowLayoutPanel,
                         existingSetting, currentUser.ID, languageResources);
+
+                    if (!loadresult)
+                    {
+                        var exitWarningMessageDialog = new Guna2MessageDialog();
+                        exitWarningMessageDialog.Buttons = MessageDialogButtons.OK;
+                        exitWarningMessageDialog.Icon = MessageDialogIcon.Warning;
+                        exitWarningMessageDialog.Style = MessageDialogStyle.Light;
+                        exitWarningMessageDialog.Parent = this;
+                        exitWarningMessageDialog.Caption = languageResources.GetString("errorLoadingProductsTitle");
+                        exitWarningMessageDialog.Text = languageResources.GetString("errorLoadingProductsContent");
+
+                        logger.Error("Товары не загрузились в таблицу в разделе \"Главная страница\"");
+                    }
 
                     return;
                 }
 
-                mainFormFunctional.FillingMainPageLayoutPanel(productsFlowLayoutPanel,
+                var loadResult = mainFormFunctional.FillingMainPageLayoutPanel(productsFlowLayoutPanel,
                     currentUser.ID, languageResources);
+
+                if (!loadResult)
+                {
+                    var exitWarningMessageDialog = new Guna2MessageDialog();
+                    exitWarningMessageDialog.Buttons = MessageDialogButtons.OK;
+                    exitWarningMessageDialog.Icon = MessageDialogIcon.Warning;
+                    exitWarningMessageDialog.Style = MessageDialogStyle.Light;
+                    exitWarningMessageDialog.Parent = this;
+                    exitWarningMessageDialog.Caption = languageResources.GetString("errorLoadingProductsTitle");
+                    exitWarningMessageDialog.Text = languageResources.GetString("errorLoadingProductsContent");
+
+                    logger.Error("Товары не загрузились в таблицу в разделе \"Главная страница\"");
+                }
             }
         }
 
@@ -131,9 +161,7 @@ namespace ZONOupdate.Forms.FormForMainWindow
             {
                 logger.Info("Пользователь открыл раздел \"Мои подборки\"");
 
-                controlsForLocalization.Clear();
-                DeleteControlsFromTitleTableLayoutPanel();
-                recomendationsTableLayoutPanel.Controls.Clear();
+                DeleteControlsFromTableLayoutPanels();
 
                 myCollectionsLabel.ForeColor = System.Drawing.Color.FromArgb(0, 139, 253);
                 favoriteLabel.ForeColor = SystemColors.WindowText;
@@ -180,24 +208,41 @@ namespace ZONOupdate.Forms.FormForMainWindow
                 myCollectionTableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
                 recomendationsTableLayoutPanel.Controls.Add(myCollectionTableLayoutPanel);
 
+                var listFlowLayoutPanel = new FlowLayoutPanel();
+                listFlowLayoutPanel.Name = "listFlowLayoutPanel";
+                listFlowLayoutPanel.Dock = DockStyle.Fill;
+                listFlowLayoutPanel.Margin = new Padding(0);
+                listFlowLayoutPanel.Padding = new Padding(0);
+                listFlowLayoutPanel.HorizontalScroll.Maximum = 0;
+                listFlowLayoutPanel.HorizontalScroll.Visible = false;
+                listFlowLayoutPanel.AutoScroll = true;
+                myCollectionTableLayoutPanel.Controls.Add(listFlowLayoutPanel, 0, 0);
+
                 var productsFlowLayoutPanel = new FlowLayoutPanel();
-                productsFlowLayoutPanel.Name = "productsFlowTable";
-                productsFlowLayoutPanel.AutoScroll = true;
+                productsFlowLayoutPanel.Name = "productsFlowLayoutPanel";
                 productsFlowLayoutPanel.Dock = DockStyle.Fill;
                 productsFlowLayoutPanel.Margin = new Padding(0);
                 productsFlowLayoutPanel.Padding = new Padding(0);
+                productsFlowLayoutPanel.HorizontalScroll.Maximum = 0;
+                productsFlowLayoutPanel.HorizontalScroll.Visible = false;
+                productsFlowLayoutPanel.AutoScroll = true;
                 myCollectionTableLayoutPanel.Controls.Add(productsFlowLayoutPanel, 1, 0);
 
-                var listflowlayoutpanel = new FlowLayoutPanel();
-                listflowlayoutpanel.Name = "listflowlayoutpanel";
-                listflowlayoutpanel.AutoScroll = true;
-                listflowlayoutpanel.Dock = DockStyle.Fill;
-                listflowlayoutpanel.Margin = new Padding(0);
-                listflowlayoutpanel.Padding = new Padding(0);
-                myCollectionTableLayoutPanel.Controls.Add(listflowlayoutpanel, 0, 0);
-
-                mainFormFunctional.FillingListFlowLayoutPanel(listflowlayoutpanel,
+                var loadResult = mainFormFunctional.FillingListFlowLayoutPanel(listFlowLayoutPanel,
                     productsFlowLayoutPanel, currentUser, languageResources);
+
+                if (!loadResult)
+                {
+                    var exitWarningMessageDialog = new Guna2MessageDialog();
+                    exitWarningMessageDialog.Buttons = MessageDialogButtons.OK;
+                    exitWarningMessageDialog.Icon = MessageDialogIcon.Warning;
+                    exitWarningMessageDialog.Style = MessageDialogStyle.Light;
+                    exitWarningMessageDialog.Parent = this;
+                    exitWarningMessageDialog.Caption = languageResources.GetString("errorLoadingProductsTitle");
+                    exitWarningMessageDialog.Text = languageResources.GetString("errorLoadingProductsContent");
+
+                    logger.Error("Подборки не загрузились в таблицу в разделе \"Мои подборки\"");
+                }
             }
         }
 
@@ -207,9 +252,7 @@ namespace ZONOupdate.Forms.FormForMainWindow
             {
                 logger.Info("Пользователь открыл раздел \"Мои товары\"");
 
-                controlsForLocalization.Clear();
-                DeleteControlsFromTitleTableLayoutPanel();
-                recomendationsTableLayoutPanel.Controls.Clear();
+                DeleteControlsFromTableLayoutPanels();
 
                 myProductsLabel.ForeColor = System.Drawing.Color.FromArgb(0, 139, 253);
                 myCollectionsLabel.ForeColor = SystemColors.WindowText;
@@ -245,27 +288,40 @@ namespace ZONOupdate.Forms.FormForMainWindow
                 controlsForLocalization.Add(addNewProductButton);
 
                 var productsFlowLayoutPanel = new FlowLayoutPanel();
-                productsFlowLayoutPanel.Name = "productsFlowTable";
-                productsFlowLayoutPanel.AutoScroll = true;
+                productsFlowLayoutPanel.Name = "productsFlowLayoutPanel";
                 productsFlowLayoutPanel.Dock = DockStyle.Fill;
                 productsFlowLayoutPanel.Margin = new Padding(0);
                 productsFlowLayoutPanel.Padding = new Padding(0);
+                productsFlowLayoutPanel.HorizontalScroll.Maximum = 0;
+                productsFlowLayoutPanel.HorizontalScroll.Visible = false;
+                productsFlowLayoutPanel.AutoScroll = true;
                 recomendationsTableLayoutPanel.Controls.Add(productsFlowLayoutPanel);
 
-                mainFormFunctional.FillMyProductsLayoutPanel(productsFlowLayoutPanel,
+                var loadResult = mainFormFunctional.FillMyProductsLayoutPanel(productsFlowLayoutPanel,
                     currentUser.ID, languageResources);
+
+                if (!loadResult)
+                {
+                    var exitWarningMessageDialog = new Guna2MessageDialog();
+                    exitWarningMessageDialog.Buttons = MessageDialogButtons.OK;
+                    exitWarningMessageDialog.Icon = MessageDialogIcon.Warning;
+                    exitWarningMessageDialog.Style = MessageDialogStyle.Light;
+                    exitWarningMessageDialog.Parent = this;
+                    exitWarningMessageDialog.Caption = languageResources.GetString("errorLoadingProductsTitle");
+                    exitWarningMessageDialog.Text = languageResources.GetString("errorLoadingProductsContent");
+
+                    logger.Error("Товары не загрузились в таблицу в разделе \"Мои товары\"");
+                }
             }
         }
-
+        
         private void FavoritePageMouseDown(object sender, MouseEventArgs e)
         {
             if (favoriteLabel.ForeColor == SystemColors.WindowText)
             {
                 logger.Info("Пользователь открыл раздел \"Избранное\"");
 
-                controlsForLocalization.Clear();
-                DeleteControlsFromTitleTableLayoutPanel();
-                recomendationsTableLayoutPanel.Controls.Clear();
+                DeleteControlsFromTableLayoutPanels();
 
                 favoriteLabel.ForeColor = System.Drawing.Color.FromArgb(0, 139, 253);
                 myCollectionsLabel.ForeColor = SystemColors.WindowText;
@@ -285,15 +341,30 @@ namespace ZONOupdate.Forms.FormForMainWindow
                 controlsForLocalization.Add(favoritesTitleLabel);
 
                 var productsFlowLayoutPanel = new FlowLayoutPanel();
-                productsFlowLayoutPanel.Name = "productsFlowTable";
-                productsFlowLayoutPanel.AutoScroll = true;
+                productsFlowLayoutPanel.Name = "productsFlowLayoutPanel";
                 productsFlowLayoutPanel.Dock = DockStyle.Fill;
                 productsFlowLayoutPanel.Margin = new Padding(0);
                 productsFlowLayoutPanel.Padding = new Padding(0);
+                productsFlowLayoutPanel.HorizontalScroll.Maximum = 0;
+                productsFlowLayoutPanel.HorizontalScroll.Visible = false;
+                productsFlowLayoutPanel.AutoScroll = true;
                 recomendationsTableLayoutPanel.Controls.Add(productsFlowLayoutPanel);
 
-                mainFormFunctional.FillFavoritesLayoutPanel(productsFlowLayoutPanel,
+                var loadResult = mainFormFunctional.FillFavoritesLayoutPanel(productsFlowLayoutPanel,
                     currentUser.ID, languageResources);
+
+                if (!loadResult)
+                {
+                    var exitWarningMessageDialog = new Guna2MessageDialog();
+                    exitWarningMessageDialog.Buttons = MessageDialogButtons.OK;
+                    exitWarningMessageDialog.Icon = MessageDialogIcon.Warning;
+                    exitWarningMessageDialog.Style = MessageDialogStyle.Light;
+                    exitWarningMessageDialog.Parent = this;
+                    exitWarningMessageDialog.Caption = languageResources.GetString("errorLoadingProductsTitle");
+                    exitWarningMessageDialog.Text = languageResources.GetString("errorLoadingProductsContent");
+
+                    logger.Error("Товары не загрузились в таблицу в разделе \"Избранное\"");
+                }
             }
         }
 
@@ -323,7 +394,7 @@ namespace ZONOupdate.Forms.FormForMainWindow
         private void SearchPictureClick(object sender, EventArgs e)
         {
             var productsFlowLayoutPanel = recomendationsTableLayoutPanel.Controls
-                .Find("productsFlowTable", false).FirstOrDefault();
+                .Find("productsFlowLayoutPanel", false).FirstOrDefault();
             var searchTextBox = sender as Guna2TextBox;
 
             if ((searchTextBox != null) && (productsFlowLayoutPanel != null))
@@ -469,7 +540,7 @@ namespace ZONOupdate.Forms.FormForMainWindow
             }
 
             var productsFlowLayoutPanel = recomendationsTableLayoutPanel.Controls
-                .Find("productsFlowTable", false).FirstOrDefault() as FlowLayoutPanel;
+                .Find("productsFlowLayoutPanel", false).FirstOrDefault() as TableLayoutPanel;
 
             if (productsFlowLayoutPanel != null)
             {
@@ -561,12 +632,12 @@ namespace ZONOupdate.Forms.FormForMainWindow
             logger.Info("Пользователь нажал на кнопку \"Создать подборку\"");
 
             var myCollectionTableLayoutPanel = recomendationsTableLayoutPanel.Controls
-                ["myCollectionTableLayoutPanel"] as TableLayoutPanel;
+                ["myCollectionFlowLayoutPanel"] as FlowLayoutPanel;
 
             if (myCollectionTableLayoutPanel != null)
             {
                 var listflowlayoutpanel = myCollectionTableLayoutPanel.Controls
-                    ["listflowlayoutpanel"] as FlowLayoutPanel;
+                    ["listFlowLayoutPanel"] as FlowLayoutPanel;
 
                 if (listflowlayoutpanel != null)
                 {
@@ -643,7 +714,7 @@ namespace ZONOupdate.Forms.FormForMainWindow
                 }
 
                 var productsFlowLayoutPanel = new FlowLayoutPanel();
-                productsFlowLayoutPanel.Name = "productsFlowTable";
+                productsFlowLayoutPanel.Name = "productsFlowLayoutPanel";
                 productsFlowLayoutPanel.AutoScroll = true;
                 productsFlowLayoutPanel.Dock = DockStyle.Fill;
                 productsFlowLayoutPanel.Margin = new Padding(0);
@@ -670,6 +741,49 @@ namespace ZONOupdate.Forms.FormForMainWindow
                     }
 
                     productsFlowLayoutPanel.Controls.AddRange(controlsForFilters.ToArray());
+                }
+            }
+        }
+
+        private void MainFormResize(object sender, EventArgs e)
+        {
+            var productsFlowLayoutPanel = recomendationsTableLayoutPanel.Controls
+                .Find("productsFlowLayoutPanel", true).FirstOrDefault();
+
+            var listFlowLayoutPanel = recomendationsTableLayoutPanel.Controls
+                .Find("listFlowLayoutPanel", true).FirstOrDefault();
+
+            if (productsFlowLayoutPanel != null)
+            {
+                productsFlowLayoutPanel.Width = Width - menuBarTableLayoutPanel.Width;
+                recomendationsTableLayoutPanel.Width = Width - menuBarTableLayoutPanel.Width;
+
+                foreach (var product in productsFlowLayoutPanel.Controls)
+                {
+                    var productControl = product as ProductControl;
+
+                    if (productControl != null)
+                    {
+                        productControl.Width = Width - menuBarTableLayoutPanel.Width;
+                    }
+                }
+            }
+
+            if ((listFlowLayoutPanel != null) && (productsFlowLayoutPanel != null))
+            {
+                listFlowLayoutPanel.Width = Width - menuBarTableLayoutPanel.Width
+                    - productsFlowLayoutPanel.Width;
+                recomendationsTableLayoutPanel.Width = Width - menuBarTableLayoutPanel.Width;
+
+                foreach (var product in listFlowLayoutPanel.Controls)
+                {
+                    var productControl = product as CollectionNameControl;
+
+                    if (productControl != null)
+                    {
+                        productControl.Width = Width - menuBarTableLayoutPanel.Width
+                            - productsFlowLayoutPanel.Width;
+                    }
                 }
             }
         }

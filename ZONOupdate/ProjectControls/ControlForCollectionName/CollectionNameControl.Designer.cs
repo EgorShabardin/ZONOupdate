@@ -39,7 +39,6 @@ partial class CollectionNameControl
         collectionNameTableLayoutPanel.Size = new Size(200, 60);
         collectionNameTableLayoutPanel.TabIndex = 0;
         collectionNameTableLayoutPanel.TabStop = true;
-        collectionNameTableLayoutPanel.MouseDown += ClickOnCollectionControl;
         // 
         // collectionNameLabel
         // 
@@ -52,17 +51,16 @@ partial class CollectionNameControl
         collectionNameLabel.Size = new Size(145, 60);
         collectionNameLabel.TabIndex = 0;
         collectionNameLabel.TextAlign = ContentAlignment.MiddleLeft;
-        collectionNameLabel.MouseDown += ClickOnCollectionControl;
         // 
         // collectionSendToEmailPictureBox
         // 
+        collectionSendToEmailPictureBox.Anchor = AnchorStyles.Left;
         collectionSendToEmailPictureBox.Cursor = Cursors.Hand;
-        collectionSendToEmailPictureBox.Dock = DockStyle.Fill;
         collectionSendToEmailPictureBox.Image = Properties.Resources.sendByEmail;
-        collectionSendToEmailPictureBox.Location = new Point(170, 10);
-        collectionSendToEmailPictureBox.Margin = new Padding(10);
+        collectionSendToEmailPictureBox.Location = new Point(160, 10);
+        collectionSendToEmailPictureBox.Margin = new Padding(0);
         collectionSendToEmailPictureBox.Name = "collectionSendToEmailPictureBox";
-        collectionSendToEmailPictureBox.Size = new Size(20, 40);
+        collectionSendToEmailPictureBox.Size = new Size(30, 40);
         collectionSendToEmailPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
         collectionSendToEmailPictureBox.TabIndex = 1;
         collectionSendToEmailPictureBox.TabStop = false;
@@ -78,7 +76,6 @@ partial class CollectionNameControl
         Margin = new Padding(0);
         Name = "CollectionNameControl";
         Size = new Size(200, 60);
-        MouseDown += ClickOnCollectionControl;
         collectionNameTableLayoutPanel.ResumeLayout(false);
         collectionNameTableLayoutPanel.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)collectionSendToEmailPictureBox).EndInit();

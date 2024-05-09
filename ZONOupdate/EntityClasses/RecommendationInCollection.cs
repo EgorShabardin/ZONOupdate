@@ -10,5 +10,7 @@
         public Guid CollectionID { get; set; }
 
         public Guid RecommendationID { get; set; }
+
+        public Guid UserID { get; set; }
     }
 }

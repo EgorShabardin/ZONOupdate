@@ -347,13 +347,14 @@
             // 
             recomendationsTableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             recomendationsTableLayoutPanel.ColumnCount = 1;
-            recomendationsTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            recomendationsTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            recomendationsTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             recomendationsTableLayoutPanel.Dock = DockStyle.Fill;
             recomendationsTableLayoutPanel.Location = new Point(0, 171);
             recomendationsTableLayoutPanel.Margin = new Padding(0);
             recomendationsTableLayoutPanel.Name = "recomendationsTableLayoutPanel";
             recomendationsTableLayoutPanel.RowCount = 1;
-            recomendationsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            recomendationsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             recomendationsTableLayoutPanel.Size = new Size(1089, 780);
             recomendationsTableLayoutPanel.TabIndex = 0;
             recomendationsTableLayoutPanel.TabStop = true;
@@ -370,6 +371,7 @@
             Margin = new Padding(4);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
+            Resize += MainFormResize;
             mainFormTableLayoutPanel.ResumeLayout(false);
             menuBarTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)logoPictureBox).EndInit();

@@ -3,8 +3,8 @@ using ZONOupdate.Database;
 using System.Drawing.Text;
 using Guna.UI2.WinForms;
 using System.Resources;
-using NLog;
 using MimeKit;
+using NLog;
 
 namespace ZONOupdate.ProjectControls.ControlForCollectionName
 {
@@ -15,8 +15,9 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
     {
         #region Поля
         User currentUser;
-        UserCollection currentCollection;
+        UserCollection? currentCollection;
         ResourceManager languageResources;
+        List<Recommendation>? recommendations; 
         FlowLayoutPanel productsFlowLayoutPanel;
         Logger logger = LogManager.GetCurrentClassLogger();
         CollectionNameControlFunctional collectionNameControlFunctional;
@@ -30,7 +31,7 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
         /// <returns> Сформированное email сообщение. </returns>
         internal MimeMessage CreatingEmailMessage()
         {
-            logger.Info($"Формируется сообщение для подборки с id {currentCollection.CollectionID}");
+            logger.Info($"Формируется сообщение для отправки подборки на почту");
 
             var messageWithCollection = new MimeMessage();
             messageWithCollection.Subject = languageResources.GetString("messageSubject");
@@ -39,21 +40,38 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
             var htmlFileWithAppearanceOfRecomendation = Properties.Resources.htmlFileWithAppearanceOfRecomendation;
             var messageBody = new Multipart("alternative");
             var messagePart = new TextPart("html");
-            var recomendations = DatabaseInteraction.LoadRecomendationsFromCollection
-                (currentCollection.CollectionID);
 
-            messagePart.Text = htmlFileForSendingCollection.Replace("{collectionNameTitle}",
-                languageResources.GetString("collectionNameTitle")).Replace("{collectionName}",
-                currentCollection.CollectionName);
+            var recomendationsInCollection = new List<Recommendation>();
 
-            foreach (var recomendation in recomendations)
+            if (currentCollection != null)
             {
-                messagePart.Text += htmlFileWithAppearanceOfRecomendation.Replace("{recomendationName}",
-                    recomendation.RecommendationName).Replace("{recomendationMark}", recomendation.RecommendationMark
-                    .ToString()).Replace("{recomendationDescription}", recomendation.RecommendationDescription)
-                    .Replace("{recomendationPrice}", recomendation.ProductPriceFrom.ToString()).Replace("{recomendationPriceTitle}",
-                    languageResources.GetString("productPriceLabel")).Replace("{recomedationMarkTitle}", languageResources
-                    .GetString("productMarkLabel"));
+                recomendationsInCollection = DatabaseInteraction.LoadRecomendationsFromCollection
+                    (currentCollection.CollectionID).ToList();
+
+                messagePart.Text = htmlFileForSendingCollection.Replace("{collectionNameTitle}",
+                    languageResources.GetString("collectionNameTitle")).Replace("{collectionName}",
+                    currentCollection.CollectionName);
+            }
+            else
+            {
+                recomendationsInCollection = recommendations;
+
+                messagePart.Text = htmlFileForSendingCollection.Replace("{collectionNameTitle}",
+                    languageResources.GetString("collectionNameTitle")).Replace("{collectionName}",
+                    languageResources.GetString("selectionWithMatches"));
+            }
+
+            if (recomendationsInCollection != null)
+            {
+                foreach (var recomendation in recomendationsInCollection)
+                {
+                    messagePart.Text += htmlFileWithAppearanceOfRecomendation.Replace("{recomendationName}",
+                        recomendation.RecommendationName).Replace("{recomendationMark}", recomendation.RecommendationMark
+                        .ToString()).Replace("{recomendationDescription}", recomendation.RecommendationDescription)
+                        .Replace("{recomendationPrice}", recomendation.ProductPriceFrom.ToString()).Replace("{recomendationPriceTitle}",
+                        languageResources.GetString("productPriceLabel")).Replace("{recomedationMarkTitle}", languageResources
+                        .GetString("productMarkLabel"));
+                }
             }
 
             messagePart.Text += "</div></body></html>";
@@ -67,20 +85,48 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
         #region События
         private void ClickOnCollectionControl(object sender, MouseEventArgs e)
         {
-            logger.Debug($"Пользователь нажал на подборку с id {currentCollection.CollectionID}");
+            if (currentCollection != null)
+            {
+                logger.Debug($"Пользователь нажал на подборку с id {currentCollection.CollectionID}");
+
+                productsFlowLayoutPanel.Controls.Clear();
+
+                var recomendationsInCollection = DatabaseInteraction.LoadRecomendationsFromCollection
+                    (currentCollection.CollectionID);
+                var productControls = new List<ProductControl>();
+
+                foreach (var recommendation in recomendationsInCollection)
+                {
+                    var productControl = new ProductControl(recommendation, currentUser.ID,
+                        languageResources);
+
+                    productControl.MakeProductControlForMyCollections(productsFlowLayoutPanel.Width);
+                    productControls.Add(productControl);
+                }
+
+                productsFlowLayoutPanel.Controls.AddRange(productControls.ToArray());
+            }
+        }
+
+        private void ClickOnSelectionWithMatches(object sender, MouseEventArgs e)
+        {
+            logger.Debug($"Пользователь нажал на подборку с популярными товарами");
 
             productsFlowLayoutPanel.Controls.Clear();
 
-            var recomendationsInCollection = DatabaseInteraction.LoadRecomendationsFromCollection
-                (currentCollection.CollectionID);
-
-            foreach (var recommendation in recomendationsInCollection)
+            if (recommendations != null)
             {
-                var productControl = new ProductControl(recommendation, currentUser.ID,
-                    languageResources);
+                var productControls = new List<ProductControl>();
 
-                productControl.MakeProductControlForMyCollections(productsFlowLayoutPanel.Width);
-                productsFlowLayoutPanel.Controls.Add(productControl);
+                foreach (var recommendation in recommendations)
+                {
+                    var productControl = new ProductControl(recommendation, currentUser.ID,
+                        languageResources);
+
+                    productControls.Add(productControl);
+                }
+
+                productsFlowLayoutPanel.Controls.AddRange(productControls.ToArray());
             }
         }
 
@@ -121,7 +167,7 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
         public CollectionNameControl(User currentUser, UserCollection currentCollection,
             FlowLayoutPanel productsFlowLayoutPanel, ResourceManager languageResources, int controlWidth)
         {
-            logger.Info($"Создан элемент управления для отображения названия коллекции" +
+            logger.Info($"Создан элемент управления для отображения подборки" +
                 $"с id {currentCollection.ID}");
 
             fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
@@ -135,6 +181,29 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
             Width = controlWidth;
             collectionNameLabel.Text = currentCollection.CollectionName;
             collectionNameLabel.Font = new Font(fontCollection.Families[0], 14);
+            collectionNameTableLayoutPanel.MouseDown += ClickOnCollectionControl;
+            collectionNameLabel.MouseDown += ClickOnCollectionControl;
+        }
+
+        public CollectionNameControl(User currentUser, FlowLayoutPanel productsFlowLayoutPanel, 
+            ResourceManager languageResources, List<Recommendation> recommendations, int controlWidth)
+        {
+            logger.Info($"Создан элемент управления для отображения подборки с " +
+                $"популярными товарами");
+
+            fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
+            this.productsFlowLayoutPanel = productsFlowLayoutPanel;
+            this.languageResources = languageResources;
+            this.currentUser = currentUser;
+            this.recommendations = recommendations;
+            collectionNameControlFunctional = new CollectionNameControlFunctional(this);
+            InitializeComponent();
+
+            Width = controlWidth;
+            collectionNameLabel.Text = languageResources.GetString("selectionWithMatches");
+            collectionNameLabel.Font = new Font(fontCollection.Families[0], 14);
+            collectionNameTableLayoutPanel.MouseDown += ClickOnSelectionWithMatches;
+            collectionNameLabel.MouseDown += ClickOnSelectionWithMatches;
         }
         #endregion
     }

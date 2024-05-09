@@ -102,19 +102,26 @@ namespace ZONOupdate.Database
                 {
                     logger.Info("Успешное подключение к базе данных при попытке регистрации");
 
-                    var newUser = new User
+                    var user = database.Users.Where(user => user.Login == login).FirstOrDefault();
+
+                    if (user == null)
                     {
-                        Login = login,
-                        Password = DataEncryption.HashingData(password),
-                        InternalAccount = Convert.ToInt32(true)
-                    };
+                        var newUser = new User
+                        {
+                            Login = login,
+                            Password = DataEncryption.HashingData(password),
+                            InternalAccount = Convert.ToInt32(true)
+                        };
 
-                    database.Users.Add(newUser);
-                    database.SaveChanges();
+                        database.Users.Add(newUser);
+                        database.SaveChanges();
 
-                    logger.Info($"Пользователь с id {newUser.ID} успешно зарегистрирован");
+                        logger.Info($"Пользователь с id {newUser.ID} успешно зарегистрирован");
 
-                    return true;
+                        return true;
+                    }
+
+                    return false;
                 }
             }
             catch (Exception ex)
@@ -139,7 +146,7 @@ namespace ZONOupdate.Database
                         "пользователя зашедшего со стороннего приложения");
 
                     var user = database.Users.Where(user => user.Login == login)
-                        .Where(user => (user.InternalAccount == 0)).FirstOrDefault();
+                        .Where(user => user.InternalAccount == Convert.ToInt32(false)).FirstOrDefault();
 
                     if (user != null) 
                     {
@@ -154,10 +161,11 @@ namespace ZONOupdate.Database
                         InternalAccount = Convert.ToInt32(false)
                     };
 
-                    Program.SetLoginInformation(true, newUser.ID);
 
                     database.Users.Add(newUser);
                     database.SaveChanges();
+
+                    Program.SetLoginInformation(true, newUser.ID);
 
                     logger.Info($"Пользователь с id {newUser.ID} успешно зарегистрирован");
 
@@ -487,7 +495,8 @@ namespace ZONOupdate.Database
                     {
                         RecommendationInCollectionsID = Guid.NewGuid(),
                         RecommendationID = recommendationID,
-                        CollectionID = collectionID                    
+                        CollectionID = collectionID,    
+                        UserID = userID
                     };
 
                     logger.Debug($"Товар с id {recommendationID} успешно добавлен в подборку с id {collectionID}");

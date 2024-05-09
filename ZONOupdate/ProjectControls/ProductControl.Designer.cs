@@ -97,6 +97,9 @@
             // 
             // ProductControl
             // 
+            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(178, 242, 196);
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(productControlTableLayoutPanel);
