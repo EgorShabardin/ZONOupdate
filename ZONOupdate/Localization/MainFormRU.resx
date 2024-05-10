@@ -150,6 +150,12 @@
   <data name="collectionNameTitle" xml:space="preserve">
     <value>Подборка</value>
   </data>
+  <data name="collectionNotCreatedContent" xml:space="preserve">
+    <value>Подборка не создалась</value>
+  </data>
+  <data name="collectionNotCreatedTitle" xml:space="preserve">
+    <value>Подборка не создается</value>
+  </data>
   <data name="databaseIsBusyContent" xml:space="preserve">
     <value>База данных в данный момент используется другим пользователем, попробуйте позже</value>
   </data>

@@ -212,6 +212,34 @@ namespace ZONOupdate.Database
             }
         }
 
+        public static UserCollection? AddNewCollection(Guid userID, string collectionName)
+        {
+            try
+            {
+                using (var database = new DatabaseContext())
+                {
+                    var newCollection = new UserCollection()
+                    {
+                        CollectionID = Guid.NewGuid(),
+                        ID = userID,
+                        CollectionName = collectionName
+                    };
+
+                    logger.Info($"Добавлена новая подборка \"{collectionName}\"");
+
+                    database.UserCollections.Add(newCollection);
+                    database.SaveChanges();
+
+                    return newCollection;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
+
         public static string LoadUserEmail(Guid UserID)
         {
             try

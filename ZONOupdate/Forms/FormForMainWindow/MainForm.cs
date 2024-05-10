@@ -1,4 +1,5 @@
 ﻿using ZONOupdate.ProjectControls.ControlForCollectionName;
+using ZONOupdate.FormForCreationNewCollection;
 using ZONOupdate.ProjectControls;
 using ZONOupdate.EntityClasses;
 using System.Drawing.Text;
@@ -632,17 +633,20 @@ namespace ZONOupdate.Forms.FormForMainWindow
             logger.Info("Пользователь нажал на кнопку \"Создать подборку\"");
 
             var myCollectionTableLayoutPanel = recomendationsTableLayoutPanel.Controls
-                ["myCollectionFlowLayoutPanel"] as FlowLayoutPanel;
+                ["myCollectionTableLayoutPanel"] as TableLayoutPanel;
 
             if (myCollectionTableLayoutPanel != null)
             {
                 var listflowlayoutpanel = myCollectionTableLayoutPanel.Controls
                     ["listFlowLayoutPanel"] as FlowLayoutPanel;
 
-                if (listflowlayoutpanel != null)
+                var productsFlowLayoutPanel = myCollectionTableLayoutPanel.Controls
+                    ["productsFlowLayoutPanel"] as FlowLayoutPanel;
+
+                if ((listflowlayoutpanel != null) && (productsFlowLayoutPanel != null))
                 {
                     using (var newCollectionCreationForm = new NewCollectionCreationForm(currentUser,
-                        languageResources, listflowlayoutpanel))
+                        productsFlowLayoutPanel, languageResources, listflowlayoutpanel))
                     {
                         newCollectionCreationForm.ShowDialog();
                     }
