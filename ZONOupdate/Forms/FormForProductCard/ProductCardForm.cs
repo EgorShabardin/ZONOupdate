@@ -1,19 +1,21 @@
 ﻿using ZONOupdate.FunctionalClasses;
+using ZONOupdate.ProjectControls;
 using ZONOupdate.EntityClasses;
 using ZONOupdate.Database;
 using System.Drawing.Text;
 using System.Resources;
 using NLog;
 
-namespace ZONOupdate.Forms
+namespace ZONOupdate.FormForProductCard
 {
     /// <summary>
-    /// Форма для карточки товара с возможностью проставления оценки
+    /// Форма для отображения карточки товара с возможностью проставления оценки.
     /// </summary>
     public partial class ProductCardForm : Form
     {
         #region Поля
         Guid userID;
+        ProductControl productControl;
         Recommendation selectedProduct;
         ResourceManager languageResources;
         Logger logger = LogManager.GetCurrentClassLogger();
@@ -21,7 +23,7 @@ namespace ZONOupdate.Forms
         #endregion
 
         #region События
-        private void ClickOnSaveMarkButton(object sender, EventArgs e)
+        private void SaveMarkButtonMouseDown(object sender, MouseEventArgs e)
         {
             logger.Info("Пользователь нажал на кнопку \"Сохранить\" в карточке товара");
 
@@ -39,25 +41,55 @@ namespace ZONOupdate.Forms
 
                             DatabaseInteraction.AddNewMark(userID, selectedProduct.RecommendationId, mark);
 
-                            MessageBox.Show(languageResources.GetString("markSavedSuccessfullyContent"), languageResources
-                                .GetString("markSavedSuccessfullyTitle"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            var productMarkLabel = productControl.Controls.Find("productMarkLabel", true)
+                                .FirstOrDefault() as Label;
+
+                            if (productMarkLabel != null)
+                            {
+                                productMarkLabel.Text = $"{languageResources.GetString(productMarkLabel.Name)}: " +
+                                $"{DatabaseInteraction.CountProductRating(selectedProduct.RecommendationId)} / 5";
+                            }
 
                             Close();
                         }
                     }
+                }
+            }
+        }
 
+        private void ProductCardFormLoad(object sender, EventArgs e)
+        {
+            var formAppearanceTimer = new System.Windows.Forms.Timer();
+            formAppearanceTimer.Interval = 60;
+            formAppearanceTimer.Tick += FormAppearanceTimerTick;
+            formAppearanceTimer.Start();
+        }
+
+        private void FormAppearanceTimerTick(object sender, EventArgs e)
+        {
+            Opacity += 0.1;
+
+            if (Opacity == 1)
+            {
+                var formAppearanceTimer = sender as System.Windows.Forms.Timer;
+
+                if (formAppearanceTimer != null)
+                {
+                    formAppearanceTimer.Stop();
                 }
             }
         }
         #endregion
 
         #region Конструкторы
-        public ProductCardForm(Recommendation selectedProduct, Guid userID, ResourceManager languageResources)
+        public ProductCardForm(Recommendation selectedProduct,
+            Guid userID, ResourceManager languageResources, ProductControl productControl)
         {
             logger.Info("Открылась форма \"Карточка товара\"");
 
             fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
             this.languageResources = languageResources;
+            this.productControl = productControl;
             this.selectedProduct = selectedProduct;
             this.userID = userID;
             InitializeComponent();

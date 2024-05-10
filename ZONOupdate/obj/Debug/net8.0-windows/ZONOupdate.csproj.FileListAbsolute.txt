@@ -131,7 +131,6 @@ D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.genruntimeconfig.cache
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ref\ZONOupdate.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.NewProductCreationForm.resources
-D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.ProductCardForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\HtmlAgilityPack.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\VkNet.dll
@@ -208,3 +207,4 @@ D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForMainWindow.MainForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Localization.LoginFormTAT.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.FormForCreationNewCollection.NewCollectionCreationForm.resources
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.FormForProductCard.ProductCardForm.resources

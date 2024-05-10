@@ -2,7 +2,7 @@
 using ZONOupdate.FunctionalClasses;
 using ZONOupdate.Database;
 using System.Drawing.Text;
-using ZONOupdate.Forms;
+using ZONOupdate.FormForProductCard;
 using System.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.ApplicationServices;
@@ -272,10 +272,8 @@ namespace ZONOupdate.ProjectControls
 
         private void ProductControlTableLayoutPanelDoubleClick(object sender, EventArgs e)
         {
-            using (var productCardForm = new ProductCardForm(currentProduct, userID, languageResources))
-            {
-                productCardForm.ShowDialog();
-            }
+            var productCardForm = new ProductCardForm(currentProduct, userID, languageResources, this);
+            productCardForm.Show();
         }
         #endregion
 
