@@ -40,7 +40,7 @@
             logoPictureBox.Size = new Size(414, 383);
             logoPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             logoPictureBox.TabIndex = 0;
-            logoPictureBox.TabStop = false;
+            logoPictureBox.TabStop = true;
             // 
             // loginFormTableLayoutPanel
             // 
@@ -92,7 +92,7 @@
             flagPictureBox.Size = new Size(46, 31);
             flagPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             flagPictureBox.TabIndex = 0;
-            flagPictureBox.TabStop = false;
+            flagPictureBox.TabStop = true;
             // 
             // selectLanguageComboBox
             // 
@@ -114,7 +114,7 @@
             selectLanguageComboBox.ShadowDecoration.CustomizableEdges = customizableEdges2;
             selectLanguageComboBox.Size = new Size(166, 36);
             selectLanguageComboBox.TabIndex = 0;
-            selectLanguageComboBox.TabStop = false;
+            selectLanguageComboBox.TabStop = true;
             selectLanguageComboBox.TextAlign = HorizontalAlignment.Center;
             selectLanguageComboBox.SelectedIndexChanged += SelectLanguageComboBoxSelectedIndexChanged;
             // 

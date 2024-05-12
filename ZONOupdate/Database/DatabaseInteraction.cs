@@ -110,6 +110,7 @@ namespace ZONOupdate.Database
                         {
                             Login = login,
                             Password = DataEncryption.HashingData(password),
+                            IsBusy = Convert.ToInt32(false),
                             InternalAccount = Convert.ToInt32(true)
                         };
 
@@ -136,7 +137,7 @@ namespace ZONOupdate.Database
         /// Метод, регистрирующий пользователя, зашедшего со стороннего сервиса, в приложении.
         /// </summary>
         /// <param name="login"> Логин. </param>
-        public static void RegistrationWithLoginFromThirdPartyApplication(string login)
+        public static bool RegistrationWithLoginFromThirdPartyApplication(string login)
         {
             try
             {
@@ -152,12 +153,14 @@ namespace ZONOupdate.Database
                     {
                         Program.SetLoginInformation(true, user.ID);
 
-                        return;
+                        return true;
                     }
 
                     var newUser = new User
                     {
                         Login = login,
+                        Password = String.Empty,
+                        IsBusy = Convert.ToInt32(false),
                         InternalAccount = Convert.ToInt32(false)
                     };
 
@@ -169,11 +172,14 @@ namespace ZONOupdate.Database
 
                     logger.Info($"Пользователь с id {newUser.ID} успешно зарегистрирован");
 
+                    return true;
                 }
             }
             catch (Exception ex)
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
+
+                return false;
             }
         }
         #endregion
@@ -313,7 +319,7 @@ namespace ZONOupdate.Database
                 {
                     logger.Info("Успешное подключение к базе данных при поиске пользователя по id");
 
-                    var user = database.Users.Find(userID);
+                    var user = database.Users.Where(userR => userR.ID == userID).FirstOrDefault();
 
                     return user != null ? user : null!;
                 }
@@ -321,9 +327,6 @@ namespace ZONOupdate.Database
             catch (Exception ex)
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
-
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return null!;
             }
@@ -356,6 +359,36 @@ namespace ZONOupdate.Database
                     languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return false;
+            }
+        }
+
+        public static string IsProductInCollection(Guid RecommendationID, Guid ID)
+        {
+            try
+            {
+                using (var database = new DatabaseContext())
+                {
+                    logger.Info("Успешное подключение к базе данных при поиске избранных товаров");
+
+                    var collection = database.RecommendationInCollections.Where(recomendation =>
+                    recomendation.RecommendationID == RecommendationID && recomendation.UserID == ID).FirstOrDefault();
+
+                    if (collection != null)
+                    {
+                        return database.UserCollections.Where(collection => collection.CollectionID == collection.CollectionID).Select(collection => collection.CollectionName).First();
+                    }
+
+                    return String.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"При работе приложение произошла ошибка: {ex}");
+
+                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
+                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return String.Empty;
             }
         }
 

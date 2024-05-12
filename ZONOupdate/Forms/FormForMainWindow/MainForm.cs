@@ -1,6 +1,7 @@
-﻿using ZONOupdate.ProjectControls.ControlForCollectionName;
+﻿using ZONOupdate.ProjectControls.ControlForDisplayingProduct;
+using ZONOupdate.ProjectControls.ControlForCollectionName;
 using ZONOupdate.FormForCreationNewCollection;
-using ZONOupdate.ProjectControls;
+using ZONOupdate.FormForCreationNewProduct;
 using ZONOupdate.EntityClasses;
 using System.Drawing.Text;
 using ZONOupdate.Database;
@@ -719,10 +720,12 @@ namespace ZONOupdate.Forms.FormForMainWindow
 
                 var productsFlowLayoutPanel = new FlowLayoutPanel();
                 productsFlowLayoutPanel.Name = "productsFlowLayoutPanel";
-                productsFlowLayoutPanel.AutoScroll = true;
                 productsFlowLayoutPanel.Dock = DockStyle.Fill;
                 productsFlowLayoutPanel.Margin = new Padding(0);
                 productsFlowLayoutPanel.Padding = new Padding(0);
+                productsFlowLayoutPanel.HorizontalScroll.Maximum = 0;
+                productsFlowLayoutPanel.HorizontalScroll.Visible = false;
+                productsFlowLayoutPanel.AutoScroll = true;
                 recomendationsTableLayoutPanel.Controls.Add(productsFlowLayoutPanel);
 
                 using (var database = new DatabaseContext())
@@ -746,6 +749,26 @@ namespace ZONOupdate.Forms.FormForMainWindow
 
                     productsFlowLayoutPanel.Controls.AddRange(controlsForFilters.ToArray());
                 }
+            }
+        }
+
+        private void LoginOrRegistrationLabelsMouseMove(object sender, MouseEventArgs e)
+        {
+            var loginOrRegistrationLabel = sender as Label;
+
+            if (loginOrRegistrationLabel != null)
+            {
+                loginOrRegistrationLabel.ForeColor = System.Drawing.Color.FromArgb(0, 71, 255);
+            }
+        }
+
+        private void LoginOrRegistrationLabelsMouseLeave(object sender, EventArgs e)
+        {
+            var loginOrRegistrationLabel = sender as Label;
+
+            if (loginOrRegistrationLabel != null)
+            {
+                loginOrRegistrationLabel.ForeColor = System.Drawing.Color.FromArgb(0, 167, 255);
             }
         }
 

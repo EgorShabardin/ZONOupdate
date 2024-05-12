@@ -49,6 +49,18 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "Bunifu.UI.WinForms": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "DevExpress.Data": {
+              "target": "Package",
+              "version": "[24.1.1-alpha-24085, )"
+            },
+            "DevExpress.Win.WinterJoySkin": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
             "Guna.UI2.WinForms": {
               "target": "Package",
               "version": "[2.0.4.6, )"
@@ -56,6 +68,14 @@
             "MailKit": {
               "target": "Package",
               "version": "[4.5.0, )"
+            },
+            "MaterialSkin": {
+              "target": "Package",
+              "version": "[0.2.1, )"
+            },
+            "MaterialSkin.2": {
+              "target": "Package",
+              "version": "[2.3.1, )"
             },
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",

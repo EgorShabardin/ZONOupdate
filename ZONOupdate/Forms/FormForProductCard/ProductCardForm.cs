@@ -1,5 +1,5 @@
-﻿using ZONOupdate.FunctionalClasses;
-using ZONOupdate.ProjectControls;
+﻿using ZONOupdate.ProjectControls.ControlForDisplayingProduct;
+using ZONOupdate.FunctionalClasses;
 using ZONOupdate.EntityClasses;
 using ZONOupdate.Database;
 using System.Drawing.Text;

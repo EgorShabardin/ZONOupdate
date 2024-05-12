@@ -17,7 +17,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserWelcomeForm));
             userWelcomeTableLayoutPanel = new TableLayoutPanel();
             userWelcomePictureBox = new PictureBox();
             userWelcomeLabel = new Label();
@@ -39,8 +38,8 @@
             userWelcomeTableLayoutPanel.Margin = new Padding(0);
             userWelcomeTableLayoutPanel.Name = "userWelcomeTableLayoutPanel";
             userWelcomeTableLayoutPanel.RowCount = 2;
-            userWelcomeTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
-            userWelcomeTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
+            userWelcomeTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 75F));
+            userWelcomeTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             userWelcomeTableLayoutPanel.Size = new Size(800, 500);
             userWelcomeTableLayoutPanel.TabIndex = 0;
             userWelcomeTableLayoutPanel.TabStop = true;
@@ -49,23 +48,23 @@
             // 
             userWelcomePictureBox.Dock = DockStyle.Fill;
             userWelcomePictureBox.Image = Properties.Resources.logo;
-            userWelcomePictureBox.Location = new Point(123, 30);
-            userWelcomePictureBox.Margin = new Padding(3, 30, 3, 3);
+            userWelcomePictureBox.Location = new Point(123, 35);
+            userWelcomePictureBox.Margin = new Padding(3, 35, 3, 3);
             userWelcomePictureBox.Name = "userWelcomePictureBox";
-            userWelcomePictureBox.Size = new Size(554, 317);
+            userWelcomePictureBox.Size = new Size(554, 337);
             userWelcomePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             userWelcomePictureBox.TabIndex = 0;
-            userWelcomePictureBox.TabStop = false;
+            userWelcomePictureBox.TabStop = true;
             // 
             // userWelcomeLabel
             // 
             userWelcomeLabel.AutoSize = true;
             userWelcomeTableLayoutPanel.SetColumnSpan(userWelcomeLabel, 3);
             userWelcomeLabel.Dock = DockStyle.Fill;
-            userWelcomeLabel.Location = new Point(0, 350);
+            userWelcomeLabel.Location = new Point(0, 375);
             userWelcomeLabel.Margin = new Padding(0);
             userWelcomeLabel.Name = "userWelcomeLabel";
-            userWelcomeLabel.Size = new Size(800, 150);
+            userWelcomeLabel.Size = new Size(800, 125);
             userWelcomeLabel.TabIndex = 0;
             userWelcomeLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 

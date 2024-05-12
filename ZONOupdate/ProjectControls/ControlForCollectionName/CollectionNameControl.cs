@@ -1,4 +1,5 @@
-﻿using ZONOupdate.EntityClasses;
+﻿using ZONOupdate.ProjectControls.ControlForDisplayingProduct;
+using ZONOupdate.EntityClasses;
 using ZONOupdate.Database;
 using System.Drawing.Text;
 using Guna.UI2.WinForms;

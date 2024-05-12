@@ -1,5 +1,5 @@
-﻿using ZONOupdate.ProjectControls.ControlForCollectionName;
-using ZONOupdate.ProjectControls;
+﻿using ZONOupdate.ProjectControls.ControlForDisplayingProduct;
+using ZONOupdate.ProjectControls.ControlForCollectionName;
 using ZONOupdate.EntityClasses;
 using ZONOupdate.Database;
 using System.Resources;

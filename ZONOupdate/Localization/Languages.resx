@@ -125,4 +125,7 @@
     <value>Русский</value>
     <comment>Название русского языка в приложении</comment>
   </data>
+  <data name="TAT" xml:space="preserve">
+    <value>Татарский</value>
+  </data>
 </root>

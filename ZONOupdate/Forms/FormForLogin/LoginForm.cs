@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualBasic;
+﻿using ZONOupdate.Forms.FormForInputBox;
 using System.Drawing.Text;
 using Guna.UI2.WinForms;
 using System.Resources;
@@ -30,8 +30,15 @@ namespace ZONOupdate.Forms.FormForLogin
         /// <returns> Строка с введенным кодом. </returns>
         internal string DisplayingCodeInputBox(string inputBoxName)
         {
-            return Interaction.InputBox(languageResources.GetString($"{inputBoxName}Content"),
-                languageResources.GetString($"{inputBoxName}Title"));
+            logger.Info("Открывается форма для ввода кода");
+
+            using (var inputBoxToEnterCode = new InputBoxForm(languageResources.GetString($"{inputBoxName}Title"),
+                languageResources.GetString($"{inputBoxName}Content"), languageResources.GetString("codeCheckButton")))
+            {
+                inputBoxToEnterCode.ShowDialog();
+
+                return inputBoxToEnterCode.InputCode;
+            }
         }
 
         /// <summary>
@@ -301,11 +308,11 @@ namespace ZONOupdate.Forms.FormForLogin
                     languageResources = new ResourceManager("ZONOupdate.Localization.LoginFormEN",
                         typeof(LoginForm).Assembly);
                     break;
+                case 2:
+                    languageResources = new ResourceManager("ZONOupdate.Localization.LoginFormTAT",
+                        typeof(LoginForm).Assembly);
+                    break;
             }
-
-            loginWithAccountZONOLabel.Text = languageResources.GetString(loginWithAccountZONOLabel.Name);
-            loginWithAccountVKLabel.Text = languageResources.GetString(loginWithAccountVKLabel.Name);
-            registrationLabel.Text = languageResources.GetString(registrationLabel.Name);
 
             foreach (var control in onScreenControls)
             {
@@ -484,11 +491,11 @@ namespace ZONOupdate.Forms.FormForLogin
             registrationLabel.Font = new Font(fontCollection.Families[0], 16);
             selectLanguageComboBox.Font = new Font(fontCollection.Families[0], 13);
 
-            selectLanguageComboBox.Items.AddRange(new string[] { localizationResources.GetString("RU"),
-                localizationResources.GetString("EN") });
-            selectLanguageComboBox.SelectedItem = localizationResources.GetString("RU");
+            onScreenControls.AddRange([loginWithAccountZONOLabel, loginWithAccountVKLabel, registrationLabel]);
 
-            onScreenControls.AddRange([ loginWithAccountZONOLabel, loginWithAccountVKLabel, registrationLabel ]);
+            selectLanguageComboBox.Items.AddRange(new string[] { localizationResources.GetString("RU"),
+                localizationResources.GetString("EN"), localizationResources.GetString("TAT") });
+            selectLanguageComboBox.SelectedItem = localizationResources.GetString("RU");
         }
         #endregion
     }

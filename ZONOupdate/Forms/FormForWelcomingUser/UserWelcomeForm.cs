@@ -4,7 +4,7 @@ using System.Resources;
 namespace ZONOupdate.Forms.FormForWelcomingUser
 {
     /// <summary>
-    /// Форма, предназанченная для приветсявия пользователя после входа в аккаунт.
+    /// Форма, предназанченная для приветсявия пользователя после входа в приложение.
     /// </summary>
     public partial class UserWelcomeForm : Form
     {

@@ -314,6 +314,9 @@
   <data name="successfulMessageSendingContent" xml:space="preserve">
     <value>Сообщение с подборкой успешно отправлено. Проверьте почту.</value>
   </data>
+  <data name="userLikedTitleLabel" xml:space="preserve">
+    <value>Понравилось</value>
+  </data>
   <data name="userWelcomeLabel" xml:space="preserve">
     <value>Добро пожаловать на ZONO!</value>
   </data>

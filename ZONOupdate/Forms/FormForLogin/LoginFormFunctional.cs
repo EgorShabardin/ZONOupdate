@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using ZONOupdate.Database;
 using Guna.UI2.WinForms;
+using VkNet.Exception;
 using VkNet.Model;
 using VkNet;
 using NLog;
@@ -8,7 +9,7 @@ using NLog;
 namespace ZONOupdate.Forms.FormForLogin
 {
     /// <summary>
-    /// Класс, содержащий функционал формы LoginForm.
+    /// Класс, содержащий основной функционал формы LoginForm.
     /// </summary>
     internal class LoginFormFunctional
     {
@@ -115,10 +116,16 @@ namespace ZONOupdate.Forms.FormForLogin
 
                 if (vkApi.IsAuthorized)
                 {
-                    DatabaseInteraction.RegistrationWithLoginFromThirdPartyApplication(loginFieldTextBox.Text);
+                    return DatabaseInteraction.RegistrationWithLoginFromThirdPartyApplication(loginFieldTextBox.Text);
                 }
 
-                return vkApi.IsAuthorized;
+                return false;
+            }
+            catch (VkAuthorizationException ex)
+            {
+                logger.Error($"При работе приложение произошла ошибка: {ex}");
+
+                return false;
             }
             catch (Exception ex) 
             {
@@ -132,7 +139,7 @@ namespace ZONOupdate.Forms.FormForLogin
         /// Метод, выполняющий регистрацию пользователя в приложении.
         /// </summary>
         /// <param name="onScreenControls"> Элементы управления, расположенные на экране. </param>
-        /// <returns> true - вход разрешен; false - вход запрещен. </returns>
+        /// <returns> true - регистрация успешна; false - ошибка в регистрации. </returns>
         internal bool RegistrationOnZONO(List<Control> onScreenControls) 
         {
             try
@@ -184,7 +191,7 @@ namespace ZONOupdate.Forms.FormForLogin
                     logger.Debug("Регистрация в приложении разрешена");
 
                     var randomNumberGenerator = new Random();
-                    var randomNumber = randomNumberGenerator.Next(1000, 10000);
+                    var randomNumber = randomNumberGenerator.Next(10000, 100000);
                     var emailMessage = loginForm.CreatingEmailMessage(loginFieldTextBox.Text, randomNumber);
 
                     using (var client = new MailKit.Net.Smtp.SmtpClient())

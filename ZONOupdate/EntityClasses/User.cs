@@ -9,7 +9,7 @@
 
         public string Login { get; set; } = null!;
 
-        public string Password { get; set; } = null!;
+        public string Password { get; set; }
 
         public int IsBusy { get; set; }
 
