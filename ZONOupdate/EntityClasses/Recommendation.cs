@@ -1,7 +1,7 @@
 ﻿namespace ZONOupdate.EntityClasses
 {
     /// <summary>
-    /// Класс, представляющий модель рекомендаций пользователя
+    /// Класс, представляющий модель рекомендаций пользователя.
     /// </summary>
     public class Recommendation
     {
@@ -9,9 +9,9 @@
 
         public Guid ID { get; set; }
 
-        public string RecommendationName { get; set; } = null!;
+        public string RecommendationName { get; set; }
 
-        public string RecommendationDescription { get; set; } = null!;
+        public string RecommendationDescription { get; set; }
 
         public float RecommendationMark { get; set; }
 
@@ -25,6 +25,6 @@
 
         public int  ProductPriceFrom { get; set; }
 
-        public byte[] ProductPhoto { get; set; } = null!;
+        public byte[] ProductPhoto { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace ZONOupdate.EntityClasses
 {
     /// <summary>
-    /// Класс, представляющий модель цвета
+    /// Класс, представляющий модель цвета.
     /// </summary>
     public class Color
     {

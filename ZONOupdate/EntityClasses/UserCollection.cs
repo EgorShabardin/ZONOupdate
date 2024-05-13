@@ -1,7 +1,7 @@
 ﻿namespace ZONOupdate.EntityClasses
 {
     /// <summary>
-    /// Класс, представляющий модель коллекций пользователя
+    /// Класс, представляющий модель коллекций пользователя.
     /// </summary>
     public class UserCollection
     {

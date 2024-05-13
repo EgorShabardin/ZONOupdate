@@ -1,7 +1,7 @@
 ﻿namespace ZONOupdate.EntityClasses
 {
     /// <summary>
-    /// Класс, представляющий модель рекомендаций пользователя
+    /// Класс, представляющий модель рекомендаций пользователя.
     /// </summary>
     public class RecommendationSetting
     {

@@ -1,7 +1,7 @@
 ﻿namespace ZONOupdate.EntityClasses
 {
     /// <summary>
-    /// Класс, представляющий модель типа товара
+    /// Класс, представляющий модель типа товара.
     /// </summary>
     public class ProductType
     {
