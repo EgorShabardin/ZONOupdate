@@ -1,4 +1,8 @@
-﻿using NLog;
+﻿using System;
+using System.Drawing;
+using System.IO;
+using System.Security.Cryptography;
+using NLog;
 
 namespace ZONOupdate.FunctionalClasses
 {
@@ -27,6 +31,21 @@ namespace ZONOupdate.FunctionalClasses
                 image.MakeTransparent(Color.White);
 
                 return image != null ? image : null!;
+            }
+        }
+
+        public static string GetImageHash(Image image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, image.RawFormat);
+                ms.Position = 0;
+
+                using (SHA256Managed sha256 = new SHA256Managed())
+                {
+                    byte[] hash = sha256.ComputeHash(ms);
+                    return BitConverter.ToString(hash).Replace("-", string.Empty);
+                }
             }
         }
         #endregion

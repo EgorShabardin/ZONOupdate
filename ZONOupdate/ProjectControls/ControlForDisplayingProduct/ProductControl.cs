@@ -6,6 +6,11 @@ using ZONOupdate.FormForProductCard;
 using System.Resources;
 using Guna.UI2.WinForms;
 using NLog;
+using ZONOupdate.Forms.FormForCreationNewProduct;
+using System.Drawing;
+using System.IO;
+using System.Security.Cryptography;
+
 
 namespace ZONOupdate.ProjectControls.ControlForDisplayingProduct
 {
@@ -24,6 +29,21 @@ namespace ZONOupdate.ProjectControls.ControlForDisplayingProduct
         #endregion
 
         #region Методы
+        public void MakingChangesToProduct(Recommendation changedProduct)
+        {
+            currentProduct = changedProduct;
+
+            productNameLabel.Text = changedProduct.RecommendationName;
+            productPriceLabel.Text = changedProduct.ProductPriceFrom.ToString();
+
+            var productPhoto = CustomImageConverter.ByteArrayToImage(changedProduct.ProductPhoto);
+
+            //if (CustomImageConverter.GetImageHash(productPhotoPictureBox.Image) != CustomImageConverter.GetImageHash(productPhoto))
+            //{
+                productPhotoPictureBox.Image = productPhoto;
+            //}
+        }
+
         /// <summary>
         /// Метод, создающий элемент управления для отображения товара в разделе "Главная страница" или "Избранное".
         /// </summary>
@@ -231,23 +251,8 @@ namespace ZONOupdate.ProjectControls.ControlForDisplayingProduct
 
         private void EditProductPicturBocMouseDown(object sender, MouseEventArgs e)
         {
-            var result = MessageBox.Show("Вы уверены, что хотите удалить этот товар?", "Внимание!",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result.Equals(DialogResult.Yes))
-            {
-                using (var database = new DatabaseContext())
-                {
-                    var product = database.Recommendations.Where(product => product.ID == userID)
-                        .Where(product => product.RecommendationId == currentProduct.RecommendationId).FirstOrDefault();
-
-                    if (product != null)
-                    {
-                        database.Recommendations.Remove(product);
-                        database.SaveChanges();
-                        MessageBox.Show("Товар успешно удалён!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
+            var edit = new NewProductCreationForm(userID, languageResources, Parent as FlowLayoutPanel, currentProduct);
+            edit.Show();
         }
         private void ClickOnUserLikedPictureBox(object sender, EventArgs e)
         {

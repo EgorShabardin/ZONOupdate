@@ -84,6 +84,7 @@ namespace ZONOupdate.Forms.FormForMainWindow
                     {
                         var productControl = new ProductControl(product, UserID, languageResources);
                         productControl.MakeProductControlForMyProducts(productsFlowLayoutPanel.Width);
+                        productControl.Name = product.RecommendationId.ToString();
 
                         productControls.Add(productControl);
                     }

@@ -54,10 +54,10 @@
             userWelcomePictureBox.Size = new Size(554, 337);
             userWelcomePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             userWelcomePictureBox.TabIndex = 0;
-            userWelcomePictureBox.TabStop = true;
             // 
             // userWelcomeLabel
             // 
+            userWelcomeLabel.AutoEllipsis = true;
             userWelcomeLabel.AutoSize = true;
             userWelcomeTableLayoutPanel.SetColumnSpan(userWelcomeLabel, 3);
             userWelcomeLabel.Dock = DockStyle.Fill;

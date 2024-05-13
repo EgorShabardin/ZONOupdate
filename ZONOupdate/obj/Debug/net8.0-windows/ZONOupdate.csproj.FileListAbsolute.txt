@@ -203,9 +203,7 @@ D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.ProjectControls.ControlForCollectionName.CollectionNameControl.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForMainWindow.MainForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Localization.LoginFormTAT.resources
-D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.FormForCreationNewCollection.NewCollectionCreationForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.FormForProductCard.ProductCardForm.resources
-D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.FormForCreationNewProduct.NewProductCreationForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.ProjectControls.ControlForDisplayingProduct.ProductControl.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\Bunifu.Licensing.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\Bunifu.UI.WinForms.dll
@@ -215,3 +213,5 @@ D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\DevExpress.WinterJoySkin.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\bin\Debug\net8.0-windows\MaterialSkin.dll
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForInputBox.InputBoxForm.resources
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForCreationNewCollection.NewCollectionCreationForm.resources
+D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForCreationNewProduct.NewProductCreationForm.resources

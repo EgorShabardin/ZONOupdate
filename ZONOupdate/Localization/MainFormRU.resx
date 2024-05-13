@@ -117,11 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="addingCollectionsLongNameContent" xml:space="preserve">
+  <data name="addingCollectionsLongName" xml:space="preserve">
     <value>Слишком длинное название подборки</value>
-  </data>
-  <data name="addingCollectionsLongNameTitle" xml:space="preserve">
-    <value>Внимание!</value>
   </data>
   <data name="addingProductContent" xml:space="preserve">
     <value>Товар успешно добавлен!</value>
@@ -129,11 +126,8 @@
   <data name="addingProductTitle" xml:space="preserve">
     <value>Внимание!</value>
   </data>
-  <data name="addingSelectionEmptyDataFieldContent" xml:space="preserve">
+  <data name="addingSelectionEmptyDataField" xml:space="preserve">
     <value>Пожалуйста, введите название подборки</value>
-  </data>
-  <data name="addingSelectionEmptyDataFieldTitle" xml:space="preserve">
-    <value>Внимание!</value>
   </data>
   <data name="addNewCollectionButton" xml:space="preserve">
     <value>Добавить</value>
@@ -208,6 +202,9 @@
   </data>
   <data name="informationLabel" xml:space="preserve">
     <value>Введите название новой подборки</value>
+  </data>
+  <data name="loadProductPhoto" xml:space="preserve">
+    <value>Загрузка изображения товара</value>
   </data>
   <data name="loadProductPhotoButton" xml:space="preserve">
     <value>Загрузить</value>
@@ -291,6 +288,9 @@
     <value>Сохранить</value>
   </data>
   <data name="saveNewCollectionButton" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="saveProductButton" xml:space="preserve">
     <value>Сохранить</value>
   </data>
   <data name="searchLineTextBox" xml:space="preserve">

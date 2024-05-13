@@ -1,7 +1,7 @@
 ﻿using ZONOupdate.ProjectControls.ControlForDisplayingProduct;
 using ZONOupdate.ProjectControls.ControlForCollectionName;
-using ZONOupdate.FormForCreationNewCollection;
-using ZONOupdate.FormForCreationNewProduct;
+using ZONOupdate.Forms.FormForCreationNewCollection;
+using ZONOupdate.Forms.FormForCreationNewProduct;
 using ZONOupdate.EntityClasses;
 using System.Drawing.Text;
 using ZONOupdate.Database;
@@ -689,7 +689,10 @@ namespace ZONOupdate.Forms.FormForMainWindow
                     thisUser.IsBusy = Convert.ToInt32(true);
                     database.SaveChanges();
 
-                    using (var newProductForm = new NewProductCreationForm(currentUser.ID, languageResources))
+                    var productsFlowLayoutPanel = recomendationsTableLayoutPanel.Controls
+                   ["productsFlowLayoutPanel"] as FlowLayoutPanel;
+
+                    using (var newProductForm = new NewProductCreationForm(currentUser.ID, languageResources, productsFlowLayoutPanel))
                     {
                         newProductForm.ShowDialog();
                     }

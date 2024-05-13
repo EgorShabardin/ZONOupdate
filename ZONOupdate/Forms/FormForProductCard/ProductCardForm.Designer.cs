@@ -1,4 +1,4 @@
-﻿namespace ZONOupdate.FormForProductCard
+﻿namespace ZONOupdate.Forms.FormForProductCard
 {
     partial class ProductCardForm
     {
@@ -107,7 +107,7 @@
             productPhotoPictureBox.Size = new Size(464, 259);
             productPhotoPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             productPhotoPictureBox.TabIndex = 0;
-            productPhotoPictureBox.TabStop = false;
+            productPhotoPictureBox.TabStop = true;
             // 
             // productInfoTableLayoutPanel
             // 
@@ -317,7 +317,7 @@
             Controls.Add(productInformationTableLayoutPanel);
             ForeColor = SystemColors.WindowText;
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Icon = (Icon)resources.GetObject("$this.Icon");
+            Icon = Properties.Resources.logoIcon;
             Margin = new Padding(4);
             MaximizeBox = false;
             Name = "ProductCardForm";

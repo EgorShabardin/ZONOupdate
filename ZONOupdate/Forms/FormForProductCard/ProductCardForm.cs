@@ -6,7 +6,7 @@ using System.Drawing.Text;
 using System.Resources;
 using NLog;
 
-namespace ZONOupdate.FormForProductCard
+namespace ZONOupdate.Forms.FormForProductCard
 {
     /// <summary>
     /// Форма для отображения карточки товара с возможностью проставления оценки.

@@ -1,4 +1,5 @@
-﻿using ZONOupdate.FunctionalClasses;
+﻿using ZONOupdate.ProjectControls.ControlForDisplayingProduct;
+using ZONOupdate.FunctionalClasses;
 using ZONOupdate.EntityClasses;
 using ZONOupdate.Database;
 using System.Drawing.Imaging;
@@ -6,10 +7,10 @@ using System.Drawing.Text;
 using System.Resources;
 using NLog;
 
-namespace ZONOupdate.FormForCreationNewProduct
+namespace ZONOupdate.Forms.FormForCreationNewProduct
 {
     /// <summary>
-    /// Форма для добавления/редактирования нового товара.
+    /// Форма, предназначенная для добавления/редактирования товара.
     /// </summary>
     public partial class NewProductCreationForm : Form
     {
@@ -17,33 +18,43 @@ namespace ZONOupdate.FormForCreationNewProduct
         Guid currentUserID;
         Recommendation? selectedProduct;
         ResourceManager languageResources;
+        FlowLayoutPanel productFlowLayoutPanel;
         Logger logger = LogManager.GetCurrentClassLogger();
         PrivateFontCollection fontCollection = new PrivateFontCollection();
         #endregion
 
         #region Методы
-        private void LoadProductInfo()
+        private void LoadProductInformation()
         {
             using (var database = new DatabaseContext())
             {
                 if (selectedProduct != null)
                 {
                     logger.Info("Успешное подключение к базе данных при загрузке данных товара для редактирования");
-                    var colorName = database.Colors.Where(color => color.ColorID == selectedProduct.ColorID)
-                        .Select(color => color.ColorName).FirstOrDefault();
-                    var productTypeName = database.ProductTypes.Where(productType => productType.ProductTypeID == selectedProduct
-                    .ProductTypeID).Select(productType => productType.ProductTypeName).FirstOrDefault();
-                    var manufactorName = database.Manufacturers.Where(manufacturer => manufacturer.ManufacturerID == selectedProduct
-                    .ManufacturerID).Select(manufacturer => manufacturer.ManufacturerName).FirstOrDefault();
+
+                    var colorName = database.Colors.Where(color => color
+                    .ColorID == selectedProduct.ColorID).Select(color => color.ColorName)
+                    .FirstOrDefault();
+                    var productTypeName = database.ProductTypes.Where(productType => 
+                    productType.ProductTypeID == selectedProduct.ProductTypeID)
+                        .Select(productType => productType.ProductTypeName).FirstOrDefault();
+                    var manufactorName = database.Manufacturers.Where(manufacturer
+                        => manufacturer.ManufacturerID == selectedProduct.ManufacturerID)
+                        .Select(manufacturer => manufacturer.ManufacturerName).FirstOrDefault();
 
                     productNameTextBox.Text = selectedProduct.RecommendationName;
-                    productDescriptionTextBox.Text = selectedProduct.RecommendationDescription;
+                    productDescriptionTextBox.Text = selectedProduct
+                        .RecommendationDescription;
                     productColorComboBox.SelectedItem = colorName;
                     productTypeComboBox.SelectedItem = productTypeName;
                     productManufacturerComboBox.SelectedItem = manufactorName;
-                    productYearOfProductionTextBox.Text = selectedProduct.YearOfProduction.ToString();
-                    productPriceTextBox.Text = selectedProduct.ProductPriceFrom.ToString();
+                    productYearOfProductionTextBox.Text = selectedProduct
+                        .YearOfProduction.ToString();
+                    productPriceTextBox.Text = selectedProduct
+                        .ProductPriceFrom.ToString();
                     productPhotoPictureBox.Image = CustomImageConverter.ByteArrayToImage(selectedProduct.ProductPhoto);
+
+                    productPhotoPictureBox.BorderStyle = BorderStyle.None;
                 }
             }
         }
@@ -54,9 +65,12 @@ namespace ZONOupdate.FormForCreationNewProduct
             {
                 logger.Info("Успешное подключение к базе данных при загрузке данных товраов");
 
-                var manufacturerNames = database.Manufacturers.Select(manufacter => manufacter.ManufacturerName).ToArray();
-                var typeNames = database.ProductTypes.Select(productType => productType.ProductTypeName).ToArray();
-                var colorNames = database.Colors.Select(colors => colors.ColorName).ToArray();
+                var manufacturerNames = database.Manufacturers.AsEnumerable()
+                    .Select(manufacter => manufacter.ManufacturerName).ToArray();
+                var typeNames = database.ProductTypes.AsEnumerable()
+                    .Select(productType => productType.ProductTypeName).ToArray();
+                var colorNames = database.Colors.AsEnumerable()
+                    .Select(colors => colors.ColorName).ToArray();
 
                 productManufacturerComboBox.Items.AddRange(manufacturerNames);
                 productTypeComboBox.Items.AddRange(typeNames);
@@ -80,111 +94,125 @@ namespace ZONOupdate.FormForCreationNewProduct
         {
             using (var openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Title = "Выберите изображение товара";
+                openFileDialog.Title = languageResources.GetString("loadProductPhoto");
                 openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     productPhotoPictureBox.Image = new Bitmap(openFileDialog.FileName);
+                    productPhotoPictureBox.BorderStyle = BorderStyle.None;
 
                     logger.Info("Изображение товара успешно загружено");
                 }
             }
         }
 
-        private void SaveNewProductInDatabase(object sender, MouseEventArgs e)
+        private void SaveNewProductButtonMouseDown(object sender, MouseEventArgs e)
         {
             using (var database = new DatabaseContext())
             {
-                logger.Info("Успешноу подключение к базе данных при сохранении данных товара");
+                logger.Info("Успешноу подключение к базе данных при создании нового товара");
 
-                var manufacturerIDs = database.Manufacturers.AsEnumerable().Select(x => x.ManufacturerID).ToList();
-                var typeIDs = database.ProductTypes.AsEnumerable().Select(x => x.ProductTypeID).ToList();
-                var colorIDs = database.Colors.AsEnumerable().Select(x => x.ColorID).ToList();
+                var manufacturersID = database.Manufacturers.AsEnumerable()
+                    .Select(manufacturer => manufacturer.ManufacturerID).ToArray();
+                var productTypesID = database.ProductTypes.AsEnumerable()
+                    .Select(productType => productType.ProductTypeID).ToArray();
+                var colorsID = database.Colors.AsEnumerable().Select(color => color.ColorID)
+                    .ToArray();
 
-                var product = new Recommendation();
-                product.ID = currentUserID;
-                product.RecommendationName = productNameTextBox.Text;
-                product.RecommendationDescription = productDescriptionTextBox.Text;
-                product.RecommendationMark = 0;
-                product.ProductPriceFrom = int.Parse(productPriceTextBox.Text);
-                product.RecommendationId = Guid.NewGuid();
-
-                using (var ms = new MemoryStream())
+                var newProduct = new Recommendation()
                 {
-                    productPhotoPictureBox.Image.Save(ms, ImageFormat.Jpeg);
-                    product.ProductPhoto = ms.ToArray();
+                    ID = currentUserID,
+                    RecommendationId = Guid.NewGuid(),
+                    RecommendationMark = 0,
+                    RecommendationName = productNameTextBox.Text,
+                    RecommendationDescription = productDescriptionTextBox.Text,
+                    ProductPriceFrom = int.Parse(productPriceTextBox.Text),
+                    YearOfProduction = int.Parse(productYearOfProductionTextBox.Text)
+                };
+
+                using (var memoryStream = new MemoryStream())
+                {
+                    productPhotoPictureBox.Image.Save(memoryStream, ImageFormat.Jpeg);
+                    newProduct.ProductPhoto = memoryStream.ToArray();
                 }
 
-                var colorselected = productColorComboBox.SelectedIndex;
-                var manufacturerselected = productTypeComboBox.SelectedIndex;
-                var producttypeselected = productTypeComboBox.SelectedIndex;
+                newProduct.ColorID = colorsID[productColorComboBox.SelectedIndex];
+                newProduct.ManufacturerID = manufacturersID[productManufacturerComboBox
+                    .SelectedIndex]; 
+                newProduct.ProductTypeID = productTypesID[productTypeComboBox
+                    .SelectedIndex];
 
-
-                product.ColorID = colorIDs[colorselected];
-                product.ManufacturerID = manufacturerIDs[manufacturerselected];
-                product.ProductTypeID = typeIDs[producttypeselected];
-                
-                if (int.TryParse(productYearOfProductionTextBox.Text, out int result))
-                {
-                    product.YearOfProduction = result;
-                }
-
-                database.Recommendations.Add(product);
+                database.Recommendations.Add(newProduct);
                 database.SaveChanges();
 
-                MessageBox.Show(languageResources.GetString("addingProductContent"), languageResources
-                    .GetString("addingProductTitle"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                logger.Debug($"Товар с id {newProduct.RecommendationId} успешно добавлен");
 
-                logger.Debug($"Товар с id {product.RecommendationId} успешно добавлен");
+                var productControl = new ProductControl(newProduct, currentUserID, languageResources);
+                productControl.MakeProductControlForMyProducts(productFlowLayoutPanel.Width);
+                productControl.Name = newProduct.RecommendationName;
 
-                Close();
-            }
-        }
-        private void SaveProductEditInDatabase(object sender, MouseEventArgs e)
-        {
-            using (var database = new DatabaseContext())
-            {
-                logger.Info("Успешноу подключение к базе данных при сохранении данных товара");
-
-                var manufacturerIDs = database.Manufacturers.Select(manufacturer => manufacturer.ManufacturerID).ToList();
-                var productTypeIDs = database.ProductTypes.Select(productType => productType.ProductTypeID).ToList();
-                var colorIDs = database.Colors.Select(color => color.ColorID).ToList();
-
-                selectedProduct.RecommendationName = productNameTextBox.Text;
-                selectedProduct.RecommendationDescription = productDescriptionTextBox.Text;
-                selectedProduct.ProductPriceFrom = int.Parse(productPriceTextBox.Text);
-
-                using (var ms = new MemoryStream())
-                {
-                    productPhotoPictureBox.Image.Save(ms, ImageFormat.Jpeg);
-                    selectedProduct.ProductPhoto = ms.ToArray();
-                }
-
-                var colorselected = productColorComboBox.SelectedIndex;
-                var manufacturerselected = productTypeComboBox.SelectedIndex;
-                var producttypeselected = productTypeComboBox.SelectedIndex;
-
-
-                selectedProduct.ColorID = colorIDs[colorselected];
-                selectedProduct.ManufacturerID = manufacturerIDs[manufacturerselected];
-                selectedProduct.ProductTypeID = productTypeIDs[producttypeselected];
-
-                if (int.TryParse(productYearOfProductionTextBox.Text, out int result))
-                {
-                    selectedProduct.YearOfProduction = result;
-                }
-
-                database.SaveChanges();
-
-                logger.Debug($"Товар с id {selectedProduct.RecommendationId} успешно добавлен");
+                productFlowLayoutPanel.Controls.Add(productControl);
+                productFlowLayoutPanel.Refresh();
 
                 Close();
             }
         }
 
+        private void SaveProductСhangesButtonMouseDown(object sender, MouseEventArgs e)
+        {
+            using (var database = new DatabaseContext())
+            {
+                logger.Info("Успешноу подключение к базе данных при сохранении данных товара");
 
-        private void NewProductCreationFormLoad(object sender, EventArgs e)
+                var currentProduct = database.Recommendations.Where(product => product
+                .RecommendationId == selectedProduct.RecommendationId).FirstOrDefault();
+
+                if (currentProduct != null)
+                {
+                    var manufacturersID = database.Manufacturers.AsEnumerable()
+                    .Select(manufacturer => manufacturer.ManufacturerID).ToArray();
+                    var productTypesID = database.ProductTypes.AsEnumerable()
+                        .Select(productType => productType.ProductTypeID).ToArray();
+                    var colorsID = database.Colors.AsEnumerable().Select(color => color.ColorID)
+                        .ToArray();
+
+                    currentProduct.RecommendationName = productNameTextBox.Text;
+                    currentProduct.RecommendationDescription = productDescriptionTextBox.Text;
+                    currentProduct.ProductPriceFrom = int.Parse(productPriceTextBox.Text);
+                    currentProduct.YearOfProduction = int.Parse(productYearOfProductionTextBox.Text);
+
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        productPhotoPictureBox.Image.Save(memoryStream, ImageFormat.Jpeg);
+                        currentProduct.ProductPhoto = memoryStream.ToArray();
+                    }
+
+                    currentProduct.ColorID = colorsID[productColorComboBox.SelectedIndex];
+                    currentProduct.ManufacturerID = manufacturersID[productManufacturerComboBox
+                        .SelectedIndex];
+                    currentProduct.ProductTypeID = productTypesID[productTypeComboBox
+                        .SelectedIndex];
+
+                    logger.Debug($"Товар с id {currentProduct.RecommendationId} успешно " +
+                        $"отредактирован");
+
+                    var productControl = productFlowLayoutPanel.Controls[currentProduct
+                        .RecommendationId.ToString()] as ProductControl;
+
+                    if (productControl != null)
+                    {
+                        productControl.MakingChangesToProduct(currentProduct);
+                    }
+
+                    database.SaveChanges();
+
+                    Close();
+                }
+            }
+        }
+
+        private void NewProductCreationOrEditFormLoad(object sender, EventArgs e)
         {
             var formAppearanceTimer = new System.Windows.Forms.Timer();
             formAppearanceTimer.Interval = 60;
@@ -209,30 +237,31 @@ namespace ZONOupdate.FormForCreationNewProduct
         #endregion
 
         #region Конструкторы
-        public NewProductCreationForm(Guid currentUserID,
-            ResourceManager languageResources, Recommendation? selectedProduct = null)
+        public NewProductCreationForm(Guid currentUserID, ResourceManager languageResources,
+            FlowLayoutPanel productFlowLayoutPanel, Recommendation? selectedProduct = null)
         {
             logger.Info("Открылась форма \"Создать/редактировать товар\"");
 
-            fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
-            this.languageResources = languageResources;
             this.currentUserID = currentUserID;
+            this.languageResources = languageResources;
+            this.productFlowLayoutPanel = productFlowLayoutPanel;
+            fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
             InitializeComponent();
 
-            productNameTextBox.Font = new Font(fontCollection.Families[0], 20);
+            productNameTextBox.Font = new Font(fontCollection.Families[0], 16);
             loadProductPhotoButton.Font = new Font(fontCollection.Families[0], 12);
-            productDescriptionTextBox.Font = new Font(fontCollection.Families[0], 14);
+            productDescriptionTextBox.Font = new Font(fontCollection.Families[0], 12);
             productColorLabelTitle.Font = new Font(fontCollection.Families[0], 14);
             productYearOfProductionLabelTitle.Font = new Font(fontCollection.Families[0], 14);
             productManufacturerLabelTitle.Font = new Font(fontCollection.Families[0], 14);
             productTypeLabelTitle.Font = new Font(fontCollection.Families[0], 14);
             productPriceLabelTitle.Font = new Font(fontCollection.Families[0], 14);
-            saveMarkButton.Font = new Font(fontCollection.Families[0], 16);
-            productTypeComboBox.Font = new Font(fontCollection.Families[0], 14);
-            productManufacturerComboBox.Font = new Font(fontCollection.Families[0], 14);
-            productYearOfProductionTextBox.Font = new Font(fontCollection.Families[0], 14);
-            productColorComboBox.Font = new Font(fontCollection.Families[0], 14);
-            productPriceTextBox.Font = new Font(fontCollection.Families[0], 14);
+            saveProductButton.Font = new Font(fontCollection.Families[0], 14);
+            productTypeComboBox.Font = new Font(fontCollection.Families[0], 12);
+            productManufacturerComboBox.Font = new Font(fontCollection.Families[0], 12);
+            productYearOfProductionTextBox.Font = new Font(fontCollection.Families[0], 12);
+            productColorComboBox.Font = new Font(fontCollection.Families[0], 12);
+            productPriceTextBox.Font = new Font(fontCollection.Families[0], 12);
 
             productNameTextBox.PlaceholderText = languageResources.GetString(productNameTextBox.Name);
             loadProductPhotoButton.Text = languageResources.GetString(loadProductPhotoButton.Name);
@@ -242,7 +271,7 @@ namespace ZONOupdate.FormForCreationNewProduct
             productManufacturerLabelTitle.Text = languageResources.GetString(productManufacturerLabelTitle.Name);
             productTypeLabelTitle.Text = languageResources.GetString(productTypeLabelTitle.Name);
             productPriceLabelTitle.Text = languageResources.GetString(productPriceLabelTitle.Name);
-            saveMarkButton.Text = languageResources.GetString(saveMarkButton.Name);
+            saveProductButton.Text = languageResources.GetString(saveProductButton.Name);
             Text = languageResources.GetString(Name);
 
             LoadComboBoxesData();
@@ -250,9 +279,9 @@ namespace ZONOupdate.FormForCreationNewProduct
             if (selectedProduct != null)
             {
                 this.selectedProduct = selectedProduct;
-                saveMarkButton.MouseDown -= SaveNewProductInDatabase;
-                saveMarkButton.MouseDown += SaveProductEditInDatabase;
-                LoadProductInfo();
+                saveProductButton.MouseDown -= SaveNewProductButtonMouseDown;
+                saveProductButton.MouseDown += SaveProductСhangesButtonMouseDown;
+                LoadProductInformation();
             }
         }
         #endregion

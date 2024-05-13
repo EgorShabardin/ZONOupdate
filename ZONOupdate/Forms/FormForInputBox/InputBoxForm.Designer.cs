@@ -20,7 +20,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputBoxForm));
             inputBoxTableLayoutPanel = new TableLayoutPanel();
             inputBoxTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             inputBoxSaveButton = new Guna.UI2.WinForms.Guna2Button();
@@ -43,14 +42,14 @@
             inputBoxTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             inputBoxTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             inputBoxTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            inputBoxTableLayoutPanel.Size = new Size(506, 216);
+            inputBoxTableLayoutPanel.Size = new Size(475, 255);
             inputBoxTableLayoutPanel.TabIndex = 0;
             inputBoxTableLayoutPanel.TabStop = true;
             // 
             // inputBoxTextBox
             // 
             inputBoxTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            inputBoxTextBox.BorderColor = Color.Black;
+            inputBoxTextBox.BorderColor = SystemColors.WindowText;
             inputBoxTextBox.BorderRadius = 8;
             inputBoxTextBox.Cursor = Cursors.IBeam;
             inputBoxTextBox.CustomizableEdges = customizableEdges1;
@@ -64,22 +63,22 @@
             inputBoxTextBox.Font = new Font("Segoe UI", 9F);
             inputBoxTextBox.ForeColor = SystemColors.WindowText;
             inputBoxTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            inputBoxTextBox.Location = new Point(65, 85);
-            inputBoxTextBox.Margin = new Padding(65, 0, 65, 0);
-            inputBoxTextBox.MaxLength = 100;
+            inputBoxTextBox.Location = new Point(75, 102);
+            inputBoxTextBox.Margin = new Padding(75, 0, 75, 0);
+            inputBoxTextBox.MaxLength = 6;
             inputBoxTextBox.Name = "inputBoxTextBox";
             inputBoxTextBox.PasswordChar = '\0';
             inputBoxTextBox.PlaceholderText = "";
             inputBoxTextBox.SelectedText = "";
             inputBoxTextBox.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            inputBoxTextBox.Size = new Size(376, 43);
+            inputBoxTextBox.Size = new Size(325, 50);
             inputBoxTextBox.TabIndex = 0;
-            inputBoxTextBox.TabStop = true;
             inputBoxTextBox.TextOffset = new Point(5, 0);
             // 
             // inputBoxSaveButton
             // 
             inputBoxSaveButton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            inputBoxSaveButton.BorderColor = SystemColors.WindowText;
             inputBoxSaveButton.BorderRadius = 15;
             inputBoxSaveButton.Cursor = Cursors.Hand;
             inputBoxSaveButton.CustomizableEdges = customizableEdges3;
@@ -90,13 +89,12 @@
             inputBoxSaveButton.FillColor = Color.FromArgb(0, 166, 253);
             inputBoxSaveButton.Font = new Font("Segoe UI", 9F);
             inputBoxSaveButton.ForeColor = SystemColors.Window;
-            inputBoxSaveButton.Location = new Point(140, 153);
-            inputBoxSaveButton.Margin = new Padding(140, 0, 140, 0);
+            inputBoxSaveButton.Location = new Point(140, 178);
+            inputBoxSaveButton.Margin = new Padding(140, 0, 140, 10);
             inputBoxSaveButton.Name = "inputBoxSaveButton";
             inputBoxSaveButton.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            inputBoxSaveButton.Size = new Size(226, 51);
+            inputBoxSaveButton.Size = new Size(195, 59);
             inputBoxSaveButton.TabIndex = 0;
-            inputBoxSaveButton.TabStop = true;
             inputBoxSaveButton.MouseDown += InputBoxButtonMouseDown;
             // 
             // inputBoxTitleLabel
@@ -104,10 +102,10 @@
             inputBoxTitleLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             inputBoxTitleLabel.AutoEllipsis = true;
             inputBoxTitleLabel.AutoSize = true;
-            inputBoxTitleLabel.Location = new Point(18, 25);
-            inputBoxTitleLabel.Margin = new Padding(18, 0, 18, 0);
+            inputBoxTitleLabel.Location = new Point(28, 37);
+            inputBoxTitleLabel.Margin = new Padding(28, 10, 28, 0);
             inputBoxTitleLabel.Name = "inputBoxTitleLabel";
-            inputBoxTitleLabel.Size = new Size(470, 20);
+            inputBoxTitleLabel.Size = new Size(419, 20);
             inputBoxTitleLabel.TabIndex = 0;
             inputBoxTitleLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -116,7 +114,7 @@
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(506, 216);
+            ClientSize = new Size(475, 255);
             Controls.Add(inputBoxTableLayoutPanel);
             ForeColor = SystemColors.WindowText;
             FormBorderStyle = FormBorderStyle.FixedDialog;

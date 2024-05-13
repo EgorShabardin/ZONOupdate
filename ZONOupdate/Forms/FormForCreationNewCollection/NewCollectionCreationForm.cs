@@ -6,10 +6,10 @@ using Guna.UI2.WinForms;
 using System.Resources;
 using NLog;
 
-namespace ZONOupdate.FormForCreationNewCollection
+namespace ZONOupdate.Forms.FormForCreationNewCollection
 {
     /// <summary>
-    /// Форма для создания новой подборки.
+    /// Форма, предназначенная для создания новой подборки товаров.
     /// </summary>
     public partial class NewCollectionCreationForm : Form
     {
@@ -22,43 +22,51 @@ namespace ZONOupdate.FormForCreationNewCollection
         PrivateFontCollection fontCollection = new PrivateFontCollection();
         #endregion
 
+        #region Методы
+        private void StartReturnNormalTimer()
+        {
+            var returnToNormalTimer = new System.Windows.Forms.Timer();
+            returnToNormalTimer.Interval = 5000;
+            returnToNormalTimer.Tick += ReturnToNormalTimerTick;
+            returnToNormalTimer.Start();
+        }
+        #endregion
+
         #region События
         private void AddNewCollectionButtonMouseDown(object sender, MouseEventArgs e)
         {
-            logger.Info("Успешное подключение к базе данных при добавлении новой подборке");
+            logger.Info("Успешное подключение к базе данных при " +
+                "добавлении новой подборке");
 
             if (collectionNameTextBox.Text.Equals(String.Empty))
             {
-                logger.Debug("Новая подборка не добавлена, т.к. поле с названием подборки пустое");
+                logger.Debug("Новая подборка не добавлена, т.к. поле с " +
+                    "названием подборки пустое");
 
-                var addingSelectionError = new Guna2MessageDialog();
-                addingSelectionError.Buttons = MessageDialogButtons.OK;
-                addingSelectionError.Icon = MessageDialogIcon.Warning;
-                addingSelectionError.Style = MessageDialogStyle.Light;
-                addingSelectionError.Parent = FindForm();
-                addingSelectionError.Caption = languageResources.GetString("addingSelectionEmptyDataFieldTitle");
-                addingSelectionError.Text = languageResources.GetString("addingSelectionEmptyDataFieldContent");
-                addingSelectionError.Show();
+                informationLabel.Text = languageResources
+                    .GetString("addingSelectionEmptyDataField");
+                collectionNameTextBox.FillColor = System.Drawing
+                    .Color.FromArgb(251, 95, 95);
+                StartReturnNormalTimer();
 
                 return;
             }
             if (collectionNameTextBox.Text.Length > 50)
             {
-                logger.Debug("Новая подборка не добавлена, т.к. введено слишком длинное название подборки");
+                logger.Debug("Новая подборка не добавлена, т.к. введено слишком" +
+                    " длинное название подборки");
 
-                var addingSelectionError = new Guna2MessageDialog();
-                addingSelectionError.Buttons = MessageDialogButtons.OK;
-                addingSelectionError.Icon = MessageDialogIcon.Warning;
-                addingSelectionError.Style = MessageDialogStyle.Light;
-                addingSelectionError.Parent = FindForm();
-                addingSelectionError.Caption = languageResources.GetString("addingCollectionsLongNameTitle");
-                addingSelectionError.Text = languageResources.GetString("addingCollectionsLongNameContent");
-                addingSelectionError.Show();
+                informationLabel.Text = languageResources
+                    .GetString("addingCollectionsLongName");
+                collectionNameTextBox.FillColor = System.Drawing
+                    .Color.FromArgb(251, 95, 95);
+                StartReturnNormalTimer();
 
                 return;
             }
 
-            var newCollection = DatabaseInteraction.AddNewCollection(curentUser.ID, collectionNameTextBox.Text);
+            var newCollection = DatabaseInteraction
+                .AddNewCollection(curentUser.ID, collectionNameTextBox.Text);
 
             if (newCollection == null)
             {
@@ -76,8 +84,10 @@ namespace ZONOupdate.FormForCreationNewCollection
                 return;
             }
 
-            listflowlayoutpanel.Controls.Add(new CollectionNameControl(curentUser, newCollection, productsFlowLayoutPanel,
-                languageResources, listflowlayoutpanel.Width));
+            logger.Info("Подборка успешно добавлена");
+
+            listflowlayoutpanel.Controls.Add(new CollectionNameControl(curentUser,
+                newCollection, productsFlowLayoutPanel, languageResources, listflowlayoutpanel.Width));
             listflowlayoutpanel.Refresh();
 
             Close();
@@ -86,7 +96,7 @@ namespace ZONOupdate.FormForCreationNewCollection
         private void NewCollectionCreationFormLoad(object sender, EventArgs e)
         {
             var formAppearanceTimer = new System.Windows.Forms.Timer();
-            formAppearanceTimer.Interval = 60;
+            formAppearanceTimer.Interval = 50;
             formAppearanceTimer.Tick += FormAppearanceTimerTick;
             formAppearanceTimer.Start();
         }
@@ -105,25 +115,33 @@ namespace ZONOupdate.FormForCreationNewCollection
                 }
             }
         }
+
+        private void ReturnToNormalTimerTick(object sender, EventArgs e)
+        {
+            informationLabel.Text = languageResources.GetString(informationLabel.Name);
+            collectionNameTextBox.FillColor = SystemColors.ButtonFace;
+        }
         #endregion
 
         #region Конструкторы
         public NewCollectionCreationForm(User curentUser, FlowLayoutPanel productsFlowLayoutPanel,
             ResourceManager languageResources, FlowLayoutPanel listflowlayoutpanel)
         {
+            logger.Info("Открылась форма для создания новой подборки");
+
             this.curentUser = curentUser;
+            this.languageResources = languageResources;
             this.listflowlayoutpanel = listflowlayoutpanel;
             this.productsFlowLayoutPanel = productsFlowLayoutPanel;
-            this.languageResources = languageResources;
             fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
             InitializeComponent();
 
-            informationLabel.Font = new Font(fontCollection.Families[0], 14);
-            collectionNameTextBox.Font = new Font(fontCollection.Families[0], 14);
-            saveNewCollectionButton.Font = new Font(fontCollection.Families[0], 14);
+            informationLabel.Font = new Font(fontCollection.Families[0], 13);
+            collectionNameTextBox.Font = new Font(fontCollection.Families[0], 13);
+            addNewCollectionButton.Font = new Font(fontCollection.Families[0], 13);
 
             informationLabel.Text = languageResources.GetString(informationLabel.Name);
-            saveNewCollectionButton.Text = languageResources.GetString(saveNewCollectionButton.Name);
+            addNewCollectionButton.Text = languageResources.GetString(addNewCollectionButton.Name);
             Text = languageResources.GetString(Name);
         }
         #endregion
