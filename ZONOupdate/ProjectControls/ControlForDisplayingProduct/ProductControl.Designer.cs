@@ -34,7 +34,7 @@
             productPhotoPictureBox.Size = new Size(181, 153);
             productPhotoPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             productPhotoPictureBox.TabIndex = 0;
-            productPhotoPictureBox.TabStop = false;
+            productPhotoPictureBox.TabStop = true;
             productPhotoPictureBox.DoubleClick += ProductControlTableLayoutPanelDoubleClick;
             // 
             // productNameLabel

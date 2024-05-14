@@ -141,6 +141,9 @@
   <data name="addNewProductButton" xml:space="preserve">
     <value>Add product</value>
   </data>
+  <data name="addToCollectionComboBox" xml:space="preserve">
+    <value>To the selection</value>
+  </data>
   <data name="chooseProductTypeComboBox" xml:space="preserve">
     <value>Select product type</value>
   </data>

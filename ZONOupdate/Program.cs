@@ -1,23 +1,36 @@
-﻿using System.Resources;
-using ZONOupdate.Forms.FormForWelcomingUser;
+﻿using ZONOupdate.Forms.FormForWelcomingUser;
 using ZONOupdate.Forms.FormForMainWindow;
 using ZONOupdate.Forms.FormForLogin;
+using System.Resources;
 
 namespace ZONOupdate
 {
     internal static class Program
     {
-        static bool isEntryAllowed;
+        #region Поля
         static Guid userID;
-        static object languageName;
-        static ResourceManager languageResources;
+        static bool isEntryAllowed;
+        static object languageName = null!;
+        static ResourceManager languageResources = null!;
+        #endregion
 
+        #region Методы
+        /// <summary>
+        /// Метод, предназначенный для загрузки данных пользователя.
+        /// </summary>
+        /// <param name="isEntryAllowed"> Разрешение входа. </param>
+        /// <param name="userID"> ID пользователя. </param>
         public static void SetLoginInformation(bool isEntryAllowed, Guid userID)
         {
             Program.isEntryAllowed = isEntryAllowed;
             Program.userID = userID;
         }
 
+        /// <summary>
+        /// Метод, предназначенный для загрузки данных локализации.
+        /// </summary>
+        /// <param name="languageName"> Название языка. </param>
+        /// <param name="languageResources"> Файл локализации. </param>
         public static void SetLanguageInformation(object languageName, ResourceManager languageResources)
         {
             Program.languageName = languageName;
@@ -30,7 +43,6 @@ namespace ZONOupdate
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            //Application.Run(new MainForm(new Guid("7569C43C-7D55-4406-97AB-5BFE49DC4658"), (object)"Русский", new ResourceManager($"ZONOupdate.Localization.MainFormRU", typeof(MainForm).Assembly)));
 
             do
             {
@@ -46,5 +58,6 @@ namespace ZONOupdate
             }
             while (isEntryAllowed);
         }
+        #endregion
     }
 }

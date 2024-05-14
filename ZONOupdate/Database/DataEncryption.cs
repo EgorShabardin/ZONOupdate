@@ -4,15 +4,15 @@ using System.Text;
 namespace ZONOupdate.Database
 {
     /// <summary>
-    /// Класс шифрования данных
+    /// Класс шифрования данных.
     /// </summary>
     internal static class DataEncryption
     {
         /// <summary>
-        /// Метод для шифрования данных, используемый для логина и пароля
+        /// Метод для шифрования данных, используемый для логина и пароля.
         /// </summary>
-        /// <param name="dataString">Логин/Пароль</param>
-        /// <returns></returns>
+        /// <param name="dataString"> Логин/Пароль. </param>
+        /// <returns> Зашифрованные данные. </returns>
         public static string HashingData(string dataString)
         {
             byte[] dataInBytesArray = Encoding.ASCII.GetBytes(dataString);

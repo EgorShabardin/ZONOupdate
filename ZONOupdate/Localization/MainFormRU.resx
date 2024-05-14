@@ -135,6 +135,9 @@
   <data name="addNewProductButton" xml:space="preserve">
     <value>Добавить</value>
   </data>
+  <data name="addToCollectionComboBox" xml:space="preserve">
+    <value>В подборку</value>
+  </data>
   <data name="applyButton" xml:space="preserve">
     <value>Применить</value>
   </data>

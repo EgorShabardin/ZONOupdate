@@ -145,7 +145,6 @@ D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForWelcomingUser.UserWelcomeForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.ProjectControls.ControlForCollectionName.CollectionNameControl.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForMainWindow.MainForm.resources
-D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Localization.LoginFormTAT.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.ProjectControls.ControlForDisplayingProduct.ProductControl.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForInputBox.InputBoxForm.resources
 D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\obj\Debug\net8.0-windows\ZONOupdate.Forms.FormForCreationNewCollection.NewCollectionCreationForm.resources

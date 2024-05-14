@@ -375,7 +375,7 @@ namespace ZONOupdate.Database
 
                     if (collection != null)
                     {
-                        return database.UserCollections.Where(collection => collection.CollectionID == collection.CollectionID).Select(collection => collection.CollectionName).First();
+                        return database.UserCollections.Where(col => col.CollectionID == collection.CollectionID).Select(collection => collection.CollectionName).First();
                     }
 
                     return String.Empty;

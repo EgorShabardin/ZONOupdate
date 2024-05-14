@@ -106,6 +106,7 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
                 {
                     var productControl = new ProductControl(recommendation, currentUser.ID,
                         languageResources);
+                    productControl.Name = recommendation.RecommendationId.ToString();
 
                     productControl.MakeProductControlForMyCollections(productsFlowLayoutPanel.Width);
                     productControls.Add(productControl);
