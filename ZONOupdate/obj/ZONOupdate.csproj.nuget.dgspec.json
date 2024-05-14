@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Домашние работы КФУ\\C#\\ZONOupdate\\ZONOupdate\\ZONOupdate.csproj": {}
+    "C:\\Users\\c0nf1\\source\\New folder (4)\\ZONOupdate\\ZONOupdate.csproj": {}
   },
   "projects": {
-    "D:\\Домашние работы КФУ\\C#\\ZONOupdate\\ZONOupdate\\ZONOupdate.csproj": {
+    "C:\\Users\\c0nf1\\source\\New folder (4)\\ZONOupdate\\ZONOupdate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Домашние работы КФУ\\C#\\ZONOupdate\\ZONOupdate\\ZONOupdate.csproj",
+        "projectUniqueName": "C:\\Users\\c0nf1\\source\\New folder (4)\\ZONOupdate\\ZONOupdate.csproj",
         "projectName": "ZONOupdate",
-        "projectPath": "D:\\Домашние работы КФУ\\C#\\ZONOupdate\\ZONOupdate\\ZONOupdate.csproj",
-        "packagesPath": "C:\\Users\\Егор\\.nuget\\packages\\",
-        "outputPath": "D:\\Домашние работы КФУ\\C#\\ZONOupdate\\ZONOupdate\\obj\\",
+        "projectPath": "C:\\Users\\c0nf1\\source\\New folder (4)\\ZONOupdate\\ZONOupdate.csproj",
+        "packagesPath": "C:\\Users\\c0nf1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\c0nf1\\source\\New folder (4)\\ZONOupdate\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Егор\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\c0nf1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

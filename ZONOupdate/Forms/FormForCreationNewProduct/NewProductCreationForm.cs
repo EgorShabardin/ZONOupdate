@@ -285,6 +285,10 @@ namespace ZONOupdate.Forms.FormForCreationNewProduct
                 LoadProductInformation();
             }
         }
+        public NewProductCreationForm(Guid currentUserID)
+        {
+            this.currentUserID = currentUserID;
+        }
         #endregion
     }
 }

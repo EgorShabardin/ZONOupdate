@@ -6,7 +6,7 @@ namespace ZONOupdate.Database
     /// <summary>
     /// Класс шифрования данных.
     /// </summary>
-    internal static class DataEncryption
+    public static class DataEncryption
     {
         /// <summary>
         /// Метод для шифрования данных, используемый для логина и пароля.

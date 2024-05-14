@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZONOupdate", "ZONOupdate\ZONOupdate.csproj", "{421A0B51-AE78-4749-B9AB-D40038B96EBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZONOupdate", "ZONOupdate\ZONOupdate.csproj", "{421A0B51-AE78-4749-B9AB-D40038B96EBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{86ED7359-9D03-449E-8AD1-8E32289E0AB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{421A0B51-AE78-4749-B9AB-D40038B96EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{421A0B51-AE78-4749-B9AB-D40038B96EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{421A0B51-AE78-4749-B9AB-D40038B96EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86ED7359-9D03-449E-8AD1-8E32289E0AB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86ED7359-9D03-449E-8AD1-8E32289E0AB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86ED7359-9D03-449E-8AD1-8E32289E0AB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86ED7359-9D03-449E-8AD1-8E32289E0AB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
