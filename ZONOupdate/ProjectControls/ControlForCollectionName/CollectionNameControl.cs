@@ -16,8 +16,8 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
     {
         #region Поля
         User currentUser;
-        UserCollection? currentCollection;
         ResourceManager languageResources;
+        UserCollection? currentCollection;
         List<Recommendation>? recommendations; 
         FlowLayoutPanel productsFlowLayoutPanel;
         Logger logger = LogManager.GetCurrentClassLogger();
@@ -35,10 +35,13 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
             logger.Info($"Формируется сообщение для отправки подборки на почту");
 
             var messageWithCollection = new MimeMessage();
-            messageWithCollection.Subject = languageResources.GetString("messageSubject");
+            messageWithCollection.Subject = languageResources
+                .GetString("messageSubject");
 
-            var htmlFileForSendingCollection = Properties.Resources.htmlFileForSendingCollection;
-            var htmlFileWithAppearanceOfRecomendation = Properties.Resources.htmlFileWithAppearanceOfRecomendation;
+            var htmlFileForSendingCollection = Properties
+                .Resources.htmlFileForSendingCollection;
+            var htmlFileWithAppearanceOfRecomendation = Properties
+                .Resources.htmlFileWithAppearanceOfRecomendation;
             var messageBody = new Multipart("alternative");
             var messagePart = new TextPart("html");
 
@@ -46,8 +49,8 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
 
             if (currentCollection != null)
             {
-                recomendationsInCollection = DatabaseInteraction.LoadRecomendationsFromCollection
-                    (currentCollection.CollectionID).ToList();
+                recomendationsInCollection = DatabaseInteraction
+                    .LoadRecomendationsFromCollection(currentCollection.CollectionID).ToList();
 
                 messagePart.Text = htmlFileForSendingCollection.Replace("{collectionNameTitle}",
                     languageResources.GetString("collectionNameTitle")).Replace("{collectionName}",
@@ -66,11 +69,13 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
             {
                 foreach (var recomendation in recomendationsInCollection)
                 {
-                    messagePart.Text += htmlFileWithAppearanceOfRecomendation.Replace("{recomendationName}",
-                        recomendation.RecommendationName).Replace("{recomendationMark}", recomendation.RecommendationMark
-                        .ToString()).Replace("{recomendationDescription}", recomendation.RecommendationDescription)
-                        .Replace("{recomendationPrice}", recomendation.ProductPriceFrom.ToString()).Replace("{recomendationPriceTitle}",
-                        languageResources.GetString("productPriceLabel")).Replace("{recomedationMarkTitle}", languageResources
+                    messagePart.Text += htmlFileWithAppearanceOfRecomendation
+                        .Replace("{recomendationName}", recomendation.RecommendationName)
+                        .Replace("{recomendationMark}", DatabaseInteraction.CountProductRating(recomendation.RecommendationId).ToString())
+                        .Replace("{recomendationDescription}", recomendation.RecommendationDescription)
+                        .Replace("{recomendationPrice}", recomendation.ProductPriceFrom.ToString())
+                        .Replace("{recomendationPriceTitle}", languageResources.GetString("productPriceLabel"))
+                        .Replace("{recomedationMarkTitle}", languageResources
                         .GetString("productMarkLabel"));
                 }
             }
@@ -84,16 +89,17 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
         #endregion
 
         #region События
-        private void ClickOnCollectionControl(object sender, MouseEventArgs e)
+        private void CollectionControlMouseDown(object sender, MouseEventArgs e)
         {
             if (currentCollection != null)
             {
-                logger.Debug($"Пользователь нажал на подборку с id {currentCollection.CollectionID}");
+                logger.Debug($"Пользователь нажал на подборку" +
+                    $"с id {currentCollection.CollectionID}");
 
                 productsFlowLayoutPanel.Controls.Clear();
 
-                var recomendationsInCollection = DatabaseInteraction.LoadRecomendationsFromCollection
-                    (currentCollection.CollectionID);
+                var recomendationsInCollection = DatabaseInteraction
+                    .LoadRecomendationsFromCollection(currentCollection.CollectionID);
                 var productControls = new List<ProductControl>();
 
                 foreach (var recommendation in recomendationsInCollection)
@@ -109,7 +115,7 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
             }
         }
 
-        private void ClickOnSelectionWithMatches(object sender, MouseEventArgs e)
+        private void SelectionWithMatchesMouseDown(object sender, MouseEventArgs e)
         {
             logger.Debug($"Пользователь нажал на подборку с популярными товарами");
 
@@ -123,6 +129,7 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
                 {
                     var productControl = new ProductControl(recommendation, currentUser.ID,
                         languageResources);
+                    productControl.MakeProductControlForMatches(productsFlowLayoutPanel.Width);
 
                     productControls.Add(productControl);
                 }
@@ -171,19 +178,19 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
             logger.Info($"Создан элемент управления для отображения подборки" +
                 $"с id {currentCollection.ID}");
 
-            fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
-            this.productsFlowLayoutPanel = productsFlowLayoutPanel;
-            this.languageResources = languageResources;
-            this.currentCollection = currentCollection;
             this.currentUser = currentUser;
+            this.currentCollection = currentCollection;
+            this.languageResources = languageResources;
+            this.productsFlowLayoutPanel = productsFlowLayoutPanel;
+            fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
             collectionNameControlFunctional = new CollectionNameControlFunctional(this);
             InitializeComponent();
 
             Width = controlWidth;
             collectionNameLabel.Text = currentCollection.CollectionName;
             collectionNameLabel.Font = new Font(fontCollection.Families[0], 14);
-            collectionNameTableLayoutPanel.MouseDown += ClickOnCollectionControl;
-            collectionNameLabel.MouseDown += ClickOnCollectionControl;
+            collectionNameTableLayoutPanel.MouseDown += CollectionControlMouseDown;
+            collectionNameLabel.MouseDown += CollectionControlMouseDown;
         }
 
         public CollectionNameControl(User currentUser, FlowLayoutPanel productsFlowLayoutPanel, 
@@ -192,19 +199,19 @@ namespace ZONOupdate.ProjectControls.ControlForCollectionName
             logger.Info($"Создан элемент управления для отображения подборки с " +
                 $"популярными товарами");
 
-            fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
-            this.productsFlowLayoutPanel = productsFlowLayoutPanel;
-            this.languageResources = languageResources;
             this.currentUser = currentUser;
             this.recommendations = recommendations;
+            this.languageResources = languageResources;
+            this.productsFlowLayoutPanel = productsFlowLayoutPanel;
+            fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
             collectionNameControlFunctional = new CollectionNameControlFunctional(this);
             InitializeComponent();
 
             Width = controlWidth;
             collectionNameLabel.Text = languageResources.GetString("selectionWithMatches");
             collectionNameLabel.Font = new Font(fontCollection.Families[0], 14);
-            collectionNameTableLayoutPanel.MouseDown += ClickOnSelectionWithMatches;
-            collectionNameLabel.MouseDown += ClickOnSelectionWithMatches;
+            collectionNameTableLayoutPanel.MouseDown += SelectionWithMatchesMouseDown;
+            collectionNameLabel.MouseDown += SelectionWithMatchesMouseDown;
         }
         #endregion
     }

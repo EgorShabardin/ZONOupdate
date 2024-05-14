@@ -2,7 +2,7 @@
 using ZONOupdate.FunctionalClasses;
 using ZONOupdate.Database;
 using System.Drawing.Text;
-using ZONOupdate.FormForProductCard;
+using ZONOupdate.Forms.FormForProductCard;
 using System.Resources;
 using Guna.UI2.WinForms;
 using NLog;
@@ -173,9 +173,9 @@ namespace ZONOupdate.ProjectControls.ControlForDisplayingProduct
             productNameLabel.DoubleClick -= ProductControlTableLayoutPanelDoubleClick;
         }
 
-        public void MakeProductControlForMyCollections(int width)
+        public void MakeProductControlForMyCollections(int tableWidth)
         {
-            Width = width;
+            Width = tableWidth;
 
             var removeProductPictureBox = new PictureBox();
             removeProductPictureBox.Image = Properties.Resources.removeProduct;
@@ -188,6 +188,8 @@ namespace ZONOupdate.ProjectControls.ControlForDisplayingProduct
             productControlTableLayoutPanel.Controls.Add(removeProductPictureBox, 2, 0);
             productControlTableLayoutPanel.SetRowSpan(removeProductPictureBox, 3);
         }
+
+        public void MakeProductControlForMatches(int tableWidth) { Width = tableWidth; }
 
         public void ChangeLanguage(ResourceManager languageResources)
         {

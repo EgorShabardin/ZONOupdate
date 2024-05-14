@@ -40,8 +40,7 @@ namespace ZONOupdate.Forms.FormForMainWindow
                     foreach (var product in recommendations)
                     {
                         var recomendation = new ProductControl(product, UserID, languageResources);
-                        recomendation.MakeProductControlForMainPageOrForFavorites
-                            (productsFlowLayoutPanel.Width);
+                        recomendation.MakeProductControlForMainPageOrForFavorites(productsFlowLayoutPanel.Width);
 
                         productControls.Add(recomendation);
                     }

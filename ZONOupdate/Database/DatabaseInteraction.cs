@@ -589,7 +589,7 @@ namespace ZONOupdate.Database
                 {
                     logger.Info("Успешное подключение к базе данных при попытке поставить оценку товару");
 
-                    var relatedMarks = database.Marks.Where(mark => mark.ID == userID && mark.RecommendationID
+                    var relatedMarks = database.Marks.Where(mark => mark.ID == userID).Where(mark => mark.RecommendationID
                     == recommendationID).ToList();
                     if (relatedMarks.Any())
                     {
@@ -636,11 +636,6 @@ namespace ZONOupdate.Database
                     var listOfMarks = database.Marks.Where(mark => mark.RecommendationID == recommendationID).ToList();
                     var numberOfMarks = listOfMarks.Count();
                     var sumOfMarks = 0;
-
-                    if (numberOfMarks.Equals(1) || numberOfMarks.Equals(0))
-                    {
-                        return sumOfMarks;
-                    }
 
                     foreach (var mark in listOfMarks)
                     {

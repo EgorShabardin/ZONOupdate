@@ -62,8 +62,8 @@ partial class CollectionNameControl
         collectionSendToEmailPictureBox.Name = "collectionSendToEmailPictureBox";
         collectionSendToEmailPictureBox.Size = new Size(30, 40);
         collectionSendToEmailPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-        collectionSendToEmailPictureBox.TabIndex = 1;
-        collectionSendToEmailPictureBox.TabStop = false;
+        collectionSendToEmailPictureBox.TabIndex = 0;
+        collectionSendToEmailPictureBox.TabStop = true;
         collectionSendToEmailPictureBox.MouseDown += CollectionSendToEmailPictureBoxMouseDown;
         // 
         // CollectionNameControl

@@ -15,67 +15,6 @@
           }
         }
       },
-      "Bunifu.Licensing/6.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "13.0.3",
-          "RestSharp": "110.2.0",
-          "System.Management": "8.0.0"
-        },
-        "compile": {
-          "lib/net8.0-windows7.0/Bunifu.Licensing.dll": {}
-        },
-        "runtime": {
-          "lib/net8.0-windows7.0/Bunifu.Licensing.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WindowsForms"
-        ]
-      },
-      "Bunifu.UI.WinForms/7.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Bunifu.Licensing": "6.0.2"
-        },
-        "compile": {
-          "lib/net8.0-windows7.0/Bunifu.UI.WinForms.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0-windows7.0/Bunifu.UI.WinForms.dll": {
-            "related": ".xml"
-          }
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WindowsForms"
-        ]
-      },
-      "DevExpress.Data/24.1.1-alpha-24085": {
-        "type": "package",
-        "dependencies": {
-          "System.Drawing.Common": "4.7.2"
-        },
-        "compile": {
-          "lib/net6.0/DevExpress.Data.v24.1.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/DevExpress.Data.v24.1.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "DevExpress.Win.WinterJoySkin/1.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.0/DevExpress.WinterJoySkin.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/DevExpress.WinterJoySkin.dll": {}
-        }
-      },
       "Guna.UI2.WinForms/2.0.4.6": {
         "type": "package",
         "dependencies": {
@@ -130,60 +69,6 @@
         "runtime": {
           "lib/net8.0/MailKit.dll": {
             "related": ".dll.config;.pdb;.xml"
-          }
-        }
-      },
-      "MaterialSkin/0.2.1": {
-        "type": "package",
-        "compile": {
-          "lib/MaterialSkin.dll": {}
-        },
-        "runtime": {
-          "lib/MaterialSkin.dll": {}
-        }
-      },
-      "MaterialSkin.2/2.3.1": {
-        "type": "package",
-        "compile": {
-          "lib/net5.0-windows7.0/MaterialSkin.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0-windows7.0/MaterialSkin.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WindowsForms"
-        ]
-      },
-      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Http.Features": "2.2.0",
-          "System.Text.Encodings.Web": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Http.Features/2.2.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Primitives": "2.2.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
-            "related": ".xml"
           }
         }
       },
@@ -769,37 +654,6 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.NETCore.Platforms/3.1.4": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/_._": {}
-        }
-      },
-      "Microsoft.Win32.SystemEvents/4.7.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.1.0"
-        },
-        "compile": {
-          "ref/netstandard2.0/_._": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
       "MimeKit/4.5.0": {
         "type": "package",
         "dependencies": {
@@ -845,7 +699,7 @@
           }
         }
       },
-      "NLog/5.3.1": {
+      "NLog/5.3.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NLog.dll": {
@@ -854,22 +708,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/NLog.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "RestSharp/110.2.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Text.Json": "7.0.2"
-        },
-        "compile": {
-          "lib/net7.0/RestSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/RestSharp.dll": {
             "related": ".xml"
           }
         }
@@ -1009,15 +847,15 @@
           "lib/net6.0-windows7.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
         }
       },
-      "System.CodeDom/8.0.0": {
+      "System.CodeDom/7.0.0": {
         "type": "package",
         "compile": {
-          "lib/net8.0/System.CodeDom.dll": {
+          "lib/net7.0/System.CodeDom.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/System.CodeDom.dll": {
+          "lib/net7.0/System.CodeDom.dll": {
             "related": ".xml"
           }
         },
@@ -1151,31 +989,6 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "System.Drawing.Common/4.7.2": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.1.4",
-          "Microsoft.Win32.SystemEvents": "4.7.0"
-        },
-        "compile": {
-          "ref/netcoreapp3.0/System.Drawing.Common.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Drawing.Common.dll": {}
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          },
-          "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
       "System.Formats.Asn1/8.0.0": {
         "type": "package",
         "compile": {
@@ -1208,18 +1021,18 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "System.Management/8.0.0": {
+      "System.Management/7.0.0": {
         "type": "package",
         "dependencies": {
-          "System.CodeDom": "8.0.0"
+          "System.CodeDom": "7.0.0"
         },
         "compile": {
-          "lib/net8.0/System.Management.dll": {
+          "lib/net7.0/System.Management.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/System.Management.dll": {
+          "lib/net7.0/System.Management.dll": {
             "related": ".xml"
           }
         },
@@ -1227,7 +1040,7 @@
           "buildTransitive/net6.0/_._": {}
         },
         "runtimeTargets": {
-          "runtimes/win/lib/net8.0/System.Management.dll": {
+          "runtimes/win/lib/net7.0/System.Management.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1400,241 +1213,6 @@
             "related": ".xml"
           }
         }
-      },
-      "XtraEditor.Controls/18.2.4": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/DevExpress.AspNetCore.Bootstrap.Render.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.Bootstrap.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.AspNetCore.Common.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.AspNetCore.Core.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.DemoData.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.Reporting.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.AspNetCore.Resources.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.RichEdit.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.Scheduler.Core.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.Spreadsheet.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.Charts.v18.2.Core.dll": {},
-          "lib/netstandard2.0/DevExpress.CodeParser.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.Dashboard.v18.2.AspNetCore.dll": {},
-          "lib/netstandard2.0/DevExpress.Dashboard.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Dashboard.v18.2.Web.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Data.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.DataAccess.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Map.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Office.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Pdf.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.PivotGrid.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Printing.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.RichEdit.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.RichEdit.v18.2.Export.dll": {},
-          "lib/netstandard2.0/DevExpress.Sparkline.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Spreadsheet.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.TreeMap.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Xpo.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraCharts.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraGauges.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraMap.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraReports.v18.2.Web.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraReports.v18.2.dll": {
-            "related": ".Web.xml;.xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraScheduler.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraTreeMap.v18.2.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/DevExpress.AspNetCore.Bootstrap.Render.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.Bootstrap.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.AspNetCore.Common.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.AspNetCore.Core.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.DemoData.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.Reporting.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.AspNetCore.Resources.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.RichEdit.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.Scheduler.Core.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.AspNetCore.Spreadsheet.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.Charts.v18.2.Core.dll": {},
-          "lib/netstandard2.0/DevExpress.CodeParser.v18.2.dll": {},
-          "lib/netstandard2.0/DevExpress.Dashboard.v18.2.AspNetCore.dll": {},
-          "lib/netstandard2.0/DevExpress.Dashboard.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Dashboard.v18.2.Web.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Data.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.DataAccess.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Map.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Office.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Pdf.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.PivotGrid.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Printing.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.RichEdit.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.RichEdit.v18.2.Export.dll": {},
-          "lib/netstandard2.0/DevExpress.Sparkline.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Spreadsheet.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.TreeMap.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.Xpo.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraCharts.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraGauges.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraMap.v18.2.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraReports.v18.2.Web.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraReports.v18.2.dll": {
-            "related": ".Web.xml;.xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraScheduler.v18.2.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/DevExpress.XtraTreeMap.v18.2.dll": {
-            "related": ".xml"
-          }
-        },
-        "resource": {
-          "lib/netstandard2.0/es/DevExpress.AspNetCore.Core.v18.2.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.AspNetCore.Resources.v18.2.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.AspNetCore.Scheduler.Core.v18.2.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.Dashboard.v18.2.Core.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.Dashboard.v18.2.Web.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.Data.v18.2.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.DataAccess.v18.2.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.Map.v18.2.Core.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.Office.v18.2.Core.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.Pdf.v18.2.Core.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.PivotGrid.v18.2.Core.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.Printing.v18.2.Core.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.RichEdit.v18.2.Core.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.Sparkline.v18.2.Core.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.Xpo.v18.2.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.XtraCharts.v18.2.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.XtraGauges.v18.2.Core.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.XtraReports.v18.2.Web.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.XtraReports.v18.2.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/es/DevExpress.XtraScheduler.v18.2.Core.resources.dll": {
-            "locale": "es"
-          }
-        }
       }
     }
   },
@@ -1657,86 +1235,6 @@
         "lib/netstandard2.0/BouncyCastle.Cryptography.dll",
         "lib/netstandard2.0/BouncyCastle.Cryptography.xml",
         "packageIcon.png"
-      ]
-    },
-    "Bunifu.Licensing/6.0.2": {
-      "sha512": "riR7300VAWONnWt9dN22C9eYp3aWc6OuL11P0PzV58W3HRdJB/NmHseDtqkXen8LaAyLJ9e6pEV2deDNBIvnWA==",
-      "type": "package",
-      "path": "bunifu.licensing/6.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.txt",
-        "LICENSING README.md",
-        "bunifu.licensing.6.0.2.nupkg.sha512",
-        "bunifu.licensing.nuspec",
-        "lib/net462/Bunifu.Licensing.dll",
-        "lib/net472/Bunifu.Licensing.dll",
-        "lib/net48/Bunifu.Licensing.dll",
-        "lib/net5.0-windows7.0/Bunifu.Licensing.dll",
-        "lib/net6.0-windows7.0/Bunifu.Licensing.dll",
-        "lib/net7.0-windows7.0/Bunifu.Licensing.dll",
-        "lib/net8.0-windows7.0/Bunifu.Licensing.dll"
-      ]
-    },
-    "Bunifu.UI.WinForms/7.0.0": {
-      "sha512": "Nrl5TErhGP7vBzMr72se0Y+T04fm0QU32B4RcvSCKQkJeEsgTg/fHi2vZjRpHe2VeNzM5eM+mj1+xTjP2JekOA==",
-      "type": "package",
-      "path": "bunifu.ui.winforms/7.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.txt",
-        "README.md",
-        "bunifu.ui.winforms.7.0.0.nupkg.sha512",
-        "bunifu.ui.winforms.nuspec",
-        "lib/net462/Bunifu.UI.WinForms.dll",
-        "lib/net462/Bunifu.UI.WinForms.xml",
-        "lib/net472/Bunifu.UI.WinForms.dll",
-        "lib/net472/Bunifu.UI.WinForms.xml",
-        "lib/net48/Bunifu.UI.WinForms.dll",
-        "lib/net48/Bunifu.UI.WinForms.xml",
-        "lib/net5.0-windows7.0/Bunifu.UI.WinForms.dll",
-        "lib/net5.0-windows7.0/Bunifu.UI.WinForms.xml",
-        "lib/net6.0-windows7.0/Bunifu.UI.WinForms.dll",
-        "lib/net6.0-windows7.0/Bunifu.UI.WinForms.xml",
-        "lib/net7.0-windows7.0/Bunifu.UI.WinForms.dll",
-        "lib/net7.0-windows7.0/Bunifu.UI.WinForms.xml",
-        "lib/net8.0-windows7.0/Bunifu.UI.WinForms.dll",
-        "lib/net8.0-windows7.0/Bunifu.UI.WinForms.xml"
-      ]
-    },
-    "DevExpress.Data/24.1.1-alpha-24085": {
-      "sha512": "VB3gruxdWVjRIX5HMGUs8mS1rr9L4m//WYmXfQMeSIsQmE9mpDDtmbqQGwMa+qq+SnkpTcNO8wdoUu4RBSlujw==",
-      "type": "package",
-      "path": "devexpress.data/24.1.1-alpha-24085",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "analyzers/dotnet/cs/DevExpress.Generator.dll",
-        "devexpress.data.24.1.1-alpha-24085.nupkg.sha512",
-        "devexpress.data.nuspec",
-        "lib/net452/DevExpress.Data.v24.1.dll",
-        "lib/net452/DevExpress.Data.v24.1.xml",
-        "lib/net6.0/DevExpress.Data.v24.1.dll",
-        "lib/net6.0/DevExpress.Data.v24.1.xml",
-        "tools/VisualStudioToolsManifest.xml"
-      ]
-    },
-    "DevExpress.Win.WinterJoySkin/1.0.2": {
-      "sha512": "LmwJltgWcUIXlyIJCwl13d4ajYHnMifdqoRwbyv39SYmvaMNH19JMNg5/nxG8WG7b2DkQwSIy8aQRj9fXVQ7JA==",
-      "type": "package",
-      "path": "devexpress.win.winterjoyskin/1.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "devexpress.win.winterjoyskin.1.0.2.nupkg.sha512",
-        "devexpress.win.winterjoyskin.nuspec",
-        "lib/net452/DevExpress.WinterJoySkin.dll",
-        "lib/netcoreapp3.0/DevExpress.WinterJoySkin.dll"
       ]
     },
     "Guna.UI2.WinForms/2.0.4.6": {
@@ -1869,61 +1367,6 @@
         "lib/netstandard2.1/MailKit.xml",
         "mailkit.4.5.0.nupkg.sha512",
         "mailkit.nuspec"
-      ]
-    },
-    "MaterialSkin/0.2.1": {
-      "sha512": "/6AEh6qIeNKbxsha7IHBb5s50tyvB0iZuGQPB9mjyR+mRdfQ7vnKTklwI26Y/DbrymTcg+aBHSgCgAT7/qLIrQ==",
-      "type": "package",
-      "path": "materialskin/0.2.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MaterialSkin.dll",
-        "materialskin.0.2.1.nupkg.sha512",
-        "materialskin.nuspec"
-      ]
-    },
-    "MaterialSkin.2/2.3.1": {
-      "sha512": "w2vFxLNk4InCDU7pXDfBqPfv55HhBtuu8HRfEqQpeS3sNTS1pUzDs/hS0b5JW2/tKvt+P1of9OINP8a9omWDBg==",
-      "type": "package",
-      "path": "materialskin.2/2.3.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net45/MaterialSkin.dll",
-        "lib/net461/MaterialSkin.dll",
-        "lib/net48/MaterialSkin.dll",
-        "lib/net5.0-windows7.0/MaterialSkin.dll",
-        "materialskin.2.2.3.1.nupkg.sha512",
-        "materialskin.2.nuspec",
-        "nugetIcon.png"
-      ]
-    },
-    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
-      "sha512": "Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.xml",
-        "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
-        "microsoft.aspnetcore.http.abstractions.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Http.Features/2.2.0": {
-      "sha512": "ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.http.features/2.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
-        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
-        "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
-        "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
@@ -3289,53 +2732,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.NETCore.Platforms/3.1.4": {
-      "sha512": "9/y05/CuxE+j184Nr4KihhB9KcUkvGojmD4JV4Vt/mHhVZR+eOCD5WCM+CXye9K0OFMsaPXbN+IcaIpjgBGZmg==",
-      "type": "package",
-      "path": "microsoft.netcore.platforms/3.1.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.3.1.4.nupkg.sha512",
-        "microsoft.netcore.platforms.nuspec",
-        "runtime.json",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
-    "Microsoft.Win32.SystemEvents/4.7.0": {
-      "sha512": "mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
-      "type": "package",
-      "path": "microsoft.win32.systemevents/4.7.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.Win32.SystemEvents.dll",
-        "lib/net461/Microsoft.Win32.SystemEvents.xml",
-        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
-        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
-        "microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-        "microsoft.win32.systemevents.nuspec",
-        "ref/net461/Microsoft.Win32.SystemEvents.dll",
-        "ref/net461/Microsoft.Win32.SystemEvents.xml",
-        "ref/net472/Microsoft.Win32.SystemEvents.dll",
-        "ref/net472/Microsoft.Win32.SystemEvents.xml",
-        "ref/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
-        "ref/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
-        "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.dll",
-        "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.xml",
-        "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll",
-        "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "MimeKit/4.5.0": {
       "sha512": "OYn8b8b66J4mgtDzoImepiUtdkJOAVGoTj/ghzJ+az4wVixA5L5Z8GmgFhRvQ1btAIwZh/d9zvZLCALndQdz5w==",
       "type": "package",
@@ -3425,10 +2821,10 @@
         "packageIcon.png"
       ]
     },
-    "NLog/5.3.1": {
-      "sha512": "P5ipL1rWveuZYLff++q5QDNJST0KW3z42Y/VkXUxURELuONAg9nxYziY0J9nrwQYKr18qtqNqjGYBTFxABc9kg==",
+    "NLog/5.3.2": {
+      "sha512": "cQRQZuDMjSyMe9EQBnI9v55YAMMz8GAfFd6fFJ6tc/kXnG7Hze8p1I8MgvWSBG6E36wA8vSxRrlm8uSIG+SENg==",
       "type": "package",
-      "path": "nlog/5.3.1",
+      "path": "nlog/5.3.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3445,28 +2841,8 @@
         "lib/netstandard1.5/NLog.xml",
         "lib/netstandard2.0/NLog.dll",
         "lib/netstandard2.0/NLog.xml",
-        "nlog.5.3.1.nupkg.sha512",
+        "nlog.5.3.2.nupkg.sha512",
         "nlog.nuspec"
-      ]
-    },
-    "RestSharp/110.2.0": {
-      "sha512": "FXGw0IMcqY7yO/hzS9QrD3iNswNgb9UxJnxWmfOxmGs4kRlZWqdtBoGPLuhlbgsDzX1RFo4WKui8TGGKXWKalw==",
-      "type": "package",
-      "path": "restsharp/110.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net471/RestSharp.dll",
-        "lib/net471/RestSharp.xml",
-        "lib/net6.0/RestSharp.dll",
-        "lib/net6.0/RestSharp.xml",
-        "lib/net7.0/RestSharp.dll",
-        "lib/net7.0/RestSharp.xml",
-        "lib/netstandard2.0/RestSharp.dll",
-        "lib/netstandard2.0/RestSharp.xml",
-        "restsharp.110.2.0.nupkg.sha512",
-        "restsharp.nuspec",
-        "restsharp.png"
       ]
     },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.7": {
@@ -3559,10 +2935,10 @@
         "sqlitepclraw.provider.e_sqlite3.nuspec"
       ]
     },
-    "System.CodeDom/8.0.0": {
-      "sha512": "WTlRjL6KWIMr/pAaq3rYqh0TJlzpouaQ/W1eelssHgtlwHAH25jXTkUphTYx9HaIIf7XA6qs/0+YhtLEQRkJ+Q==",
+    "System.CodeDom/7.0.0": {
+      "sha512": "GLltyqEsE5/3IE+zYRP5sNa1l44qKl9v+bfdMcwg+M9qnQf47wK3H0SUR/T+3N4JEQXF3vV4CSuuo0rsg+nq2A==",
       "type": "package",
-      "path": "system.codedom/8.0.0",
+      "path": "system.codedom/7.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3579,11 +2955,9 @@
         "lib/net6.0/System.CodeDom.xml",
         "lib/net7.0/System.CodeDom.dll",
         "lib/net7.0/System.CodeDom.xml",
-        "lib/net8.0/System.CodeDom.dll",
-        "lib/net8.0/System.CodeDom.xml",
         "lib/netstandard2.0/System.CodeDom.dll",
         "lib/netstandard2.0/System.CodeDom.xml",
-        "system.codedom.8.0.0.nupkg.sha512",
+        "system.codedom.7.0.0.nupkg.sha512",
         "system.codedom.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -3773,46 +3147,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.Drawing.Common/4.7.2": {
-      "sha512": "I2y4KBK3VCvU/WqE2xv7NjQ67maXHttkFSHYKgU2evrG9Yqh0oFjfORXt5hZTk+BVjdyFo2h0/YQZsca33BGmg==",
-      "type": "package",
-      "path": "system.drawing.common/4.7.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net461/System.Drawing.Common.dll",
-        "lib/netstandard2.0/System.Drawing.Common.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net461/System.Drawing.Common.dll",
-        "ref/netcoreapp3.0/System.Drawing.Common.dll",
-        "ref/netcoreapp3.0/System.Drawing.Common.xml",
-        "ref/netstandard2.0/System.Drawing.Common.dll",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "runtimes/unix/lib/netcoreapp2.0/System.Drawing.Common.dll",
-        "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll",
-        "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.xml",
-        "runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll",
-        "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll",
-        "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.xml",
-        "system.drawing.common.4.7.2.nupkg.sha512",
-        "system.drawing.common.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Formats.Asn1/8.0.0": {
       "sha512": "AJukBuLoe3QeAF+mfaRKQb2dgyrvt340iMBHYv+VdBzCUM06IxGlvl0o/uPOS7lHnXPN6u8fFRHSHudx5aTi8w==",
       "type": "package",
@@ -3869,16 +3203,15 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.Management/8.0.0": {
-      "sha512": "jrK22i5LRzxZCfGb+tGmke2VH7oE0DvcDlJ1HAKYU8cPmD8XnpUT0bYn2Gy98GEhGjtfbR/sxKTVb+dE770pfA==",
+    "System.Management/7.0.0": {
+      "sha512": "A4jed4QUviDOm7fJNKAJObEAEkEUXmkGL/w0iyCYTzrl1rezTj8LGFHfsVst4Vb9JwFcTpboiDrvdST48avBpw==",
       "type": "package",
-      "path": "system.management/8.0.0",
+      "path": "system.management/7.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
-        "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net6.0/_._",
         "buildTransitive/netcoreapp2.0/System.Management.targets",
@@ -3887,17 +3220,13 @@
         "lib/net6.0/System.Management.xml",
         "lib/net7.0/System.Management.dll",
         "lib/net7.0/System.Management.xml",
-        "lib/net8.0/System.Management.dll",
-        "lib/net8.0/System.Management.xml",
         "lib/netstandard2.0/System.Management.dll",
         "lib/netstandard2.0/System.Management.xml",
         "runtimes/win/lib/net6.0/System.Management.dll",
         "runtimes/win/lib/net6.0/System.Management.xml",
         "runtimes/win/lib/net7.0/System.Management.dll",
         "runtimes/win/lib/net7.0/System.Management.xml",
-        "runtimes/win/lib/net8.0/System.Management.dll",
-        "runtimes/win/lib/net8.0/System.Management.xml",
-        "system.management.8.0.0.nupkg.sha512",
+        "system.management.7.0.0.nupkg.sha512",
         "system.management.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -4208,223 +3537,19 @@
         "vknet.1.79.0-alpha-109.nupkg.sha512",
         "vknet.nuspec"
       ]
-    },
-    "XtraEditor.Controls/18.2.4": {
-      "sha512": "MlVOMWIGyjFmh1UiEiyb4gfw4DFF7bqigf3B42bnPyx/dZ3ys1mlW/FJPrXpue3/gZ52xJN5na4K1eVMdq54Ig==",
-      "type": "package",
-      "path": "xtraeditor.controls/18.2.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/DevExpress.BonusSkins.v18.2.dll",
-        "lib/net45/DevExpress.CodeParser.v18.2.dll",
-        "lib/net45/DevExpress.Data.v18.2.dll",
-        "lib/net45/DevExpress.DataAccess.v18.2.UI.dll",
-        "lib/net45/DevExpress.DataAccess.v18.2.dll",
-        "lib/net45/DevExpress.DemoData.v18.2.Core.dll",
-        "lib/net45/DevExpress.DemoData.v18.2.dll",
-        "lib/net45/DevExpress.Diagram.v18.2.Core.dll",
-        "lib/net45/DevExpress.Dialogs.v18.2.Core.dll",
-        "lib/net45/DevExpress.Docs.v18.2.dll",
-        "lib/net45/DevExpress.Images.v18.2.dll",
-        "lib/net45/DevExpress.Office.v18.2.Core.dll",
-        "lib/net45/DevExpress.Pdf.v18.2.Core.dll",
-        "lib/net45/DevExpress.Pdf.v18.2.Drawing.dll",
-        "lib/net45/DevExpress.PivotGrid.v18.2.Core.dll",
-        "lib/net45/DevExpress.Printing.v18.2.Core.dll",
-        "lib/net45/DevExpress.RichEdit.v18.2.Core.dll",
-        "lib/net45/DevExpress.RichEdit.v18.2.Export.dll",
-        "lib/net45/DevExpress.Utils.v18.2.UI.dll",
-        "lib/net45/DevExpress.Utils.v18.2.dll",
-        "lib/net45/DevExpress.XtraBars.v18.2.dll",
-        "lib/net45/DevExpress.XtraCharts.v18.2.Extensions.dll",
-        "lib/net45/DevExpress.XtraCharts.v18.2.UI.dll",
-        "lib/net45/DevExpress.XtraCharts.v18.2.Web.dll",
-        "lib/net45/DevExpress.XtraCharts.v18.2.Wizard.dll",
-        "lib/net45/DevExpress.XtraCharts.v18.2.dll",
-        "lib/net45/DevExpress.XtraDiagram.v18.2.dll",
-        "lib/net45/DevExpress.XtraDialogs.v18.2.dll",
-        "lib/net45/DevExpress.XtraEditors.v18.2.dll",
-        "lib/net45/DevExpress.XtraGauges.v18.2.Core.dll",
-        "lib/net45/DevExpress.XtraGauges.v18.2.Presets.dll",
-        "lib/net45/DevExpress.XtraGauges.v18.2.Win.dll",
-        "lib/net45/DevExpress.XtraGrid.v18.2.dll",
-        "lib/net45/DevExpress.XtraLayout.v18.2.dll",
-        "lib/net45/DevExpress.XtraMap.v18.2.dll",
-        "lib/net45/DevExpress.XtraNavBar.v18.2.dll",
-        "lib/net45/DevExpress.XtraPdfViewer.v18.2.dll",
-        "lib/net45/DevExpress.XtraPivotGrid.v18.2.dll",
-        "lib/net45/DevExpress.XtraPrinting.v18.2.dll",
-        "lib/net45/DevExpress.XtraReports.v18.2.CodeCompletion.dll",
-        "lib/net45/DevExpress.XtraReports.v18.2.Extensions.dll",
-        "lib/net45/DevExpress.XtraReports.v18.2.Service.dll",
-        "lib/net45/DevExpress.XtraReports.v18.2.Web.Azure.dll",
-        "lib/net45/DevExpress.XtraReports.v18.2.Web.WebForms.dll",
-        "lib/net45/DevExpress.XtraReports.v18.2.Web.dll",
-        "lib/net45/DevExpress.XtraReports.v18.2.dll",
-        "lib/net45/DevExpress.XtraRichEdit.v18.2.Extensions.dll",
-        "lib/net45/DevExpress.XtraRichEdit.v18.2.dll",
-        "lib/net45/DevExpress.XtraScheduler.v18.2.Core.dll",
-        "lib/net45/DevExpress.XtraScheduler.v18.2.Extensions.dll",
-        "lib/net45/DevExpress.XtraScheduler.v18.2.GoogleCalendar.dll",
-        "lib/net45/DevExpress.XtraScheduler.v18.2.Reporting.Extensions.dll",
-        "lib/net45/DevExpress.XtraScheduler.v18.2.Reporting.dll",
-        "lib/net45/DevExpress.XtraScheduler.v18.2.dll",
-        "lib/net45/DevExpress.XtraSpellChecker.v18.2.dll",
-        "lib/net45/DevExpress.XtraSpreadsheet.v18.2.dll",
-        "lib/net45/DevExpress.XtraTreeList.v18.2.dll",
-        "lib/net45/DevExpress.XtraTreeMap.v18.2.dll",
-        "lib/net45/DevExpress.XtraVerticalGrid.v18.2.dll",
-        "lib/net45/DevExpress.XtraWizard.v18.2.dll",
-        "lib/net45/es/DevExpress.Charts.Designer.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.Dashboard.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.Dashboard.v18.2.Web.resources.dll",
-        "lib/net45/es/DevExpress.Dashboard.v18.2.Win.resources.dll",
-        "lib/net45/es/DevExpress.Data.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.DataAccess.v18.2.UI.resources.dll",
-        "lib/net45/es/DevExpress.DataAccess.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.Diagram.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.Map.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.Office.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.Pdf.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.PivotGrid.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.Printing.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.RichEdit.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.Snap.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.Snap.v18.2.Extensions.resources.dll",
-        "lib/net45/es/DevExpress.Snap.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.Sparkline.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.Spreadsheet.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.Utils.v18.2.UI.resources.dll",
-        "lib/net45/es/DevExpress.Utils.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraBars.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraCharts.v18.2.Wizard.resources.dll",
-        "lib/net45/es/DevExpress.XtraCharts.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraEditors.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraGauges.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.XtraGauges.v18.2.Presets.resources.dll",
-        "lib/net45/es/DevExpress.XtraGrid.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraLayout.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraNavBar.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraPdfViewer.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraPivotGrid.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraPrinting.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraReports.v18.2.Extensions.resources.dll",
-        "lib/net45/es/DevExpress.XtraReports.v18.2.Web.resources.dll",
-        "lib/net45/es/DevExpress.XtraReports.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraRichEdit.v18.2.Extensions.resources.dll",
-        "lib/net45/es/DevExpress.XtraRichEdit.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraScheduler.v18.2.Core.resources.dll",
-        "lib/net45/es/DevExpress.XtraScheduler.v18.2.Extensions.resources.dll",
-        "lib/net45/es/DevExpress.XtraScheduler.v18.2.Reporting.resources.dll",
-        "lib/net45/es/DevExpress.XtraScheduler.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraSpellChecker.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraSpreadsheet.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraTreeList.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraVerticalGrid.v18.2.resources.dll",
-        "lib/net45/es/DevExpress.XtraWizard.v18.2.resources.dll",
-        "lib/netstandard2.0/DevExpress.AspNetCore.Bootstrap.Render.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.AspNetCore.Bootstrap.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.AspNetCore.Bootstrap.v18.2.xml",
-        "lib/netstandard2.0/DevExpress.AspNetCore.Common.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.AspNetCore.Common.v18.2.xml",
-        "lib/netstandard2.0/DevExpress.AspNetCore.Core.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.AspNetCore.DemoData.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.AspNetCore.Reporting.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.AspNetCore.Reporting.v18.2.xml",
-        "lib/netstandard2.0/DevExpress.AspNetCore.Resources.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.AspNetCore.RichEdit.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.AspNetCore.Scheduler.Core.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.AspNetCore.Spreadsheet.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.Charts.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.CodeParser.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.Dashboard.v18.2.AspNetCore.dll",
-        "lib/netstandard2.0/DevExpress.Dashboard.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.Dashboard.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.Dashboard.v18.2.Web.dll",
-        "lib/netstandard2.0/DevExpress.Dashboard.v18.2.Web.xml",
-        "lib/netstandard2.0/DevExpress.Data.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.Data.v18.2.xml",
-        "lib/netstandard2.0/DevExpress.DataAccess.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.DataAccess.v18.2.xml",
-        "lib/netstandard2.0/DevExpress.Map.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.Map.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.Office.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.Office.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.Pdf.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.Pdf.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.PivotGrid.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.PivotGrid.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.Printing.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.Printing.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.RichEdit.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.RichEdit.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.RichEdit.v18.2.Export.dll",
-        "lib/netstandard2.0/DevExpress.Sparkline.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.Sparkline.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.Spreadsheet.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.Spreadsheet.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.TreeMap.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.TreeMap.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.Xpo.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.Xpo.v18.2.xml",
-        "lib/netstandard2.0/DevExpress.XtraCharts.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.XtraCharts.v18.2.xml",
-        "lib/netstandard2.0/DevExpress.XtraGauges.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.XtraGauges.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.XtraMap.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.XtraMap.v18.2.xml",
-        "lib/netstandard2.0/DevExpress.XtraReports.v18.2.Web.dll",
-        "lib/netstandard2.0/DevExpress.XtraReports.v18.2.Web.xml",
-        "lib/netstandard2.0/DevExpress.XtraReports.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.XtraReports.v18.2.xml",
-        "lib/netstandard2.0/DevExpress.XtraScheduler.v18.2.Core.dll",
-        "lib/netstandard2.0/DevExpress.XtraScheduler.v18.2.Core.xml",
-        "lib/netstandard2.0/DevExpress.XtraTreeMap.v18.2.dll",
-        "lib/netstandard2.0/DevExpress.XtraTreeMap.v18.2.xml",
-        "lib/netstandard2.0/es/DevExpress.AspNetCore.Core.v18.2.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.AspNetCore.Resources.v18.2.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.AspNetCore.Scheduler.Core.v18.2.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.Dashboard.v18.2.Core.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.Dashboard.v18.2.Web.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.Data.v18.2.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.DataAccess.v18.2.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.Map.v18.2.Core.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.Office.v18.2.Core.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.Pdf.v18.2.Core.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.PivotGrid.v18.2.Core.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.Printing.v18.2.Core.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.RichEdit.v18.2.Core.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.Sparkline.v18.2.Core.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.Xpo.v18.2.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.XtraCharts.v18.2.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.XtraGauges.v18.2.Core.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.XtraReports.v18.2.Web.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.XtraReports.v18.2.resources.dll",
-        "lib/netstandard2.0/es/DevExpress.XtraScheduler.v18.2.Core.resources.dll",
-        "xtraeditor.controls.18.2.4.nupkg.sha512",
-        "xtraeditor.controls.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
-      "Bunifu.UI.WinForms >= 7.0.0",
-      "DevExpress.Data >= 24.1.1-alpha-24085",
-      "DevExpress.Win.WinterJoySkin >= 1.0.2",
       "Guna.UI2.WinForms >= 2.0.4.6",
       "MailKit >= 4.5.0",
-      "MaterialSkin >= 0.2.1",
-      "MaterialSkin.2 >= 2.3.1",
-      "Microsoft.AspNetCore.Http.Abstractions >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 9.0.0-preview.3.24172.4",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.0-preview.3.24172.4",
       "Microsoft.EntityFrameworkCore.Sqlite >= 9.0.0-preview.3.24172.4",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.0-preview.3.24172.4",
-      "NLog >= 5.3.1",
+      "NLog >= 5.3.2",
       "Newtonsoft.Json >= 13.0.3",
-      "VkNet >= 1.79.0-alpha-109",
-      "XtraEditor.Controls >= 18.2.4"
+      "VkNet >= 1.79.0-alpha-109"
     ]
   },
   "packageFolders": {
@@ -4476,18 +3601,6 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
-          "Bunifu.UI.WinForms": {
-            "target": "Package",
-            "version": "[7.0.0, )"
-          },
-          "DevExpress.Data": {
-            "target": "Package",
-            "version": "[24.1.1-alpha-24085, )"
-          },
-          "DevExpress.Win.WinterJoySkin": {
-            "target": "Package",
-            "version": "[1.0.2, )"
-          },
           "Guna.UI2.WinForms": {
             "target": "Package",
             "version": "[2.0.4.6, )"
@@ -4495,18 +3608,6 @@
           "MailKit": {
             "target": "Package",
             "version": "[4.5.0, )"
-          },
-          "MaterialSkin": {
-            "target": "Package",
-            "version": "[0.2.1, )"
-          },
-          "MaterialSkin.2": {
-            "target": "Package",
-            "version": "[2.3.1, )"
-          },
-          "Microsoft.AspNetCore.Http.Abstractions": {
-            "target": "Package",
-            "version": "[2.2.0, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -4530,7 +3631,7 @@
           },
           "NLog": {
             "target": "Package",
-            "version": "[5.3.1, )"
+            "version": "[5.3.2, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
@@ -4539,10 +3640,6 @@
           "VkNet": {
             "target": "Package",
             "version": "[1.79.0-alpha-109, )"
-          },
-          "XtraEditor.Controls": {
-            "target": "Package",
-            "version": "[18.2.4, )"
           }
         },
         "imports": [
@@ -4567,17 +3664,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Пакет \"MaterialSkin 0.2.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "libraryId": "MaterialSkin",
-      "targetGraphs": [
-        "net8.0-windows7.0"
-      ]
-    }
-  ]
+  }
 }

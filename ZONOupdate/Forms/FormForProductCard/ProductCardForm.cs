@@ -9,7 +9,7 @@ using NLog;
 namespace ZONOupdate.Forms.FormForProductCard
 {
     /// <summary>
-    /// Форма для отображения карточки товара с возможностью проставления оценки.
+    /// Форма, предназначенная для отображения карточки товара с возможностью проставления оценки.
     /// </summary>
     public partial class ProductCardForm : Form
     {
@@ -25,33 +25,33 @@ namespace ZONOupdate.Forms.FormForProductCard
         #region События
         private void SaveMarkButtonMouseDown(object sender, MouseEventArgs e)
         {
-            logger.Info("Пользователь нажал на кнопку \"Сохранить\" в карточке товара");
+            logger.Info("Пользователь нажал на кнопку \"Оценить\" в карточке товара");
 
             if (!markComboBox.SelectedIndex.Equals(-1))
             {
-                using (var database = new DatabaseContext())
+                if (markComboBox.SelectedItem != null)
                 {
-                    var selectedMark = markComboBox.SelectedItem;
-
-                    if (selectedMark != null)
+                    if (int.TryParse(markComboBox.SelectedItem
+                        .ToString(), out int mark))
                     {
-                        if (int.TryParse(selectedMark.ToString(), out int mark))
+                        logger.Trace($"Пользователь с id {userID} поставил" +
+                            $" товару с id {selectedProduct.ID} оценку {mark}");
+
+                        DatabaseInteraction.AddNewMark(userID, selectedProduct
+                            .RecommendationId, mark);
+
+                        var productMarkLabel = productControl.Controls.Find("productMarkLabel", true)
+                            .FirstOrDefault() as Label;
+
+                        if (productMarkLabel != null)
                         {
-                            logger.Trace($"Пользователь с id {userID} поставил товару с id {selectedProduct.ID} оценку {mark}");
+                            logger.Info("Оценка товара обновлена");
 
-                            DatabaseInteraction.AddNewMark(userID, selectedProduct.RecommendationId, mark);
-
-                            var productMarkLabel = productControl.Controls.Find("productMarkLabel", true)
-                                .FirstOrDefault() as Label;
-
-                            if (productMarkLabel != null)
-                            {
-                                productMarkLabel.Text = $"{languageResources.GetString(productMarkLabel.Name)}: " +
-                                $"{DatabaseInteraction.CountProductRating(selectedProduct.RecommendationId)} / 5";
-                            }
-
-                            Close();
+                            productMarkLabel.Text = $"{languageResources.GetString(productMarkLabel.Name)}: " +
+                            $"{DatabaseInteraction.CountProductRating(selectedProduct.RecommendationId)} / 5";
                         }
+
+                        Close();
                     }
                 }
             }
@@ -82,16 +82,16 @@ namespace ZONOupdate.Forms.FormForProductCard
         #endregion
 
         #region Конструкторы
-        public ProductCardForm(Recommendation selectedProduct,
-            Guid userID, ResourceManager languageResources, ProductControl productControl)
+        public ProductCardForm(Recommendation selectedProduct, Guid userID,
+            ResourceManager languageResources, ProductControl productControl)
         {
             logger.Info("Открылась форма \"Карточка товара\"");
 
-            fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
-            this.languageResources = languageResources;
+            this.userID = userID;
             this.productControl = productControl;
             this.selectedProduct = selectedProduct;
-            this.userID = userID;
+            this.languageResources = languageResources;
+            fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
             InitializeComponent();
 
             productNameLabel.Font = new Font(fontCollection.Families[0], 20);
@@ -123,10 +123,13 @@ namespace ZONOupdate.Forms.FormForProductCard
             {
                 var productType = database.ProductTypes.Where(product => product.ProductTypeID ==
                 selectedProduct.ProductTypeID).FirstOrDefault();
-                var productColor = database.Colors.Where(product => product.ColorID == selectedProduct.ColorID)
-                    .FirstOrDefault();
-                var productManufacturer = database.Manufacturers.Where(product => product.ManufacturerID
-                == selectedProduct.ManufacturerID).FirstOrDefault();
+                var productColor = database.Colors.Where(product => product.ColorID == 
+                selectedProduct.ColorID).FirstOrDefault();
+                var productManufacturer = database.Manufacturers.Where(product => 
+                product.ManufacturerID == selectedProduct.ManufacturerID).FirstOrDefault();
+                var productMark = database.Marks.Where(mark => mark.ID == userID)
+                .Where(mark => mark.RecommendationID == selectedProduct.RecommendationId)
+                .Select(mark => mark.MarkValue).FirstOrDefault();
 
                 if (productColor != null && productType != null && productManufacturer != null)
                 {
@@ -138,6 +141,7 @@ namespace ZONOupdate.Forms.FormForProductCard
                     productManufacturerLabelInfo.Text = productManufacturer.ManufacturerName;
                     productTypeLabelInfo.Text = productType.ProductTypeName;
                     productPriceLabelInfo.Text = $"{selectedProduct.ProductPriceFrom}₽";
+                    markComboBox.SelectedItem = productMark.ToString();
                 }
             }
         }

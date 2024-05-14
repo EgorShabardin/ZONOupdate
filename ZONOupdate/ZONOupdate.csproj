@@ -9,14 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bunifu.UI.WinForms" Version="7.0.0" />
-    <PackageReference Include="DevExpress.Data" Version="24.1.1-alpha-24085" />
-    <PackageReference Include="DevExpress.Win.WinterJoySkin" Version="1.0.2" />
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.6" />
     <PackageReference Include="MailKit" Version="4.5.0" />
-    <PackageReference Include="MaterialSkin" Version="0.2.1" />
-    <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0-preview.3.24172.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0-preview.3.24172.4">
       <PrivateAssets>all</PrivateAssets>
@@ -28,15 +22,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="NLog" Version="5.3.1" />
+    <PackageReference Include="NLog" Version="5.3.2" />
     <PackageReference Include="VkNet" Version="1.79.0-alpha-109" />
-    <PackageReference Include="XtraEditor.Controls" Version="18.2.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="xNet">
-      <HintPath>xNet.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>

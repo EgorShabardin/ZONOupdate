@@ -148,7 +148,8 @@ namespace ZONOupdate.Forms.FormForCreationNewProduct
 
                 logger.Debug($"Товар с id {newProduct.RecommendationId} успешно добавлен");
 
-                var productControl = new ProductControl(newProduct, currentUserID, languageResources);
+                var productControl = new ProductControl(newProduct, currentUserID,
+                    languageResources);
                 productControl.MakeProductControlForMyProducts(productFlowLayoutPanel.Width);
                 productControl.Name = newProduct.RecommendationName;
 

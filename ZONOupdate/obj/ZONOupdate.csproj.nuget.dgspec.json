@@ -49,18 +49,6 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
-            "Bunifu.UI.WinForms": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            },
-            "DevExpress.Data": {
-              "target": "Package",
-              "version": "[24.1.1-alpha-24085, )"
-            },
-            "DevExpress.Win.WinterJoySkin": {
-              "target": "Package",
-              "version": "[1.0.2, )"
-            },
             "Guna.UI2.WinForms": {
               "target": "Package",
               "version": "[2.0.4.6, )"
@@ -68,18 +56,6 @@
             "MailKit": {
               "target": "Package",
               "version": "[4.5.0, )"
-            },
-            "MaterialSkin": {
-              "target": "Package",
-              "version": "[0.2.1, )"
-            },
-            "MaterialSkin.2": {
-              "target": "Package",
-              "version": "[2.3.1, )"
-            },
-            "Microsoft.AspNetCore.Http.Abstractions": {
-              "target": "Package",
-              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -103,7 +79,7 @@
             },
             "NLog": {
               "target": "Package",
-              "version": "[5.3.1, )"
+              "version": "[5.3.2, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -112,10 +88,6 @@
             "VkNet": {
               "target": "Package",
               "version": "[1.79.0-alpha-109, )"
-            },
-            "XtraEditor.Controls": {
-              "target": "Package",
-              "version": "[18.2.4, )"
             }
           },
           "imports": [
