@@ -119,6 +119,7 @@
   </resheader>
   <data name="codeCheckButton" xml:space="preserve">
     <value>Отправить</value>
+    <comment>Кнопка отправки сообщения на почту</comment>
   </data>
   <data name="emailMessageContent" xml:space="preserve">
     <value>Чтобы продолжить регистрацию введите полученный код в открывшемся окне в приложении ZONO. Код: </value>

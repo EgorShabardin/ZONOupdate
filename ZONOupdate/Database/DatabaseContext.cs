@@ -4,7 +4,7 @@ using ZONOupdate.EntityClasses;
 namespace ZONOupdate.Database
 {
     /// <summary>
-    /// Класс контекста базы данных
+    /// Класс контекста базы данных.
     /// </summary>
     public partial class DatabaseContext : DbContext
     {

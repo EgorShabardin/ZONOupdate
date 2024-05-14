@@ -117,8 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="codeCheckButton" xml:space="preserve">
+    <value>Send</value>
+    <comment>Кнопка отправки сообщения на почту</comment>
+  </data>
   <data name="emailMessageContent" xml:space="preserve">
-    <value>To continue registration, enter the received code in the window that opens in the ZONO application. Code:</value>
+    <value>To continue registration, enter the received code in the window that opens in the ZONO application. Code: </value>
     <comment>Сообщение, которое приходит пользователю на почту для ее подтверждения</comment>
   </data>
   <data name="emailMessageSubject" xml:space="preserve">

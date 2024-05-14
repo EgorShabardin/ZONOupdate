@@ -1,13 +1,11 @@
 ﻿using ZONOupdate.EntityClasses;
 using System.Resources;
 using NLog;
-using System.Reflection;
-using Microsoft.EntityFrameworkCore;
 
 namespace ZONOupdate.Database
 {
     /// <summary>
-    /// Класс взаимодействия с базой данных
+    /// Класс, предназначенный для взаимодействия с базой данных.
     /// </summary>
     public static class DatabaseInteraction
     {
@@ -164,7 +162,6 @@ namespace ZONOupdate.Database
                         InternalAccount = Convert.ToInt32(false)
                     };
 
-
                     database.Users.Add(newUser);
                     database.SaveChanges();
 
@@ -185,15 +182,22 @@ namespace ZONOupdate.Database
         #endregion
 
         #region Остальные Методы
-
+        /// <summary>
+        /// Метод, загружающий товары из пользовательской подборки.
+        /// </summary>
+        /// <param name="collectionID"> ID подборки. </param>
+        /// <returns> Массив с товарами. </returns>
         public static Recommendation[] LoadRecomendationsFromCollection(Guid collectionID)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    var recomendationsInCollection = database.RecommendationInCollections.Where(collection => collection
-                    .CollectionID == collectionID).ToArray();
+                    logger.Info("Успешное подключение к базе данных при " +
+                        "загрузке товаров из подборки");
+                    
+                    var recomendationsInCollection = database.RecommendationInCollections
+                        .Where(collection => collection.CollectionID == collectionID).ToArray();
 
                     var recomendations = new Recommendation[recomendationsInCollection.Length];
 
@@ -213,22 +217,32 @@ namespace ZONOupdate.Database
             }
             catch (Exception ex)
             {
+                logger.Error($"При работе приложение произошла ошибка: {ex}");
 
                 return Array.Empty<Recommendation>();
             }
         }
 
+        /// <summary>
+        /// Метод, добавляющий новую пользовательскую подборку.
+        /// </summary>
+        /// <param name="userID"> ID пользователя. </param>
+        /// <param name="collectionName"> Название подборки. </param>
+        /// <returns> Пользователькая подборка. </returns>
         public static UserCollection? AddNewCollection(Guid userID, string collectionName)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
+                    logger.Info("Успешное подключение к базе данных при " +
+                        "добавлении новой подборки");
+
                     var newCollection = new UserCollection()
                     {
                         CollectionID = Guid.NewGuid(),
-                        ID = userID,
-                        CollectionName = collectionName
+                        CollectionName = collectionName,
+                        ID = userID
                     };
 
                     logger.Info($"Добавлена новая подборка \"{collectionName}\"");
@@ -241,141 +255,173 @@ namespace ZONOupdate.Database
             }
             catch (Exception ex)
             {
+                logger.Error($"При работе приложение произошла ошибка: {ex}");
 
                 return null;
             }
         }
 
+        /// <summary>
+        /// Метод, загружающий email почту пользователя.
+        /// </summary>
+        /// <param name="UserID"> ID пользователя</param>
+        /// <returns> email почта пользователя. </returns>
         public static string LoadUserEmail(Guid UserID)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    var userEmail = database.Users.Where(user => user.ID == UserID).Select(user => user.Login).FirstOrDefault();
+                    logger.Info("Успешное подключение к базе данных при " +
+                        "загрузке email почты пользователя");
 
-                    if (userEmail != null)
-                    {
-                        return userEmail;
-                    }
+                    var userEmail = database.Users.Where(user => user.ID == UserID)
+                        .Select(user => user.Login).FirstOrDefault();
 
-                    return String.Empty;
+                    return userEmail != null ? userEmail : String.Empty;
                 }
             }
             catch (Exception ex)
             {
+                logger.Error($"При работе приложение произошла ошибка: {ex}");
 
                 return String.Empty;
             }
         }
 
+        /// <summary>
+        /// Метод, загружающий настройки поиска товаров.
+        /// </summary>
+        /// <param name="UserID">ID пользователя. </param>
+        /// <returns> Настройки поиска товаров. </returns>
         public static RecommendationSetting? LoadingSearchSettings(Guid UserID)
         {
-            using (var database = new DatabaseContext())
+            try
             {
-                return database.RecommendationSettings.Where(setting => setting.ID == UserID).FirstOrDefault();
-            }
-        }
-
-        public static object[] LoadingDataFromTables(string fieldName)
-        {
-            using (var database = new DatabaseContext())
-            {
-                var tableWithData = database.GetType().GetProperty(fieldName);
-
-                if (tableWithData != null)
+                using (var database = new DatabaseContext())
                 {
-                    return (tableWithData.GetValue(database) as DbSet<object>).ToArray();
-                }
+                    logger.Info("Успешное подключение к базе данных при " +
+                        "загрузке настроек поиска товаров");
 
-                return Array.Empty<object>();
+                    return database.RecommendationSettings
+                        .Where(setting => setting.ID == UserID).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"При работе приложение произошла ошибка: {ex}");
+
+                return null;
             }
         }
 
+        /// <summary>
+        /// Метод, очищающий список товаров, понравившихся пользователю.
+        /// </summary>
+        /// <param name="userID"> ID пользователя. </param>
         public static void CleanLikedProducts(Guid userID)
         {
-            using (var database = new DatabaseContext())
+            try
             {
-                var likedProducts = database.LikedProducts.Where(product => product.ID == userID).ToList();
-
-                foreach (var product in likedProducts)
+                using (var database = new DatabaseContext())
                 {
-                    database.LikedProducts.Remove(product);
+                    logger.Info("Успешное подключение к базе данных при " +
+                        "очистке списка товаров, понравившихся пользователю");
 
+                    var likedProducts = database.LikedProducts
+                        .Where(product => product.ID == userID).ToList();
+
+                    foreach (var product in likedProducts)
+                    {
+                        database.LikedProducts.Remove(product);
+
+                    }
+
+                    database.SaveChanges();
                 }
-                database.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"При работе приложение произошла ошибка: {ex}");
             }
         }
 
         /// <summary>
-        /// Метод поиска пользователя по ID
+        /// Метод, загружающий данные пользователя.
         /// </summary>
-        /// <param name="userID">ID пользователя</param>
-        public static User FindUser(Guid userID)
+        /// <param name="userID"> ID пользователя. </param>
+        /// <returns> Пользователь. </returns>
+        public static User? FindUser(Guid userID)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при поиске пользователя по id");
+                    logger.Info("Успешное подключение к базе" +
+                        " данных при поиске пользователя по id");
 
-                    var user = database.Users.Where(userR => userR.ID == userID).FirstOrDefault();
-
-                    return user != null ? user : null!;
+                    return database.Users.Where(user => user.ID == userID).FirstOrDefault();
                 }
             }
             catch (Exception ex)
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
 
-                return null!;
+                return null;
             }
         }
 
         /// <summary>
-        /// Метод проверки является ли товар избранным пользователя
+        /// Метод, проверяющий находится ли товар в избранном.
         /// </summary>
-        /// <param name="RecommendationID">ID товара</param>
-        /// <param name="ID">ID пользователя</param>
-        public static bool IsProductInFavorites(Guid RecommendationID, Guid ID)
+        /// <param name="RecommendationID">ID подборки. </param>
+        /// <param name="userID"> ID пользователя. </param>
+        /// <returns> true - товар в избранном; false - товар не в избранном. </returns>
+        public static bool IsProductInFavorites(Guid RecommendationID, Guid userID)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при поиске избранных товаров");
+                    logger.Info("Успешное подключение к базе данных" +
+                        " при поиске избранных товаров");
 
-                    bool isInFavorites = database.Favorites.Any(favorite =>
-                    favorite.RecommendationID == RecommendationID && favorite.ID == ID);
-
-                    return isInFavorites;
+                    return database.Favorites.Any(favorite =>
+                    favorite.RecommendationID == RecommendationID && favorite.ID == userID);
                 }
             }
             catch (Exception ex)
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
-
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return false;
             }
         }
 
-        public static string IsProductInCollection(Guid RecommendationID, Guid ID)
+        /// <summary>
+        /// Метод, проверяющий находится ли товар в подборке.
+        /// </summary>
+        /// <param name="RecommendationID"> ID товара. </param>
+        /// <param name="userID"> ID пользователя. </param>
+        /// <returns> Название подборки. </returns>
+        public static string IsProductInCollection(Guid RecommendationID, Guid userID)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при поиске избранных товаров");
+                    logger.Info("Успешное подключение к базе данных" +
+                        " при поиске избранных товаров");
 
                     var collection = database.RecommendationInCollections.Where(recomendation =>
-                    recomendation.RecommendationID == RecommendationID && recomendation.UserID == ID).FirstOrDefault();
+                    recomendation.RecommendationID == RecommendationID 
+                    && recomendation.UserID == userID).FirstOrDefault();
 
                     if (collection != null)
                     {
-                        return database.UserCollections.Where(col => col.CollectionID == collection.CollectionID).Select(collection => collection.CollectionName).First();
+                        return database.UserCollections.Where(collection => collection
+                        .CollectionID == collection.CollectionID)
+                        .Select(collection => collection.CollectionName).First();
                     }
 
                     return String.Empty;
@@ -385,88 +431,81 @@ namespace ZONOupdate.Database
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
 
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 return String.Empty;
             }
         }
 
         /// <summary>
-        /// Метод загрузки подборок пользователя
+        /// Метод, загружающий пользовательские подборки.
         /// </summary>
-        /// <param name="userID">ID пользователя</param>
+        /// <param name="userID"> ID пользователя. </param>
+        /// <returns> Массив с подборками пользователя. </returns>
         public static string[] LoadUserCollections(Guid userID)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при поиске подборок пользователя");
+                    logger.Info("Успешное подключение к базе данных" +
+                        " при поиске подборок пользователя");
 
-                    string[] userCollections = database.UserCollections.Where(collection => collection.ID == userID)
+                    return database.UserCollections.Where(collection => collection.ID == userID)
                         .Select(collection => collection.CollectionName).ToArray();
-
-                    return userCollections;
                 }
             }
             catch (Exception ex)
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
 
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 return Array.Empty<string>();
             }
         }
 
         /// <summary>
-        /// Метод загрузки типов товаров
+        /// Метод, загружающий типы товаров.
         /// </summary>
+        /// <returns> Массив с типами товаров. </returns>
         public static string[] LoadProductTypes()
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при загрузке всех типов товаров");
+                    logger.Info("Успешное подключение к базе данных" +
+                        " при загрузке всех типов товаров");
 
-                    string[] productTypes = database.ProductTypes.OrderBy(product => product.ProductTypeName)
+                    return database.ProductTypes
+                        .OrderBy(product => product.ProductTypeName)
                         .Select(product => product.ProductTypeName).ToArray();
-
-                    return productTypes;
                 }
             }
             catch (Exception ex)
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
 
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 return Array.Empty<string>();
             }
         }
 
         /// <summary>
-        /// Метод добавления товара в избранное
+        /// Метод, добавляющий товар в избранное.
         /// </summary>
-        /// <param name="userID">ID пользователя</param>
-        /// <param name="recommendationId">ID товара</param>
+        /// <param name="userID"> ID пользователя. </param>
+        /// <param name="recommendationId"> ID товара. </param>
         public static void AddToFavorites(Guid userID, Guid recommendationId)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при попытке добавить товар в избранное");
+                    logger.Info("Успешное подключение к базе данных" +
+                        " при попытке добавить товар в избранное");
 
                     var userFavorite = new Favorite
                     {
+                        RecommendationID = recommendationId,
                         FavoriteID = Guid.NewGuid(),
-                        ID = userID,
-                        RecommendationID = recommendationId
+                        ID = userID
                     };
 
                     logger.Debug($"Товар с id {recommendationId} добавлен в избранное " +
@@ -479,27 +518,26 @@ namespace ZONOupdate.Database
             catch (Exception ex)
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
-
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         /// <summary>
-        /// Метод удаления товара из избранного
+        /// Метод, удаляющий товар из избранного.
         /// </summary>
-        /// <param name="userID">ID пользователя</param>
-        /// <param name="recommendationId">ID товара</param>
+        /// <param name="userID"> ID пользователя. </param>
+        /// <param name="recommendationId"> ID товара. </param>
         public static void RemoveFromFavorites(Guid userID, Guid recommendationId)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при попытке удаления товара из избранного");
+                    logger.Info("Успешное подключение к базе данных" +
+                        " при попытке удаления товара из избранного");
 
-                    var userFavorite = database.Favorites.Where(favorite => favorite.ID == userID)
-                        .Where(favorite => favorite.RecommendationID == recommendationId).FirstOrDefault();
+                    var userFavorite = database.Favorites.Where(favorite => favorite
+                    .ID == userID).Where(favorite => favorite.RecommendationID == recommendationId)
+                    .FirstOrDefault();
 
                     if (userFavorite != null) 
                     {
@@ -514,35 +552,36 @@ namespace ZONOupdate.Database
             catch (Exception ex)
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
-
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         /// <summary>
-        /// Метод добавления товара в коллекцию
+        /// Метод, добавляющий товар в подборку.
         /// </summary>
-        /// <param name="recommendationID">ID товара</param>
-        /// <param name="collectionID">ID коллекции</param>
+        /// <param name="recommendationID"> ID товара. </param>
+        /// <param name="collectionID"> ID подборки. </param>
+        /// <param name="userID"> ID пользователя. </param>
         public static void AddProductToCollection(Guid recommendationID, Guid collectionID, Guid userID)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при попытке добавить товар в подборку");
+                    logger.Info("Успешное подключение к базе данных" +
+                        " при попытке добавить товар в подборку");
 
-                    var existingRelation = database.RecommendationInCollections.FirstOrDefault(product => product.RecommendationID
-                    == recommendationID && product.CollectionID == collectionID);
+                    var existingRelation = database.RecommendationInCollections
+                        .FirstOrDefault(product => product.RecommendationID == recommendationID && product
+                        .CollectionID == collectionID);
 
                     if (existingRelation != null)
                     {
                         return;
                     }
 
-                    var otherRelations = database.RecommendationInCollections.Where(product => product.RecommendationID
-                    == recommendationID && product.CollectionID != collectionID).ToList();
+                    var otherRelations = database.RecommendationInCollections
+                        .Where(product => product.RecommendationID
+                         == recommendationID && product.CollectionID != collectionID).ToList();
 
                     if (otherRelations.Any())
                     {
@@ -569,28 +608,27 @@ namespace ZONOupdate.Database
             catch (Exception ex)
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
-
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         /// <summary>
-        /// Метод добавления новой оценки
+        /// Метод, добавляющий товару новую оценку.
         /// </summary>
-        /// <param name="userID">ID пользователя</param>
-        /// <param name="recommendationID">ID товара</param>
-        /// <param name="markValue">Оценка</param>
+        /// <param name="userID"> ID пользователя. </param>
+        /// <param name="recommendationID"> ID товара. </param>
+        /// <param name="markValue"> Оценка товара. </param>
         public static void AddNewMark(Guid userID, Guid recommendationID, int markValue)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при попытке поставить оценку товару");
+                    logger.Info("Успешное подключение к базе данных" +
+                        " при попытке поставить оценку товару");
 
-                    var relatedMarks = database.Marks.Where(mark => mark.ID == userID).Where(mark => mark.RecommendationID
-                    == recommendationID).ToList();
+                    var relatedMarks = database.Marks.Where(mark => mark.ID == userID)
+                        .Where(mark => mark.RecommendationID == recommendationID).ToList();
+
                     if (relatedMarks.Any())
                     {
                         foreach (var mark in relatedMarks)
@@ -598,15 +636,17 @@ namespace ZONOupdate.Database
                             database.Marks.Remove(mark);
                         }
                     }
+
                     var newMark = new Mark()
                     {
                         ID = userID,
                         MarkValue = markValue,
-                        RecommendationID = recommendationID,
-                        MarkID = Guid.NewGuid()
+                        MarkID = Guid.NewGuid(),
+                        RecommendationID = recommendationID
                     };
 
-                    logger.Debug($"Оценка с id {newMark.ID} успешно добавлен товару с id {recommendationID}");
+                    logger.Debug($"Оценка с id {newMark.ID} успешно добавлена" +
+                        $" товару с id {recommendationID}");
 
                     database.Marks.Add(newMark);
                     database.SaveChanges();
@@ -615,27 +655,32 @@ namespace ZONOupdate.Database
             catch (Exception ex)
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
-
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         /// <summary>
-        /// Метод рассчёта рейтинга товара
+        /// Метод, расчитывающий рейтинг товара.
         /// </summary>
-        /// <param name="recommendationID">ID товара</param>
+        /// <param name="recommendationID"> ID товара. </param>
+        /// <returns> Рейтинг товара. </returns>
         public static float CountProductRating(Guid recommendationID)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при загрузке рейтинга товара");
+                    logger.Info("Успешное подключение к базе данных" +
+                        " при загрузке рейтинга товара");
 
-                    var listOfMarks = database.Marks.Where(mark => mark.RecommendationID == recommendationID).ToList();
+                    var listOfMarks = database.Marks.Where(mark => mark
+                    .RecommendationID == recommendationID).ToList();
                     var numberOfMarks = listOfMarks.Count();
                     var sumOfMarks = 0;
+
+                    if (listOfMarks.Count.Equals(0))
+                    {
+                        return sumOfMarks;
+                    }
 
                     foreach (var mark in listOfMarks)
                     {
@@ -653,39 +698,32 @@ namespace ZONOupdate.Database
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
 
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 return 0;
             }
         }
 
         /// <summary>
-        /// Метод проверки понравился ли товар пользователю
+        /// Метод, проверяющий добавил ли пользователь товар в понравившееся.
         /// </summary>
-        /// <param name="RecommendationID">ID товара</param>
-        /// <param name="ID">ID пользователя</param>
-        public static bool IsProductLiked(Guid RecommendationID, Guid ID)
+        /// <param name="RecommendationID"> ID товара. </param>
+        /// <param name="userID"> ID пользователя. </param>
+        /// <returns> true - добавил; false - не добавил. </returns>
+        public static bool IsProductLiked(Guid RecommendationID, Guid userID)
         {
             try
             {
                 using (var database = new DatabaseContext())
                 {
-                    logger.Info("Успешное подключение к базе данных при проверке понравившихся " +
-                        "пользователю товаров");
+                    logger.Info("Успешное подключение к базе данных при " +
+                        "проверке понравившихся пользователю товаров");
 
-                    bool isInLiked = database.LikedProducts.Any(product =>
-                    product.RecommendationID == RecommendationID && product.ID == ID);
-
-                    return isInLiked;
+                    return database.LikedProducts.Any(product =>
+                    product.RecommendationID == RecommendationID && product.ID == userID);
                 }
             }
             catch (Exception ex)
             {
                 logger.Error($"При работе приложение произошла ошибка: {ex}");
-
-                MessageBox.Show(languageResources.GetString("errorWhenWorkingWithDatabaseContent") + ex,
-                    languageResources.GetString("errorWhenWorkingWithDatabaseTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return false;
             }

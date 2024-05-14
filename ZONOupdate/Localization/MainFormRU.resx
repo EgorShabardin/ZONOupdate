@@ -119,81 +119,83 @@
   </resheader>
   <data name="addingCollectionsLongName" xml:space="preserve">
     <value>Слишком длинное название подборки</value>
-  </data>
-  <data name="addingProductContent" xml:space="preserve">
-    <value>Товар успешно добавлен!</value>
-  </data>
-  <data name="addingProductTitle" xml:space="preserve">
-    <value>Внимание!</value>
+    <comment>Сообщение о длинном названии добавляемой подборки</comment>
   </data>
   <data name="addingSelectionEmptyDataField" xml:space="preserve">
     <value>Пожалуйста, введите название подборки</value>
+    <comment>Сообщение о пустом названии добавляемой подборки</comment>
   </data>
   <data name="addNewCollectionButton" xml:space="preserve">
     <value>Добавить</value>
+    <comment>Кнопка добавления подборки</comment>
   </data>
   <data name="addNewProductButton" xml:space="preserve">
     <value>Добавить</value>
+    <comment>Кнопка добавления товара</comment>
   </data>
   <data name="addToCollectionComboBox" xml:space="preserve">
-    <value>В подборку</value>
+    <value>В подборку...</value>
+    <comment>Сообщение о товаре без подборки</comment>
   </data>
   <data name="applyButton" xml:space="preserve">
     <value>Применить</value>
+    <comment>Кнопка применения фильтров поиска товаров</comment>
   </data>
   <data name="chooseProductTypeComboBox" xml:space="preserve">
     <value>Выберите тип товара</value>
+    <comment>Сообщение о выборе типа товара в разделе "Фильтры"</comment>
   </data>
   <data name="collectionNameTitle" xml:space="preserve">
     <value>Подборка</value>
-  </data>
-  <data name="collectionNotCreatedContent" xml:space="preserve">
-    <value>Подборка не создалась</value>
-  </data>
-  <data name="collectionNotCreatedTitle" xml:space="preserve">
-    <value>Подборка не создается</value>
+    <comment>Заголовок сообщения с подборкой</comment>
   </data>
   <data name="databaseIsBusyContent" xml:space="preserve">
-    <value>База данных в данный момент используется другим пользователем, попробуйте позже</value>
+    <value>База данных в данный момент используется другим пользователем, попробуйте позже.</value>
+    <comment>Сообщение о том, что база данных занята другим пользователем</comment>
   </data>
   <data name="databaseIsBusyTitle" xml:space="preserve">
     <value>Внимание!</value>
+    <comment>Заголовок сообщения о том, что база данных занята другим пользователем</comment>
   </data>
   <data name="errorLoadingProductsContent" xml:space="preserve">
     <value>Товары не могут быть загружены. Повторите попытку позже.</value>
+    <comment>Сообщение об ошибке загрузки товаров из базы данных</comment>
   </data>
   <data name="errorLoadingProductsTitle" xml:space="preserve">
     <value>Ошибка загрузки товаров</value>
+    <comment>Заголовок сообщения об ошибке загрузки товаров из базы данных </comment>
   </data>
   <data name="errorMessageSendingContent" xml:space="preserve">
     <value>Произошла ошибка. Сообщение не доставлено.</value>
-  </data>
-  <data name="errorWhenWorkingWithDatabaseContent" xml:space="preserve">
-    <value>Произошла ошибка! Код ошибки:</value>
-  </data>
-  <data name="errorWhenWorkingWithDatabaseTitle" xml:space="preserve">
-    <value>Внимание!</value>
+    <comment>Сообщение об ошибке отправки сообщения по почте</comment>
   </data>
   <data name="exitButton" xml:space="preserve">
     <value>Выход</value>
+    <comment>Кнопка выхода</comment>
   </data>
   <data name="exitMessageContent" xml:space="preserve">
     <value>Вы точно хотите выйти из своего аккаунта?</value>
+    <comment>Сообщение о выходе из аккаунта приложения</comment>
   </data>
   <data name="exitMessageTitle" xml:space="preserve">
     <value>Выход из аккаунта</value>
+    <comment>Заголовок cообщениz о выходе из аккаунта приложения</comment>
   </data>
   <data name="externalAccount" xml:space="preserve">
     <value>Вход через аккаунт ВК</value>
+    <comment>Сообщение о входе через ВК</comment>
   </data>
   <data name="favoriteLabel" xml:space="preserve">
     <value>Избранное</value>
+    <comment>Заголовок раздела "Избранное"</comment>
   </data>
   <data name="favoritesTitleLabel" xml:space="preserve">
     <value>Избранное</value>
+    <comment>Кнопка открывающаяя раздел "Избранное"</comment>
   </data>
   <data name="filtersButton" xml:space="preserve">
     <value>Фильтры</value>
+    <comment>Кнопка открывающаяя раздел "Фильтры"</comment>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="flag" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -208,125 +210,146 @@
   </data>
   <data name="informationLabel" xml:space="preserve">
     <value>Введите название новой подборки</value>
+    <comment>Сообщение формы создания новой подборки</comment>
   </data>
   <data name="internalAccount" xml:space="preserve">
-    <value>Вход через внетренний аккаунт</value>
+    <value>Вход через внутренний аккаунт</value>
+    <comment>Сообщение о входе через внутренний аккаунт</comment>
   </data>
   <data name="loadProductPhoto" xml:space="preserve">
     <value>Загрузка изображения товара</value>
+    <comment>Заголовок меню загрузки фотографии товара</comment>
   </data>
   <data name="loadProductPhotoButton" xml:space="preserve">
     <value>Загрузить</value>
+    <comment>Кнопка загрузки фотографии товара</comment>
   </data>
   <data name="MainForm" xml:space="preserve">
     <value>ZONO - лучший маркетплейс</value>
+    <comment>Заголовок главной формы</comment>
   </data>
   <data name="mainPageLabel" xml:space="preserve">
     <value>Главная страница</value>
+    <comment>Заголовок раздела "Главная страница"</comment>
   </data>
   <data name="mainPageTitleLabel" xml:space="preserve">
     <value>Главная страница</value>
-  </data>
-  <data name="markSavedSuccessfullyContent" xml:space="preserve">
-    <value>Оценка выставлена, спасибо за отзыв!</value>
-  </data>
-  <data name="markSavedSuccessfullyTitle" xml:space="preserve">
-    <value>Внимание!</value>
+    <comment>Кнопка открывающаяя раздел "Главная страница"</comment>
   </data>
   <data name="markTitle" xml:space="preserve">
     <value>Ваша оценка</value>
+    <comment>Сообщение о выставлении оценки</comment>
   </data>
   <data name="messageSendingTitle" xml:space="preserve">
-    <value>Отправка сообщения</value>
+    <value>Сообщение с подборкой</value>
+    <comment>Заголовок сообщения об успешной отправке сообщения на почту</comment>
   </data>
   <data name="messageSubject" xml:space="preserve">
     <value>Подборка с ZONO</value>
+    <comment>Тема сообщения, отправляемого на почту</comment>
   </data>
   <data name="myCollectionsLabel" xml:space="preserve">
     <value>Мои подборки</value>
+    <comment>Заголовок раздела "Мои подборки"</comment>
   </data>
   <data name="myCollectionsTitleLabel" xml:space="preserve">
     <value>Мои подборки</value>
+    <comment>Кнопка открывающаяя раздел "Мои подборки"</comment>
   </data>
   <data name="myProductsLabel" xml:space="preserve">
     <value>Мои товары</value>
+    <comment>Заголовок раздела "Мои товары"</comment>
   </data>
   <data name="myProductsTitleLabel" xml:space="preserve">
     <value>Мои товары</value>
+    <comment>Кнопка открывающаяя раздел "Мои товары"</comment>
   </data>
   <data name="NewCollectionCreationForm" xml:space="preserve">
     <value>Создание новой подборки</value>
+    <comment>Заголовок формы создания новой подборки</comment>
   </data>
   <data name="NewProductCreationForm" xml:space="preserve">
     <value>Создать/редактировать товар</value>
+    <comment>Заголовок формы создания/редактирования товара</comment>
   </data>
   <data name="ProductCardForm" xml:space="preserve">
     <value>Карточка товара</value>
+    <comment>Заголовок формы карточка товара</comment>
   </data>
   <data name="productColorLabelTitle" xml:space="preserve">
     <value>Цвет товара</value>
+    <comment>Сообщение о цвете товара</comment>
   </data>
   <data name="productDescriptionTextBox" xml:space="preserve">
     <value>Введите описание товара</value>
+    <comment>Предварительный текст об описании товара</comment>
   </data>
   <data name="productManufacturerLabelTitle" xml:space="preserve">
     <value>Производитель</value>
+    <comment>Сообщение о производителе товара</comment>
   </data>
   <data name="productMarkLabel" xml:space="preserve">
     <value>Оценка товара</value>
+    <comment>Сообщение об оценке товара</comment>
   </data>
   <data name="productNameTextBox" xml:space="preserve">
     <value>Введите название товара</value>
+    <comment>Предварительный текст о названии товара</comment>
   </data>
   <data name="productPriceLabel" xml:space="preserve">
     <value>Цена</value>
+    <comment>Сообщение о добавлении цены товара</comment>
   </data>
   <data name="productPriceLabelTitle" xml:space="preserve">
     <value>Цена товара</value>
+    <comment>Сообщение о цене товара</comment>
   </data>
   <data name="productTypeLabelTitle" xml:space="preserve">
     <value>Тип товара</value>
+    <comment>Сообщение о типе товара</comment>
   </data>
   <data name="productYearOfProductionLabelTitle" xml:space="preserve">
     <value>Год производства</value>
+    <comment>Сообщение о годе производства товара</comment>
   </data>
   <data name="restartButton" xml:space="preserve">
     <value>Начать заново</value>
+    <comment>Кнопка, начинающаяя заново процесс подбора рекомендаций</comment>
   </data>
   <data name="saveMarkButton" xml:space="preserve">
-    <value>Сохранить</value>
+    <value>Оценить</value>
+    <comment>Кнопка сохранения оценки</comment>
   </data>
   <data name="saveNewCollectionButton" xml:space="preserve">
     <value>Сохранить</value>
+    <comment>Кнопка добавления новой подборки</comment>
   </data>
   <data name="saveProductButton" xml:space="preserve">
     <value>Сохранить</value>
+    <comment>Кнопка сохранения товара</comment>
   </data>
   <data name="searchLineTextBox" xml:space="preserve">
-    <value>Поиск ...</value>
+    <value>Поиск...</value>
+    <comment>Сообщение о поиске</comment>
   </data>
   <data name="selectionWarningContent" xml:space="preserve">
     <value>Пожалуйста, выберите больше товаров или загрузите новые нажав на кнопку "Начать заново".</value>
+    <comment>Сообщение об ошибке подбора рекомендаций </comment>
   </data>
   <data name="selectionWarningTitle" xml:space="preserve">
     <value>Внимание!</value>
+    <comment>Заголовок сообщения об ошибке подбора рекомендаций</comment>
   </data>
   <data name="selectionWithMatches" xml:space="preserve">
     <value>Популярное</value>
-  </data>
-  <data name="successfulCollectionCreationContent" xml:space="preserve">
-    <value>Коллекция успешно добавлена</value>
-  </data>
-  <data name="successfulCollectionCreationTitle" xml:space="preserve">
-    <value>Внимание!</value>
+    <comment>Название подборки с популярными товарами</comment>
   </data>
   <data name="successfulMessageSendingContent" xml:space="preserve">
     <value>Сообщение с подборкой успешно отправлено. Проверьте почту.</value>
-  </data>
-  <data name="userLikedTitleLabel" xml:space="preserve">
-    <value>Понравилось</value>
+    <comment>Сообщение об успешной отправке сообщения на почту</comment>
   </data>
   <data name="userWelcomeLabel" xml:space="preserve">
     <value>Добро пожаловать на ZONO!</value>
+    <comment>Сообщение приветсявия пользователя</comment>
   </data>
 </root>
