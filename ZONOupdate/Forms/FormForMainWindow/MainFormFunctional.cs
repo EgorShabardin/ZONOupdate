@@ -398,9 +398,11 @@ namespace ZONOupdate.Forms.FormForMainWindow
 
                     foreach (var item in sortedRecomendations)
                     {
-                        recomendations.Add(database.Recommendations.Where(rec => rec
+                        recomendations.Add(database.Recommendations.Where(recomendation => recomendation
                         .RecommendationId == item.RecommendationID).First());
                     }
+
+                    recomendations.Take(5).ToList();
 
                     return new CollectionNameControl(currentUser, productsFlowLayoutPanel,
                         languageResources, recomendations, listFlowLayoutPanel.Width);

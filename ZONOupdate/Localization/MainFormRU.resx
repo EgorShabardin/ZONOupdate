@@ -180,6 +180,9 @@
   <data name="exitMessageTitle" xml:space="preserve">
     <value>Выход из аккаунта</value>
   </data>
+  <data name="externalAccount" xml:space="preserve">
+    <value>Вход через аккаунт ВК</value>
+  </data>
   <data name="favoriteLabel" xml:space="preserve">
     <value>Избранное</value>
   </data>
@@ -202,6 +205,9 @@
   </data>
   <data name="informationLabel" xml:space="preserve">
     <value>Введите название новой подборки</value>
+  </data>
+  <data name="internalAccount" xml:space="preserve">
+    <value>Вход через внетренний аккаунт</value>
   </data>
   <data name="loadProductPhoto" xml:space="preserve">
     <value>Загрузка изображения товара</value>

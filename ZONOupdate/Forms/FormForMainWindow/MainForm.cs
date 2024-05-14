@@ -542,7 +542,7 @@ namespace ZONOupdate.Forms.FormForMainWindow
             }
 
             var productsFlowLayoutPanel = recomendationsTableLayoutPanel.Controls
-                .Find("productsFlowLayoutPanel", false).FirstOrDefault() as TableLayoutPanel;
+                .Find("productsFlowLayoutPanel", false).FirstOrDefault() as FlowLayoutPanel;
 
             if (productsFlowLayoutPanel != null)
             {
@@ -579,6 +579,8 @@ namespace ZONOupdate.Forms.FormForMainWindow
             myProductsLabel.Text = languageResources.GetString(myProductsLabel.Name);
             favoriteLabel.Text = languageResources.GetString(favoriteLabel.Name);
             exitButton.Text = languageResources.GetString(exitButton.Name);
+            accountStatusLabel.Text = Convert.ToBoolean(currentUser.InternalAccount) ?
+                languageResources.GetString("internalAccount") : languageResources.GetString("externalAccount");
             Text = languageResources.GetString(Name);
             flagPictureBox.Image = (Image)languageResources.GetObject("flag");
 
@@ -661,7 +663,8 @@ namespace ZONOupdate.Forms.FormForMainWindow
             {
                 logger.Info("Успешное подключение к базе данных при добавлении товара");
 
-                var userWhoOccupiedTable = database.Users.Where(user => (user.IsBusy == 1)).FirstOrDefault();
+                var userWhoOccupiedTable = database.Users
+                    .Where(user => (user.IsBusy == 1)).FirstOrDefault();
 
                 if (userWhoOccupiedTable != null)
                 {
@@ -673,8 +676,10 @@ namespace ZONOupdate.Forms.FormForMainWindow
                     databaseIsBusyMessageDialog.Icon = MessageDialogIcon.Warning;
                     databaseIsBusyMessageDialog.Style = MessageDialogStyle.Light;
                     databaseIsBusyMessageDialog.Parent = this;
-                    databaseIsBusyMessageDialog.Caption = languageResources.GetString("databaseIsBusyTitle");
-                    databaseIsBusyMessageDialog.Text = languageResources.GetString("databaseIsBusyContent");
+                    databaseIsBusyMessageDialog.Caption = languageResources
+                        .GetString("databaseIsBusyTitle");
+                    databaseIsBusyMessageDialog.Text = languageResources
+                        .GetString("databaseIsBusyContent");
                     databaseIsBusyMessageDialog.Show();
 
                     return;
@@ -682,7 +687,8 @@ namespace ZONOupdate.Forms.FormForMainWindow
 
                 logger.Info($"Пользователь с id {currentUser.ID} подключился к базе данных");
 
-                var thisUser = database.Users.Where(user => user.ID == currentUser.ID).FirstOrDefault();
+                var thisUser = database.Users.Where(user => user
+                .ID == currentUser.ID).FirstOrDefault();
 
                 if (thisUser != null)
                 {
@@ -692,15 +698,18 @@ namespace ZONOupdate.Forms.FormForMainWindow
                     var productsFlowLayoutPanel = recomendationsTableLayoutPanel.Controls
                    ["productsFlowLayoutPanel"] as FlowLayoutPanel;
 
-                    using (var newProductForm = new NewProductCreationForm(currentUser.ID, languageResources, productsFlowLayoutPanel))
+                    if (productsFlowLayoutPanel != null)
                     {
-                        newProductForm.ShowDialog();
+                        using (var newProductForm = new NewProductCreationForm(currentUser.ID,
+                            languageResources, productsFlowLayoutPanel))
+                        {
+                            newProductForm.ShowDialog();
+                        }
                     }
 
                     logger.Info($"Пользователь с id {currentUser.ID} отключился от базы данных");
 
                     thisUser.IsBusy = Convert.ToInt32(false);
-
                     database.SaveChanges();
                 }
             }
@@ -755,28 +764,10 @@ namespace ZONOupdate.Forms.FormForMainWindow
             }
         }
 
-        private void LoginOrRegistrationLabelsMouseMove(object sender, MouseEventArgs e)
-        {
-            var loginOrRegistrationLabel = sender as Label;
-
-            if (loginOrRegistrationLabel != null)
-            {
-                loginOrRegistrationLabel.ForeColor = System.Drawing.Color.FromArgb(0, 71, 255);
-            }
-        }
-
-        private void LoginOrRegistrationLabelsMouseLeave(object sender, EventArgs e)
-        {
-            var loginOrRegistrationLabel = sender as Label;
-
-            if (loginOrRegistrationLabel != null)
-            {
-                loginOrRegistrationLabel.ForeColor = System.Drawing.Color.FromArgb(0, 167, 255);
-            }
-        }
-
         private void MainFormResize(object sender, EventArgs e)
         {
+            logger.Info("Пользователь изменил размер окна");
+
             var productsFlowLayoutPanel = recomendationsTableLayoutPanel.Controls
                 .Find("productsFlowLayoutPanel", true).FirstOrDefault();
 
@@ -824,15 +815,15 @@ namespace ZONOupdate.Forms.FormForMainWindow
         {
             logger.Info("Открылась основная форма программы");
 
-            fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
-            currentUser = DatabaseInteraction.FindUser(userID);
-            mainFormFunctional = new MainFormFunctional();
             this.languageResources = languageResources;
+            mainFormFunctional = new MainFormFunctional();
+            currentUser = DatabaseInteraction.FindUser(userID);
+            fontCollection.AddFontFile("../../../Font/GTEestiProDisplayRegular.ttf");
             InitializeComponent();
 
-            MainPageMouseDown(currentUser);
-            selectLanguageComboBox.Items.AddRange(new string[] { localizationResources.GetString("RU"),
-                localizationResources.GetString("EN") });
+            MainPageMouseDown();
+            selectLanguageComboBox.Items.AddRange(new string[] {
+                localizationResources.GetString("RU"), localizationResources.GetString("EN") });
             selectLanguageComboBox.SelectedItem = languageName;
 
             mainPageLabel.Font = new Font(fontCollection.Families[0], 14);
@@ -841,6 +832,10 @@ namespace ZONOupdate.Forms.FormForMainWindow
             favoriteLabel.Font = new Font(fontCollection.Families[0], 14);
             exitButton.Font = new Font(fontCollection.Families[0], 14);
             selectLanguageComboBox.Font = new Font(fontCollection.Families[0], 14);
+            accountStatusLabel.Font = new Font(fontCollection.Families[0], 14);
+
+            accountStatusLabel.Text = Convert.ToBoolean(currentUser.InternalAccount) ? 
+                languageResources.GetString("internalAccount") : languageResources.GetString("externalAccount");
         }
         #endregion
     }

@@ -308,10 +308,6 @@ namespace ZONOupdate.Forms.FormForLogin
                     languageResources = new ResourceManager("ZONOupdate.Localization.LoginFormEN",
                         typeof(LoginForm).Assembly);
                     break;
-                case 2:
-                    languageResources = new ResourceManager("ZONOupdate.Localization.LoginFormTAT",
-                        typeof(LoginForm).Assembly);
-                    break;
             }
 
             foreach (var control in onScreenControls)
@@ -494,7 +490,7 @@ namespace ZONOupdate.Forms.FormForLogin
             onScreenControls.AddRange([loginWithAccountZONOLabel, loginWithAccountVKLabel, registrationLabel]);
 
             selectLanguageComboBox.Items.AddRange(new string[] { localizationResources.GetString("RU"),
-                localizationResources.GetString("EN"), localizationResources.GetString("TAT") });
+                localizationResources.GetString("EN") });
             selectLanguageComboBox.SelectedItem = localizationResources.GetString("RU");
         }
         #endregion

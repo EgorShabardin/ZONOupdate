@@ -32,6 +32,7 @@
             myProductsPictureBox = new PictureBox();
             favoritePictureBox = new PictureBox();
             myCollectionsPictureBox = new PictureBox();
+            accountStatusLabel = new Label();
             exitButton = new Guna.UI2.WinForms.Guna2Button();
             mainFormContentTableLayoutPanel = new TableLayoutPanel();
             titleTableLayoutPanel = new TableLayoutPanel();
@@ -115,16 +116,18 @@
             applicationSectionsTableLayoutPanel.Controls.Add(myProductsPictureBox, 0, 2);
             applicationSectionsTableLayoutPanel.Controls.Add(favoritePictureBox, 0, 3);
             applicationSectionsTableLayoutPanel.Controls.Add(myCollectionsPictureBox, 0, 1);
+            applicationSectionsTableLayoutPanel.Controls.Add(accountStatusLabel, 0, 4);
             applicationSectionsTableLayoutPanel.Dock = DockStyle.Fill;
             applicationSectionsTableLayoutPanel.Location = new Point(0, 237);
             applicationSectionsTableLayoutPanel.Margin = new Padding(0);
             applicationSectionsTableLayoutPanel.Name = "applicationSectionsTableLayoutPanel";
-            applicationSectionsTableLayoutPanel.RowCount = 5;
+            applicationSectionsTableLayoutPanel.RowCount = 6;
             applicationSectionsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             applicationSectionsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             applicationSectionsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             applicationSectionsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            applicationSectionsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
+            applicationSectionsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            applicationSectionsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
             applicationSectionsTableLayoutPanel.Size = new Size(290, 618);
             applicationSectionsTableLayoutPanel.TabIndex = 0;
             applicationSectionsTableLayoutPanel.TabStop = true;
@@ -194,7 +197,7 @@
             mainPagePictureBox.Name = "mainPagePictureBox";
             mainPagePictureBox.Size = new Size(57, 41);
             mainPagePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            mainPagePictureBox.TabIndex = 4;
+            mainPagePictureBox.TabIndex = 0;
             mainPagePictureBox.TabStop = false;
             // 
             // myProductsPictureBox
@@ -206,7 +209,7 @@
             myProductsPictureBox.Name = "myProductsPictureBox";
             myProductsPictureBox.Size = new Size(57, 41);
             myProductsPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            myProductsPictureBox.TabIndex = 6;
+            myProductsPictureBox.TabIndex = 0;
             myProductsPictureBox.TabStop = false;
             // 
             // favoritePictureBox
@@ -218,7 +221,7 @@
             favoritePictureBox.Name = "favoritePictureBox";
             favoritePictureBox.Size = new Size(57, 41);
             favoritePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            favoritePictureBox.TabIndex = 7;
+            favoritePictureBox.TabIndex = 0;
             favoritePictureBox.TabStop = false;
             // 
             // myCollectionsPictureBox
@@ -230,8 +233,21 @@
             myCollectionsPictureBox.Name = "myCollectionsPictureBox";
             myCollectionsPictureBox.Size = new Size(57, 41);
             myCollectionsPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            myCollectionsPictureBox.TabIndex = 5;
+            myCollectionsPictureBox.TabIndex = 0;
             myCollectionsPictureBox.TabStop = false;
+            // 
+            // accountStatusLabel
+            // 
+            accountStatusLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            accountStatusLabel.AutoEllipsis = true;
+            accountStatusLabel.AutoSize = true;
+            applicationSectionsTableLayoutPanel.SetColumnSpan(accountStatusLabel, 2);
+            accountStatusLabel.Location = new Point(18, 295);
+            accountStatusLabel.Margin = new Padding(18, 0, 18, 0);
+            accountStatusLabel.Name = "accountStatusLabel";
+            accountStatusLabel.Size = new Size(254, 20);
+            accountStatusLabel.TabIndex = 0;
+            accountStatusLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // exitButton
             // 
@@ -252,7 +268,6 @@
             exitButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
             exitButton.Size = new Size(190, 56);
             exitButton.TabIndex = 0;
-            exitButton.TabStop = false;
             exitButton.MouseDown += ExitLabelMouseDown;
             // 
             // mainFormContentTableLayoutPanel
@@ -305,7 +320,7 @@
             selectLanguageTableLayoutPanel.RowCount = 1;
             selectLanguageTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             selectLanguageTableLayoutPanel.Size = new Size(263, 45);
-            selectLanguageTableLayoutPanel.TabIndex = 1;
+            selectLanguageTableLayoutPanel.TabIndex = 0;
             // 
             // flagPictureBox
             // 
@@ -339,7 +354,6 @@
             selectLanguageComboBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
             selectLanguageComboBox.Size = new Size(197, 36);
             selectLanguageComboBox.TabIndex = 0;
-            selectLanguageComboBox.TabStop = false;
             selectLanguageComboBox.TextAlign = HorizontalAlignment.Center;
             selectLanguageComboBox.SelectedIndexChanged += SelectLanguageComboBoxSelectedIndexChanged;
             // 
@@ -369,6 +383,7 @@
             ForeColor = SystemColors.WindowText;
             Icon = Properties.Resources.logoIcon;
             Margin = new Padding(4);
+            MinimumSize = new Size(1200, 900);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Resize += MainFormResize;
@@ -408,5 +423,6 @@
         private PictureBox flagPictureBox;
         private Guna.UI2.WinForms.Guna2ComboBox selectLanguageComboBox;
         private Guna.UI2.WinForms.Guna2Button exitButton;
+        private Label accountStatusLabel;
     }
 }

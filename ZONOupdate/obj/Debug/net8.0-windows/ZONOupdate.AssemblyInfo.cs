@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZONOupdate")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bb77fd00a471e8b0a97a6d64271a1330472ade8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33d873511ed98d2638d72b7ce7c8c61278292ae4")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZONOupdate")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZONOupdate")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
