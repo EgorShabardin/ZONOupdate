@@ -22,6 +22,6 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ZONOupdate
-build_property.ProjectDir = D:\Домашние работы КФУ\C#\ZONOupdate\ZONOupdate\
+build_property.ProjectDir = C:\Users\c0nf1\source\New folder (5)\ZONOupdate\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

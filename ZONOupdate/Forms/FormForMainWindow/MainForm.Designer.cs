@@ -68,7 +68,7 @@
             mainFormTableLayoutPanel.Name = "mainFormTableLayoutPanel";
             mainFormTableLayoutPanel.RowCount = 1;
             mainFormTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            mainFormTableLayoutPanel.Size = new Size(1382, 953);
+            mainFormTableLayoutPanel.Size = new Size(1075, 715);
             mainFormTableLayoutPanel.TabIndex = 0;
             mainFormTableLayoutPanel.TabStop = true;
             // 
@@ -80,14 +80,14 @@
             menuBarTableLayoutPanel.Controls.Add(applicationSectionsTableLayoutPanel, 0, 1);
             menuBarTableLayoutPanel.Controls.Add(exitButton, 0, 2);
             menuBarTableLayoutPanel.Dock = DockStyle.Fill;
-            menuBarTableLayoutPanel.Location = new Point(1091, 1);
+            menuBarTableLayoutPanel.Location = new Point(848, 1);
             menuBarTableLayoutPanel.Margin = new Padding(0);
             menuBarTableLayoutPanel.Name = "menuBarTableLayoutPanel";
             menuBarTableLayoutPanel.RowCount = 3;
             menuBarTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             menuBarTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 65F));
             menuBarTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            menuBarTableLayoutPanel.Size = new Size(290, 951);
+            menuBarTableLayoutPanel.Size = new Size(226, 713);
             menuBarTableLayoutPanel.TabIndex = 0;
             menuBarTableLayoutPanel.TabStop = true;
             // 
@@ -95,10 +95,10 @@
             // 
             logoPictureBox.Dock = DockStyle.Fill;
             logoPictureBox.Image = Properties.Resources.logo;
-            logoPictureBox.Location = new Point(15, 15);
-            logoPictureBox.Margin = new Padding(15);
+            logoPictureBox.Location = new Point(12, 11);
+            logoPictureBox.Margin = new Padding(12, 11, 12, 11);
             logoPictureBox.Name = "logoPictureBox";
-            logoPictureBox.Size = new Size(260, 207);
+            logoPictureBox.Size = new Size(202, 156);
             logoPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             logoPictureBox.TabIndex = 0;
             logoPictureBox.TabStop = false;
@@ -118,7 +118,7 @@
             applicationSectionsTableLayoutPanel.Controls.Add(myCollectionsPictureBox, 0, 1);
             applicationSectionsTableLayoutPanel.Controls.Add(accountStatusLabel, 0, 4);
             applicationSectionsTableLayoutPanel.Dock = DockStyle.Fill;
-            applicationSectionsTableLayoutPanel.Location = new Point(0, 237);
+            applicationSectionsTableLayoutPanel.Location = new Point(0, 178);
             applicationSectionsTableLayoutPanel.Margin = new Padding(0);
             applicationSectionsTableLayoutPanel.Name = "applicationSectionsTableLayoutPanel";
             applicationSectionsTableLayoutPanel.RowCount = 6;
@@ -128,7 +128,7 @@
             applicationSectionsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             applicationSectionsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             applicationSectionsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            applicationSectionsTableLayoutPanel.Size = new Size(290, 618);
+            applicationSectionsTableLayoutPanel.Size = new Size(226, 463);
             applicationSectionsTableLayoutPanel.TabIndex = 0;
             applicationSectionsTableLayoutPanel.TabStop = true;
             // 
@@ -138,10 +138,10 @@
             mainPageLabel.AutoEllipsis = true;
             mainPageLabel.AutoSize = true;
             mainPageLabel.Cursor = Cursors.Hand;
-            mainPageLabel.Location = new Point(82, 20);
-            mainPageLabel.Margin = new Padding(10, 0, 10, 0);
+            mainPageLabel.Location = new Point(64, 15);
+            mainPageLabel.Margin = new Padding(8, 0, 8, 0);
             mainPageLabel.Name = "mainPageLabel";
-            mainPageLabel.Size = new Size(198, 20);
+            mainPageLabel.Size = new Size(154, 15);
             mainPageLabel.TabIndex = 0;
             mainPageLabel.TextAlign = ContentAlignment.MiddleLeft;
             mainPageLabel.MouseDown += MainPageMouseDown;
@@ -152,10 +152,10 @@
             myCollectionsLabel.AutoEllipsis = true;
             myCollectionsLabel.AutoSize = true;
             myCollectionsLabel.Cursor = Cursors.Hand;
-            myCollectionsLabel.Location = new Point(82, 81);
-            myCollectionsLabel.Margin = new Padding(10, 0, 10, 0);
+            myCollectionsLabel.Location = new Point(64, 61);
+            myCollectionsLabel.Margin = new Padding(8, 0, 8, 0);
             myCollectionsLabel.Name = "myCollectionsLabel";
-            myCollectionsLabel.Size = new Size(198, 20);
+            myCollectionsLabel.Size = new Size(154, 15);
             myCollectionsLabel.TabIndex = 0;
             myCollectionsLabel.TextAlign = ContentAlignment.MiddleLeft;
             myCollectionsLabel.MouseDown += MyCollectionsPageMouseDown;
@@ -166,10 +166,10 @@
             myProductsLabel.AutoEllipsis = true;
             myProductsLabel.AutoSize = true;
             myProductsLabel.Cursor = Cursors.Hand;
-            myProductsLabel.Location = new Point(82, 142);
-            myProductsLabel.Margin = new Padding(10, 0, 10, 0);
+            myProductsLabel.Location = new Point(64, 107);
+            myProductsLabel.Margin = new Padding(8, 0, 8, 0);
             myProductsLabel.Name = "myProductsLabel";
-            myProductsLabel.Size = new Size(198, 20);
+            myProductsLabel.Size = new Size(154, 15);
             myProductsLabel.TabIndex = 0;
             myProductsLabel.TextAlign = ContentAlignment.MiddleLeft;
             myProductsLabel.MouseDown += MyProductsPageMouseDown;
@@ -180,10 +180,10 @@
             favoriteLabel.AutoEllipsis = true;
             favoriteLabel.AutoSize = true;
             favoriteLabel.Cursor = Cursors.Hand;
-            favoriteLabel.Location = new Point(82, 203);
-            favoriteLabel.Margin = new Padding(10, 0, 10, 0);
+            favoriteLabel.Location = new Point(64, 153);
+            favoriteLabel.Margin = new Padding(8, 0, 8, 0);
             favoriteLabel.Name = "favoriteLabel";
-            favoriteLabel.Size = new Size(198, 20);
+            favoriteLabel.Size = new Size(154, 15);
             favoriteLabel.TabIndex = 0;
             favoriteLabel.TextAlign = ContentAlignment.MiddleLeft;
             favoriteLabel.MouseDown += FavoritePageMouseDown;
@@ -192,10 +192,10 @@
             // 
             mainPagePictureBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             mainPagePictureBox.Image = Properties.Resources.homePage;
-            mainPagePictureBox.Location = new Point(15, 10);
-            mainPagePictureBox.Margin = new Padding(15, 10, 0, 10);
+            mainPagePictureBox.Location = new Point(12, 8);
+            mainPagePictureBox.Margin = new Padding(12, 8, 0, 8);
             mainPagePictureBox.Name = "mainPagePictureBox";
-            mainPagePictureBox.Size = new Size(57, 41);
+            mainPagePictureBox.Size = new Size(44, 30);
             mainPagePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             mainPagePictureBox.TabIndex = 0;
             mainPagePictureBox.TabStop = false;
@@ -204,10 +204,10 @@
             // 
             myProductsPictureBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             myProductsPictureBox.Image = Properties.Resources.myRecommendations;
-            myProductsPictureBox.Location = new Point(15, 132);
-            myProductsPictureBox.Margin = new Padding(15, 10, 0, 10);
+            myProductsPictureBox.Location = new Point(12, 100);
+            myProductsPictureBox.Margin = new Padding(12, 8, 0, 8);
             myProductsPictureBox.Name = "myProductsPictureBox";
-            myProductsPictureBox.Size = new Size(57, 41);
+            myProductsPictureBox.Size = new Size(44, 30);
             myProductsPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             myProductsPictureBox.TabIndex = 0;
             myProductsPictureBox.TabStop = false;
@@ -216,10 +216,10 @@
             // 
             favoritePictureBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             favoritePictureBox.Image = Properties.Resources.favorites;
-            favoritePictureBox.Location = new Point(15, 193);
-            favoritePictureBox.Margin = new Padding(15, 10, 0, 10);
+            favoritePictureBox.Location = new Point(12, 146);
+            favoritePictureBox.Margin = new Padding(12, 8, 0, 8);
             favoritePictureBox.Name = "favoritePictureBox";
-            favoritePictureBox.Size = new Size(57, 41);
+            favoritePictureBox.Size = new Size(44, 30);
             favoritePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             favoritePictureBox.TabIndex = 0;
             favoritePictureBox.TabStop = false;
@@ -228,10 +228,10 @@
             // 
             myCollectionsPictureBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             myCollectionsPictureBox.Image = Properties.Resources.сollections;
-            myCollectionsPictureBox.Location = new Point(15, 71);
-            myCollectionsPictureBox.Margin = new Padding(15, 10, 0, 10);
+            myCollectionsPictureBox.Location = new Point(12, 54);
+            myCollectionsPictureBox.Margin = new Padding(12, 8, 0, 8);
             myCollectionsPictureBox.Name = "myCollectionsPictureBox";
-            myCollectionsPictureBox.Size = new Size(57, 41);
+            myCollectionsPictureBox.Size = new Size(44, 30);
             myCollectionsPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             myCollectionsPictureBox.TabIndex = 0;
             myCollectionsPictureBox.TabStop = false;
@@ -242,10 +242,10 @@
             accountStatusLabel.AutoEllipsis = true;
             accountStatusLabel.AutoSize = true;
             applicationSectionsTableLayoutPanel.SetColumnSpan(accountStatusLabel, 2);
-            accountStatusLabel.Location = new Point(18, 295);
-            accountStatusLabel.Margin = new Padding(18, 0, 18, 0);
+            accountStatusLabel.Location = new Point(14, 222);
+            accountStatusLabel.Margin = new Padding(14, 0, 14, 0);
             accountStatusLabel.Name = "accountStatusLabel";
-            accountStatusLabel.Size = new Size(254, 20);
+            accountStatusLabel.Size = new Size(198, 15);
             accountStatusLabel.TabIndex = 0;
             accountStatusLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -262,11 +262,11 @@
             exitButton.FillColor = Color.FromArgb(0, 166, 253);
             exitButton.Font = new Font("Segoe UI", 9F);
             exitButton.ForeColor = SystemColors.Window;
-            exitButton.Location = new Point(50, 875);
-            exitButton.Margin = new Padding(50, 0, 50, 0);
+            exitButton.Location = new Point(39, 656);
+            exitButton.Margin = new Padding(39, 0, 39, 0);
             exitButton.Name = "exitButton";
             exitButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            exitButton.Size = new Size(190, 56);
+            exitButton.Size = new Size(148, 42);
             exitButton.TabIndex = 0;
             exitButton.MouseDown += ExitLabelMouseDown;
             // 
@@ -283,7 +283,7 @@
             mainFormContentTableLayoutPanel.RowCount = 2;
             mainFormContentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 18F));
             mainFormContentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 82F));
-            mainFormContentTableLayoutPanel.Size = new Size(1089, 951);
+            mainFormContentTableLayoutPanel.Size = new Size(846, 713);
             mainFormContentTableLayoutPanel.TabIndex = 0;
             mainFormContentTableLayoutPanel.TabStop = true;
             // 
@@ -300,7 +300,7 @@
             titleTableLayoutPanel.RowCount = 2;
             titleTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             titleTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            titleTableLayoutPanel.Size = new Size(1089, 171);
+            titleTableLayoutPanel.Size = new Size(846, 128);
             titleTableLayoutPanel.TabIndex = 0;
             titleTableLayoutPanel.TabStop = true;
             // 
@@ -314,21 +314,21 @@
             selectLanguageTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75.7009354F));
             selectLanguageTableLayoutPanel.Controls.Add(flagPictureBox, 0, 0);
             selectLanguageTableLayoutPanel.Controls.Add(selectLanguageComboBox, 1, 0);
-            selectLanguageTableLayoutPanel.Location = new Point(776, 28);
-            selectLanguageTableLayoutPanel.Margin = new Padding(0, 28, 50, 0);
+            selectLanguageTableLayoutPanel.Location = new Point(602, 21);
+            selectLanguageTableLayoutPanel.Margin = new Padding(0, 21, 39, 0);
             selectLanguageTableLayoutPanel.Name = "selectLanguageTableLayoutPanel";
             selectLanguageTableLayoutPanel.RowCount = 1;
             selectLanguageTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            selectLanguageTableLayoutPanel.Size = new Size(263, 45);
+            selectLanguageTableLayoutPanel.Size = new Size(205, 34);
             selectLanguageTableLayoutPanel.TabIndex = 0;
             // 
             // flagPictureBox
             // 
             flagPictureBox.Dock = DockStyle.Fill;
-            flagPictureBox.Location = new Point(6, 6);
-            flagPictureBox.Margin = new Padding(5);
+            flagPictureBox.Location = new Point(5, 5);
+            flagPictureBox.Margin = new Padding(4);
             flagPictureBox.Name = "flagPictureBox";
-            flagPictureBox.Size = new Size(53, 33);
+            flagPictureBox.Size = new Size(41, 24);
             flagPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             flagPictureBox.TabIndex = 0;
             flagPictureBox.TabStop = false;
@@ -348,11 +348,11 @@
             selectLanguageComboBox.Font = new Font("Segoe UI", 10F);
             selectLanguageComboBox.ForeColor = SystemColors.WindowText;
             selectLanguageComboBox.ItemHeight = 30;
-            selectLanguageComboBox.Location = new Point(65, 6);
-            selectLanguageComboBox.Margin = new Padding(0, 5, 0, 0);
+            selectLanguageComboBox.Location = new Point(51, 5);
+            selectLanguageComboBox.Margin = new Padding(0, 4, 0, 0);
             selectLanguageComboBox.Name = "selectLanguageComboBox";
             selectLanguageComboBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            selectLanguageComboBox.Size = new Size(197, 36);
+            selectLanguageComboBox.Size = new Size(153, 36);
             selectLanguageComboBox.TabIndex = 0;
             selectLanguageComboBox.TextAlign = HorizontalAlignment.Center;
             selectLanguageComboBox.SelectedIndexChanged += SelectLanguageComboBoxSelectedIndexChanged;
@@ -362,28 +362,27 @@
             recomendationsTableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             recomendationsTableLayoutPanel.ColumnCount = 1;
             recomendationsTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            recomendationsTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            recomendationsTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 16F));
             recomendationsTableLayoutPanel.Dock = DockStyle.Fill;
-            recomendationsTableLayoutPanel.Location = new Point(0, 171);
+            recomendationsTableLayoutPanel.Location = new Point(0, 128);
             recomendationsTableLayoutPanel.Margin = new Padding(0);
             recomendationsTableLayoutPanel.Name = "recomendationsTableLayoutPanel";
             recomendationsTableLayoutPanel.RowCount = 1;
             recomendationsTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            recomendationsTableLayoutPanel.Size = new Size(1089, 780);
+            recomendationsTableLayoutPanel.Size = new Size(846, 585);
             recomendationsTableLayoutPanel.TabIndex = 0;
             recomendationsTableLayoutPanel.TabStop = true;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(178, 242, 196);
-            ClientSize = new Size(1382, 953);
+            ClientSize = new Size(1075, 715);
             Controls.Add(mainFormTableLayoutPanel);
             ForeColor = SystemColors.WindowText;
             Icon = Properties.Resources.logoIcon;
-            Margin = new Padding(4);
-            MinimumSize = new Size(1200, 900);
+            MinimumSize = new Size(937, 685);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Resize += MainFormResize;

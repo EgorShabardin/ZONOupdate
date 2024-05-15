@@ -4,7 +4,7 @@ using ZONOupdate.Database;
 using ZONOupdate.Forms.FormForCreationNewProduct;
 using ZONOupdate.FunctionalClasses;
 
-namespace TestProject6
+namespace TestProject
 {
     [TestClass]
     public class ZONOUnitTests

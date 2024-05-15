@@ -2771,23 +2771,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Егор\\.nuget\\packages\\": {},
+    "C:\\Users\\c0nf1\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Домашние работы КФУ\\C#\\ZONOupdate\\UnitTests\\UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\c0nf1\\source\\New folder (5)\\UnitTests\\UnitTests.csproj",
       "projectName": "UnitTests",
-      "projectPath": "D:\\Домашние работы КФУ\\C#\\ZONOupdate\\UnitTests\\UnitTests.csproj",
-      "packagesPath": "C:\\Users\\Егор\\.nuget\\packages\\",
-      "outputPath": "D:\\Домашние работы КФУ\\C#\\ZONOupdate\\UnitTests\\obj\\",
+      "projectPath": "C:\\Users\\c0nf1\\source\\New folder (5)\\UnitTests\\UnitTests.csproj",
+      "packagesPath": "C:\\Users\\c0nf1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\c0nf1\\source\\New folder (5)\\UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Егор\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\c0nf1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2796,14 +2796,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "D:\\Домашние работы КФУ\\C#\\ZONOupdate\\ZONOupdate\\ZONOupdate.csproj": {
-              "projectPath": "D:\\Домашние работы КФУ\\C#\\ZONOupdate\\ZONOupdate\\ZONOupdate.csproj"
+            "C:\\Users\\c0nf1\\source\\New folder (5)\\ZONOupdate\\ZONOupdate.csproj": {
+              "projectPath": "C:\\Users\\c0nf1\\source\\New folder (5)\\ZONOupdate\\ZONOupdate.csproj"
             }
           }
         }
